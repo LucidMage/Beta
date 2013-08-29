@@ -1,0 +1,13 @@
+<ModuleDefinition
+	ModuleId="Year8"
+	VersionId="1"
+	Description="Activities for Year 8"
+    Type="YearGroup"
+	ScriptFile="main.cs"
+	CreateFunction="create"
+	DestroyFunction="destroy">
+		<DeclaredAssets
+			Path=""
+			Extension="asset.taml"
+			Recurse="true"/>
+</ModuleDefinition>

@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="FantasyCurtains"
+    ImageFile="fantasycurtains.png"
+    CellCountX="15"
+    CellCountY="11"
+    CellWidth="64"
+    CellHeight="64" />

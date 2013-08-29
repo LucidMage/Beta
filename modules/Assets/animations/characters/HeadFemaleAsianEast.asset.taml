@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="HeadFemaleAsianEast"
+    Image="@asset=Assets:Head"
+    animationFrames="28"
+    animationTime="1"
+    animationCycle="1"
+     />

@@ -1,0 +1,16 @@
+<ImageAsset
+    AssetName="Characters"
+    imageFile="characters.png"
+    cellCountX="20"
+    cellCountY="12"
+    cellWidth="64"
+    cellHeight="64"
+     />
+
+<!--
+	Heads:
+	0-3	:	Dark male
+	
+	Hair:
+	4-7	:	Dark male
+-->

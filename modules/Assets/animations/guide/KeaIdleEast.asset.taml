@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="KeaIdleEast"
+    Image="@asset=Assets:Kea"
+    animationFrames="1 7 13 7"
+    animationTime="0.5"
+    animationCycle="1"
+     />

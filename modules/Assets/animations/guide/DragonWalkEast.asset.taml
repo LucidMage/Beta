@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="DragonWalkEast"
+    Image="@asset=Assets:Dragon"
+    animationFrames="0 6 12 6"
+    animationTime="0.5"
+    animationCycle="1"
+     />

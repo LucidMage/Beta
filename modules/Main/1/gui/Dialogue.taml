@@ -1,0 +1,23 @@
+<GuiControl
+    Name="Dialogue"
+    Profile="GuiPopUpMenuDefault"
+    HorizSizing="relative"
+    VertSizing="relative"
+    Position="0 0"
+    Extent="800 600"
+    MinExtent="220 30"
+    Visible="1">
+	
+	<GuiSpriteCtrl
+		Name="Background"
+		Profile="GuiToolboxProfile"
+		HorizSizing="5"
+		VertSizing="5"
+		Position="10 10"
+		Extent="20 2"
+		MinExtent="10 10"
+		Visible=false
+		HelpTag="0"
+		Image="@asset=Assets:blueGradient">	
+	</GuiSpriteCtrl>
+</GuiControl>

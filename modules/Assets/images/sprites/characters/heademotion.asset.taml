@@ -1,0 +1,8 @@
+<ImageAsset
+    AssetName="HeadEmotions"
+    imageFile="heademotions.png"
+    cellCountX="16"
+    cellCountY="8"
+    cellWidth="64"
+    cellHeight="64"
+	 />

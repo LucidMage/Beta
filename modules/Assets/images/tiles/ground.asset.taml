@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="Ground"
+    ImageFile="ground.png"
+    CellCountX="20"
+    CellCountY="8"
+    CellWidth="64"
+    CellHeight="64" />

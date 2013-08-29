@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="HouseExtra"
+    ImageFile="houseextra.png"
+    CellCountX="15"
+    CellCountY="11"
+    CellWidth="64"
+    CellHeight="64" />

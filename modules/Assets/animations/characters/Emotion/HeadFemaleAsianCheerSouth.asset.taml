@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="HeadFemaleAsianCheerSouth"
+    Image="@asset=Assets:heademotions"
+    animationFrames="113"
+    animationTime="1"
+    animationCycle="1"
+     />

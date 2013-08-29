@@ -1,0 +1,8 @@
+<ImageAsset
+    AssetName="Legs"
+    imageFile="legs.png"
+    cellCountX="12"
+    cellCountY="5"
+    cellWidth="64"
+    cellHeight="64"
+	 />

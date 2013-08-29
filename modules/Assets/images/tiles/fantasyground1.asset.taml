@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="FantasyGround1"
+    ImageFile="fanstayground1.png"
+    CellCountX="15"
+    CellCountY="11"
+    CellWidth="64"
+    CellHeight="64" />

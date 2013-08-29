@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="FairyWalkWest"
+    Image="@asset=Assets:Fairy"
+    animationFrames="4 10 16 10"
+    animationTime="0.5"
+    animationCycle="1"
+     />

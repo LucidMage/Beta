@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="FanstasyCliff2"
+    ImageFile="fanstasycliff2.png"
+    CellCountX="15"
+    CellCountY="11"
+    CellWidth="64"
+    CellHeight="64" />

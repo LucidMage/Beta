@@ -1,0 +1,8 @@
+<ImageAsset
+    AssetName="trees2"
+    ImageFile="trees2.png" 
+	CellCountX = "16"
+	CellCountY = "7"
+	CellWidth ="64"
+	CellHeight = "64"
+	/>

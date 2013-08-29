@@ -1,0 +1,185 @@
+<!-- In Game GUI -->
+<GuiControl
+    Name="InGameGUI"
+    Profile="GuiDefaultProfile"
+    HorizSizing="relative"
+    VertSizing="relative"
+    Position="0 0"
+    Extent="800 600"
+    MinExtent="320 240"
+    Visible="1">
+	
+	<!-- Menu -->
+    <GuiButtonCtrl
+        Name="MenuButton"
+        Profile="BlueButtonProfile"
+		Text="Menu"
+		ButtonType="PushButton"
+        command="cycleManipulation(true);"
+        canSaveDynamicFields="0"
+        isContainer="0"
+        HorizSizing="right"
+        VertSizing="bottom"
+        Position="0 0"
+        Extent="80 30"
+        MinExtent="80 30"
+        canSave="1"
+        Visible="1"
+        Active="1"
+		hovertime="1000"
+		toolTipProfile="GuiToolTipProfile"
+		toolTip="Open the In-Game Menu"
+        groupNum="-1"
+        useMouseEvents="1" />
+	
+	<!-- Help -->
+	<GuiSpriteCtrl
+		Name="HelpContainer"
+		Profile="GuiToolboxProfile"
+		HorizSizing="width"
+		VertSizing="bottom"
+		Position="80 0"
+		Extent="720 30"
+		MinExtent="80 30"
+		Visible="1"
+		Image="@asset=Assets:blueGradient">
+		
+		<!-- Text Explaining Something -->
+		<GuiTextCtrl
+			Name="HelpText"
+			canSaveDynamicFields="0"
+			isContainer="0"
+			Profile="DialogueTextProfile"
+			HorizSizing="width"
+			VertSizing="bottom"
+			Position="20 0"
+			Extent="640 30"
+			MinExtent="80 30"
+			canSave="1"
+			Visible="1"
+			Active="0"
+			text="Explain what will happen when the player is in range of using something"
+			maxLength="255"
+			truncate="0" />
+	</GuiSpriteCtrl>
+	
+	<!-- Dialogue Box -->
+	<GuiSpriteCtrl
+		Name="DialogueContainer"
+		Profile="GuiToolboxProfile"
+		HorizSizing="width"
+		VertSizing="bottom"
+		Position="0 30"
+		Extent="800 90"
+		MinExtent="80 60"
+		Visible="0"
+		Image="@asset=Assets:blueGradient">
+		
+		<!-- Name of Guy Talking -->
+		<GuiTextCtrl
+			Name="DialogueLabel"
+			canSaveDynamicFields="0"
+			isContainer="0"
+			Profile="DialogueLabelProfile"
+			HorizSizing="width"
+			VertSizing="bottom"
+			Position="20 0"
+			Extent="720 30"
+			MinExtent="80 30"
+			canSave="1"
+			Visible="1"
+			Active="0"
+			text="Some Guy:"
+			maxLength="255"
+			truncate="0" />
+		
+		<!-- Dialogue -->
+		<GuiMLTextCtrl
+			Name="DialogueText"
+			canSaveDynamicFields="0"
+			isContainer="0"
+			Profile="DialogueTextProfile"
+			HorizSizing="width"
+			VertSizing="bottom"
+			Position="20 30"
+			Extent="720 60"
+			MinExtent="80 60"
+			canSave="1"
+			Visible="1"
+			Active="0"
+			text="wibble"
+			maxLength="255"
+			truncate="0" />
+	</GuiSpriteCtrl>
+	
+	<!-- Response Box -->
+	<GuiSpriteCtrl
+		Name="ResponseContainer"
+		Profile="GuiToolboxProfile"
+		HorizSizing="right"
+		VertSizing="top"
+		Position="0 480"
+		Extent="400 120"
+		MinExtent="80 60"
+		Visible="0"
+		Image="@asset=Assets:blueGradient">
+		
+		<!-- Scroller -->
+		<GuiScrollCtrl
+			Name="ResponseScroller"
+			canSaveDynamicFields="1"
+			isContainer="1"
+			Profile="GuiLightScrollProfile"
+			HorizSizing="relative"
+			VertSizing="relative"
+			Position="20 15"
+			Extent="380 90"
+			MinExtent="80 60"
+			canSave="1"
+			Visible="1"
+			Active="1"
+			hovertime="1000"
+			willFirstRespond="1"
+			hScrollBar="alwaysOff"
+			vScrollBar="dynamic"
+			constantThumbHeight="0"
+			childMargin="2 3" >
+
+			<!-- Array Holding Options -->
+			<GuiDynamicCtrlArrayControl
+				Name="ResponseArray"
+				canSaveDynamicFields="0"
+				internalName="objectList"
+				isContainer="1"
+				Profile="GuiTransparentProfile"
+				HorizSizing="width"
+				VertSizing="height"
+				Position="0 0"
+				Extent="340 30"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="1"
+				tooltipprofile="GuiToolTipProfile"
+				hovertime="1000"
+				colCount="1"
+				colSize="330"
+				rowSize="30"
+				rowSpacing="8"
+				colSpacing="8" />
+		</GuiScrollCtrl>
+	</GuiSpriteCtrl>
+	
+	<!-- Invetory -->
+	<GuiSpriteCtrl
+		Name="InventoryContainer"
+		Profile="GuiSunkenContainerProfile"
+		HorizSizing="left"
+		VertSizing="top"
+		Position="500 480"
+		Extent="300 120"
+		MinExtent="60 60"
+		Visible="0"
+		Image="@asset=Assets:blueGradient">
+	</GuiSpriteCtrl>
+</GuiControl>

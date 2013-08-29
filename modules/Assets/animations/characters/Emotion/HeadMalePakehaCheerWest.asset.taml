@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="HeadMalePakehaCheerWest"
+    Image="@asset=Assets:heademotions"
+    animationFrames="34"
+    animationTime="1"
+    animationCycle="1"
+     />

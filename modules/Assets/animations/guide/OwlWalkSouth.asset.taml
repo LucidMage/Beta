@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="OwlWalkSouth"
+    Image="@asset=Assets:Owl"
+    animationFrames="2 8 14 8"
+    animationTime="0.5"
+    animationCycle="1"
+     />

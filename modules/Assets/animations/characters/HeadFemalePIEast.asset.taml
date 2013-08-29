@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="HeadFemalePIEast"
+    Image="@asset=Assets:Head"
+    animationFrames="20"
+    animationTime="1"
+    animationCycle="1"
+     />

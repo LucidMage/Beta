@@ -1,0 +1,3 @@
+function createNPC(%position, %layer)
+{
+}
