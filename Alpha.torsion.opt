@@ -1,0 +1,23 @@
+<TorsionProjectOptions>
+<Address>127.0.0.1</Address>
+<Password>password</Password>
+<Port>6060</Port>
+<LastConfig>Debug</LastConfig>
+<Breakpoints/>
+<Bookmarks/>
+<OpenFiles>
+<File ScrollX="0" ScrollY="103">modules\Main\1\sprites\characters\character.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\global.cs</File>
+<File ScrollX="0" ScrollY="60">modules\Main\1\behaviours\interact.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\loadList.cs</File>
+<File ScrollX="0" ScrollY="62">modules\Main\1\behaviours\playerControls.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\activity\transition.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\activity\scene.cs</File>
+<File ScrollX="0" ScrollY="12">modules\Main\1\sprites\characters\guide.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\items\item.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\inventory.cs</File>
+<File ScrollX="0" ScrollY="18">modules\Year8\1\lesson1\scenes\testart.cs</File>
+<File ScrollX="0" ScrollY="21">modules\Year8\1\lesson1\scenes\testtown.cs</File>
+<File ScrollX="0" ScrollY="0" Active="true">main.cs</File>
+</OpenFiles>
+</TorsionProjectOptions>
