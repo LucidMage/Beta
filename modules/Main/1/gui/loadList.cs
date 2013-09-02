@@ -5,4 +5,4 @@ exec("./guiControls.cs");
 //TAML
 //TamlRead("./Dialogue.taml");
 TamlRead("./InGame.gui.taml");
-//TamlRead("./inGameMenu.gui.taml");
+TamlRead("./InGameMenu.gui.taml");
