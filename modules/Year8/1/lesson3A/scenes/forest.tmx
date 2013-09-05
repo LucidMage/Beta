@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="36" height="50" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="Ground" tilewidth="64" tileheight="64">
+  <image source="../../../../Assets/images/tiles/ground.png" width="1280" height="512"/>
+ </tileset>
+ <tileset firstgid="161" name="Cliff" tilewidth="64" tileheight="64">
+  <image source="../../../../Assets/images/tiles/cliff.png" width="960" height="704"/>
+ </tileset>
+ <tileset firstgid="326" name="Trees2" tilewidth="64" tileheight="64">
+  <image source="../../../../Assets/images/tiles/trees2.png" width="1024" height="448"/>
+ </tileset>
+ <tileset firstgid="438" name="Blocks" tilewidth="64" tileheight="64">
+  <image source="../../../../Assets/images/tiles/Blocks.png" width="512" height="512"/>
+  <tile id="0">
+   <properties>
+    <property name="Tag" value="PlayerPos"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Water" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztltEKhiAMRn1Gb/qfoJt8/+sSGsjYZvxss+A7MKgsdlA3q6WUesV2xS5EU8ba/V0PT+oQVl4+luEzy7sJz4/7/hfko+XlY425eHlJPjyvNNaMdyJ8uBMPa/9H+czqLoKZj3f9fM1H2q8rfbQaouh17NVbnvpoTuSSOUdaLx5dMufIOq88+9y/PvxMp+uofvPEh9ZpdMpCc1lR6xK0f2nvrIb/Q2T2Hos3rVnnbT60bpm1BQAAAAAAAAAAgG9wAnJrWSo=
+  </data>
+ </layer>
+ <layer name="GroundBottom" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztlzEOgzAMRbPDAdg4TzkDd4CZlrHttTGDpQhogDo2RvqW3kbE03dsKSHI6klUP3gTH+Kb+GaJtLz51MRItE58Ul5X+nDF/bP0KYjXBr2yz5H/Wt7n1PzAJ4/PmTN7Nc/x1m65Kh9JRlo+koxy94tLco9y+8w76Mi+0fbhXWjlUoX13i0jH6sepRic+XRRTpK50srJQ0YefbhvlrMFAAAAAHB3HkTjwIM5+1bW5J+3O3zgAx/4wMevzwRdAcaf
+  </data>
+ </layer>
+ <layer name="GroundTop" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2EsKgDAQBNFBQdQLiHoCP7n/9ZygQnDnxh6kHtS+SVaJGQD8T1MUweTN6hEPi527Isj3VHm1ekih9Qb1CAAAAADApzqvV48ojN6mHnHZvWRx3u73X0KU88l/LKt6BAC8cABPdgHf
+  </data>
+ </layer>
+ <layer name="Cliff" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztlUEKwkAMRTO3cKdeQL2AelxxbSu9gHgtE5xAiTNUqGRC/Q/+rjCvk0+GaD6HRLTlrHM2nH36/G7grCbyC87p7bTLEZdTwefK6R181OmYU3IRBpq+I0+ewXwEmdmF6nPzRu7nTvV78kZm9gjko0Tz0R7ZtEJ7ZNMK7ZHN0rnxbu44fWVHL9VFz4ry72Miu1la9SdSb8H3jLvdNew5+gPA/2L3EPZAPGpvRWleLfY53hAwh2j9ieYDAAAAePECkohHlw==
+  </data>
+ </layer>
+ <layer name="Tree1Bottom" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztWDESgDAIox/WRf+vDt451LNSCOHarNomBAVakYmJiRqWIrKWHJxIrQy+RGh4w5eW2nNL/UxeeIApPrSW6Nij+S2QKQYPrVb1J5OPKFx+ePsymu+IeK04NL3fS0srMn1PLTMfUzwMszHDXp65uvfIcFZCcEfln+m/GxGIXFn0NysuD04k/tatzHWqZz1Dflv7l/Zs1RqjdQ5Q3qLu65jvBbXonW8suL3WMM9uz701PNv5/g7KF+pceQCZa0OR
+  </data>
+ </layer>
+ <layer name="Tree2Bottom" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmEsSgCAMQ8uN9f4bt8oo8knawPDWjE0TcApmm40+RzI7U7QKPLV93ddFeaGQwZeGCG15zR4NCp5unqhngth3iLoejNRUz7GEinYFDW+w/VHxfxRWHy3f/Vvr6fUqubIp+YT0kJGHR8bI2Q+tl/HdnnuKChH7YRbQd8rI8xyVM+v8rg6zT/Z7yawZKepunQ9be/C4Q3r7qpRjrxav+aSmjsIbCvJOVVrLmjuZMHuoyUTdK9Y/8QL6GERJ
+  </data>
+ </layer>
+ <layer name="Tree3Bottom" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmEEOgCAMBMuX9f+J8eZBEGjZ3RrmarTThVTRbLPZqHIUs7Nwa345tK4z/GtEuSj11ILpmSWjzChlrDCn1Mnmq0iGDD2O3v487+oVIGvN9NZ7DyK3CJfV++evzPbNziuq9qo+lPOJcEPP+uc97GxniZ657HVEM3o+R6Dg4CG7/81oD2+zpPaMLPmgPJF59M58xH+40fOF+ncVapa26qjvWaafsrPiukU7XfTUQIc=
+  </data>
+ </layer>
+ <layer name="Tree4Bottom" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmEsOwCAIRPHO7f27auJCWyAwjNG3a9QyjB+MIofDwcrVRO627v8jNHy1R+m3ani/GfxDE5Hzjr7tTuScM6yfSg0M+UfDXOuY/J5pQdXCjJiRVN0JmGHXqfUy0/PZHQ8Ry9qO1KLt79EcnSfDnmTQMCLTa9acZ7Dp9frIlseIDI3VeaPPLU0867lc7WFPZb1D1v2/GAw1VBsHdVahx0XE8bwPevqu9g6pWUOoesHumXe/WWtF1Zz0PAqDTDM=
+  </data>
+ </layer>
+ <layer name="Tree1Middle" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt18ENgDAIBVC6qO6/hQvY6AEV6nvXHvoDJSkRUMM2IvbR4843s1aoyxcZZq6ynJ1n5q9UC9bibcGc2YDnmC8AYBV39+rs/499vo8uveqS82+q9SUjzwE+Wg3Q
+  </data>
+ </layer>
+ <layer name="Tree2Middle" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt10EKgCAQBdDxpnX/S7RoE0VgIswk760Fv/MFMQKethaxt+wU8/We67ouaxYVOnjLkJHtvudIhtm5K3QEs7jPucweANbjfYfv/Ev+Q1c16WWc2Z3MYQ29PR6+zA57
+  </data>
+ </layer>
+ <layer name="Tree3Middle" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2DEOgCAMBdByVb3/HZgcrYukWN9bGfi0JSREAJdjRJyjds+nDNl6Rf47b2XZ6UyZypxfqREAa3gDYB33K6c+AP/g36GHqj6anx70sacJiRALSA==
+  </data>
+ </layer>
+ <layer name="Tree4Middle" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1kEOABAMRNH2rtz/ChZiS9DQ8t9OJDKGCBHAv6QiWeOub5GhN2+VfzZDG3vo7zSLPf/Y2+84cwA4j3cXAHx6+X3m3z9GR1gV5e5EyXkL/VT0sIf+9hU3aQ/e
+  </data>
+ </layer>
+ <layer name="Tree1Top" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt18ERgCAMRNHQoHYg/XchBZiRQ5RN+O/KgZ2EPWCGXR3N7Gw57vwzq8JcVmTwvGV5Oo/MrzQL1MLbAnx0A/gO/QKA+tT+GtfI0oXyoI7Ztx7dB7WOwZdlV1ly7kZtL2p5ItwlUQze
+  </data>
+ </layer>
+ <layer name="Tree2Top" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt10EKwCAMBMD4w/b/n+mhlyIUWhESZeYsuGYFMYIKjhZxtuwU830913Nd1iwqdPCWISNbv+dIhtm5K3QEs7jPucweAPbjfYf//EvWoaua9DLO7G7msIdVe7wAFv0MGw==
+  </data>
+ </layer>
+ <layer name="Tree3Top" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2LENwCAMBECzYth/FyaIaUAm5K6l4LGNkIiAOk+L6K12z1mGbL0i/5tVWU46U6Yy51dqBMAe3gDYx/3KqQ/AP/h3uENVH83PHfSRmRUzMgCdxAof
+  </data>
+ </layer>
+ <layer name="Tree4Top" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1ksKwCAMBcB4x/b+V+midFXoV6ypMzsRJL5IMAL2phIxl7zn16jhaL9W/Xdr2NY95NdajTuPmNvo9BygPXMXoE9/ns/+/edkxFNZ3k6WOr8in5Uc3pFfHld7tQBd2Q4J
+  </data>
+ </layer>
+ <layer name="TreeBottom" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1cENACAMA7F0/xVgV1ZAohUfe4I8Il0CAMCNVcmu3ytgnq8D8KKrI3oEADDnAI0CBO0=
+  </data>
+ </layer>
+ <layer name="TreeMiddle" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1bsNgDAMBUBnf1gxk6SgoqFAkSAfJXcL+Mm29CL6yR1n1SqjAzzMtqPZ8tzc7Z08wCqOFHGm0SmgPb8OwBd/9Yg+AgDYxwXQ9guZ
+  </data>
+ </layer>
+ <layer name="TreeTop" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1bENACAMA0Fnb9idghEISnM3gQtLnwAAXKuSXdMr4D9fB+BFV0f0CACAKQd2+wPt
+  </data>
+ </layer>
+ <objectgroup name="collision" width="36" height="50"/>
+ <layer name="sprite" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzjERAAAIBKC3fx/zuVrAc4EEJAAAAAAAAHe6vgfANqsJALg=
+  </data>
+ </layer>
+</map>
