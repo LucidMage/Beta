@@ -33,7 +33,7 @@ function Main::create( %this )
    //  Debug
    //  Enable visualization for "collision", "position", and "aabb"
    %scene = GameWindow.getScene();
-   //%scene.setDebugOn("collision", "position", "aabb");
+   %scene.setDebugOn("collision");//, "position", "aabb");
    
    // Initialize the "cannot render" proxy.
    new RenderProxy(CannotRenderProxy)

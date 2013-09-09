@@ -1,5 +1,5 @@
 //	Default constructor
-function DialogueTree::setup(%this, %owner)
+function DialogueTree::Setup(%this, %owner)
 {
 	//	Link the dialogue tree to it's owner
 	%this.owner = %owner;
@@ -9,14 +9,14 @@ function DialogueTree::setup(%this, %owner)
 	{
 		class = Dialogue;
 	};
-	%this.rootDialogue[0].setup("TEST DIALOGUE, SHOULD DISPLAY IN THE DIALOGUE BOX. THIS DIALOGUE TREE BELONGS TO" SPC %this.owner.displayName @ ". THE CURRENT TARGET IS" SPC %this.target.displayName);
+	%this.rootDialogue[0].Setup("TEST DIALOGUE, SHOULD DISPLAY IN THE DIALOGUE BOX. THIS DIALOGUE TREE BELONGS TO" SPC %this.owner.displayName @ ". THE CURRENT TARGET IS" SPC %this.target.displayName);
 	
 	%this.selectedRootDialogue = 0;	//	Used for deciding the dialogue to open with
 }
 
 //	Initialize dialogue with the owner
 //	Target = who the owner is talking to
-function DialogueTree::openDialogue(%this, %target)
+function DialogueTree::OpenDialogue(%this, %target)
 {
 	echo("Opening Dialogue");
 	
@@ -36,7 +36,7 @@ function DialogueTree::openDialogue(%this, %target)
 		//	Fetch selected opening dialogue
 		%this.currentDialogue = %this.rootDialogue[%this.selectedRootDialogue];
 		
-		%this.currentDialogue.display(%this.owner, %this.target);
+		%this.currentDialogue.Display(%this.owner, %this.target);
 		
 		if (%this.currentDialogue.faceTarget)
 			%this.owner.faceTarget(%this.target);
@@ -47,7 +47,7 @@ function DialogueTree::openDialogue(%this, %target)
 }
 
 //	Close dialogue
-function DialogueTree::closeDialogue(%this)
+function DialogueTree::CloseDialogue(%this)
 {
 	echo("Closing Dialogue");
 	
@@ -61,7 +61,7 @@ function DialogueTree::closeDialogue(%this)
 	}
 }
 
-function DialogueTree::nextDialogue(%this, %i)
+function DialogueTree::NextDialogue(%this, %i)
 {
 	echo("Next Dialogue");
 	
@@ -76,7 +76,7 @@ function DialogueTree::nextDialogue(%this, %i)
 			//	Continue if no scripting is set to interrupt the dialogue
 			if (%this.onNext())
 			{
-				%this.currentDialogue.display(%this.owner, %this.target);
+				%this.currentDialogue.Display(%this.owner, %this.target);
 				
 				if (%this.currentDialogue.faceTarget)
 					%this.owner.faceTarget(%this.target);

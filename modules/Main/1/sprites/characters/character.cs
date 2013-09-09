@@ -90,7 +90,7 @@ function Character::Setup(%this)
 }
 
 // Change the images to match the current state
-function Character::updateImages(%this)
+function Character::UpdateImages(%this)
 {
 	//	Head
 	%this.selectSpriteName("head");

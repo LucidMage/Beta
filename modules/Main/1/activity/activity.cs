@@ -3,7 +3,8 @@ Main.ActiveYear = "";
 //	Defaults for all activities
 function PreSetupActivity(%activity)
 {
-	%activity.objective[0] = "Find the exit.";
+	%activity.objective[0] = "Continue your journey on the road.";
+	//	Default to objective 0
 	%activity.currentObjective = 0;
 }
 
@@ -12,7 +13,6 @@ function PostSetupActivity(%activity)
 {
 	Canvas.pushDialog(InGameGUI);
 	
-	//	Default to objective 0
 	UpdateHelpBar(%activity, "");
 }
 

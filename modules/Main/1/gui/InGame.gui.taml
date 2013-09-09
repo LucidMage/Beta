@@ -12,7 +12,7 @@
 	<!-- Menu -->
     <GuiButtonCtrl
         Name="MenuButton"
-        Profile="BlueButtonProfile"
+        Profile="PurpleButtonProfile"
 		Text="Menu"
 		ButtonType="PushButton"
         command="cycleManipulation(true);"
@@ -119,7 +119,7 @@
 		HorizSizing="right"
 		VertSizing="top"
 		Position="0 480"
-		Extent="400 120"
+		Extent="600 120"
 		MinExtent="80 60"
 		Visible="0"
 		Image="@asset=Assets:blueGradient">
@@ -132,8 +132,8 @@
 			Profile="GuiLightScrollProfile"
 			HorizSizing="relative"
 			VertSizing="relative"
-			Position="20 15"
-			Extent="380 90"
+			Position="0 0"
+			Extent="600 120"
 			MinExtent="80 60"
 			canSave="1"
 			Visible="1"
@@ -155,7 +155,7 @@
 				HorizSizing="width"
 				VertSizing="height"
 				Position="0 0"
-				Extent="340 30"
+				Extent="560 30"
 				MinExtent="80 30"
 				canSave="1"
 				Visible="1"
@@ -163,10 +163,10 @@
 				tooltipprofile="GuiToolTipProfile"
 				hovertime="1000"
 				colCount="1"
-				colSize="330"
-				rowSize="30"
-				rowSpacing="8"
-				colSpacing="8" />
+				colSize="530"
+				rowSize="35"
+				rowSpacing="5"
+				colSpacing="5" />
 		</GuiScrollCtrl>
 	</GuiSpriteCtrl>
 	
@@ -176,8 +176,8 @@
 		Profile="GuiSunkenContainerProfile"
 		HorizSizing="left"
 		VertSizing="top"
-		Position="500 480"
-		Extent="300 120"
+		Position="600 480"
+		Extent="200 120"
 		MinExtent="60 60"
 		Visible="0"
 		Image="@asset=Assets:blueGradient">

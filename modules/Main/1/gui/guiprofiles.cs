@@ -506,25 +506,30 @@ if (!isObject(DialogueTextProfile)) new GuiControlProfile (DialogueTextProfile)
     cursorColor = "0 0 0 255";
 };
 
-if (!isObject(DialogueResponseProfile)) new GuiControlProfile (DialogueResponseProfile)
+if (!isObject(PurpleButtonProfile)) new GuiControlProfile (PurpleButtonProfile : GuiButtonProfile)
 {
-    border = true;
-    borderColor = "0 0 0 255";
+    fontSize = $platformFontSize;
+    fontColor = "255 255 255 255";
+    fontColorHL = "255 255 255 255";
+    bitmap = "./images/purpleButton.png";
+};
 
+if (!isObject(DialogueResponseProfile)) new GuiControlProfile (DialogueResponseProfile : GuiButtonProfile)
+{
+    justify = "left";
+	
     // font
     fontType = $fontType;
     fontSize = $fontSizeText;
 
     fontColor = "black";
     fontColorHL = "95 95 95 255";
-    fixedExtent = true;
-    canKeyFocus = false;
-
+    bitmap = "./images/whiteButton.png";
+/*
     modal = true;
-    justify = "left";
     autoSizeWidth = true;
-    autoSizeHeight = false;
+    autoSizeHeight = true;
     returnTab = false;
     numbersOnly = false;
-    cursorColor = "0 0 0 255";
+    cursorColor = "0 0 0 255";*/
 };

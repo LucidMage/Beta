@@ -2,9 +2,10 @@
 function Year8::create( %this )
 {
    exec("./lesson1/main.cs");
+   exec("./lesson3A/main.cs");
    
    // Default to lesson 1
-   Main.ActiveActivity = Lesson1;
+   Main.ActiveActivity = Lesson3A;//Lesson1;
    
    %this.reset();
 }

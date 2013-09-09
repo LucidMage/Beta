@@ -1,21 +1,22 @@
-function Dialogue::setup(%this, %text)
+function Dialogue::Setup(%this, %text)
 {
 	%this.dialogue = %text;
 	
-	echo("Dialogue Setup Response 0");
 	%this.responseText[0] = "[End Dialogue]";
 	%this.responseCount = 0;
-	echo("End of Dialogue Setup Response 0");
 	
-	%this.canEnd = true;
-	%this.canRepeat = true;
-	%this.faceTarget = true;
+	%this.beenRead = false;		//	Used for tracking 
+	%this.canEnd = true;		//	Is there an option to close dialogue
+	%this.canRepeat = true;		//	Will this appear more than once
+	%this.faceTarget = true;	//	Will the owner face the player
 }
 
 //	Display dialogue elements
-function Dialogue::display(%this, %owner, %target)
+function Dialogue::Display(%this, %owner, %target)
 {
 	echo("Displaying Dialogue");
+	
+	%this.beenRead = true;
 	
 	DialogueLabel.setText(%owner.displayName);
 	DialogueText.setText(%this.dialogue);
@@ -24,7 +25,7 @@ function Dialogue::display(%this, %owner, %target)
 }
 
 //	Updates GUI to display responses from this dialogue
-function Dialogue::updateResponseArray(%this, %owner)
+function Dialogue::UpdateResponseArray(%this, %owner)
 {
 	ResponseArray.clear();
 	
@@ -34,15 +35,18 @@ function Dialogue::updateResponseArray(%this, %owner)
 	//	Responses 1-9
 	for (%i = 1; %i <= %this.responseCount; %i++)
 	{
-		%height += $GUIResponseHeight;
-		ResponseArray.displayResponse(%owner, %this, %i);
+		if (!(%this.responseDialogue[%i].beenRead = true && %this.responseDialogue[%i].canRepeat = false))
+		{
+			%height += $GUIResponseHeight;
+			ResponseArray.DisplayResponse(%owner, %this, %i);
+		}
 	}
 	
 	//	End Dialogue Response
 	if (%this.canEnd)
 	{
 		%height += $GUIResponseHeight;
-		ResponseArray.displayResponse(%owner, %this, 0);
+		ResponseArray.DisplayResponse(%owner, %this, 0);
 	}
 	
 	ResponseArray.resize(0, 0, %width, %height);
@@ -52,7 +56,7 @@ function Dialogue::updateResponseArray(%this, %owner)
 //	Add a response for the player to select
 //	Text = the text displayed for this response
 //	Next Dialogue = the dialogue object this response will lead to when selected
-function Dialogue::addResponse(%this, %text, %nextDialogue)
+function Dialogue::AddResponse(%this, %text, %nextDialogue)
 {
 	if (%this.responseCount <= $DialogueResponseMax)
 	{
@@ -73,7 +77,7 @@ function Dialogue::addResponse(%this, %text, %nextDialogue)
 	between parameter "int" and "Dialogue", as
 	parameter types aren't enforced, this means I'll
 	have to combine them and do type checking.	*/
-function Dialogue::removeResponse(%this, %input)
+function Dialogue::RemoveResponse(%this, %input)
 {
 	//	For Dialogue
 	if (%input.class $= "Dialogue")
@@ -100,7 +104,7 @@ function Dialogue::removeResponse(%this, %input)
 }
 
 //	Display the response on the GUI
-function ResponseArray::displayResponse(%this, %owner, %dialogue, %i)
+function ResponseArray::DisplayResponse(%this, %owner, %dialogue, %i)
 {
 	//	Button positioning. Response 1 at the top, response 0 at the bottom
 	if (%i == 0)
@@ -125,7 +129,7 @@ function ResponseArray::displayResponse(%this, %owner, %dialogue, %i)
         Visible = "1";
         isContainer = "0";
         Active = "1";
-        text = %i @ "." TAB %dialogue.responseText[%i];
+        text = "" TAB %i @ "." TAB %dialogue.responseText[%i];
         groupNum = "-1";
         buttonType = "PushButton";
         useMouseEvents = "1";

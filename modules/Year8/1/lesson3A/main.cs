@@ -2,22 +2,45 @@
 function Lesson3A::onAdd( %this )
 {
 	PreSetupActivity(%this);
-	%this.setup();
+	%this.Setup();
 	PostSetupActivity(%this);
 }
 
-function Lesson3A::setup(%this)
+function Lesson3A::Setup(%this)
 {
 	// Load Scenes
-	exec("./scenes/testart.cs");
+	exec("./scenes/loadList.cs");
+	exec("./dialogue/loadList.cs");
+	//exec("./scripts/loadList.cs");
+	
+	//	Objective tracking
+	%this.helped = 0;
+	%this.totalLost = 0;
 
 	//	Set Starting Scene
-	%startScene = testart;
+	%startScene = Lesson3A_Forest;
+	
+	%this.SetupDialogue();
+	
+	%this.totalToExit = %this.totalLost;
 
 	//	Setup Objectives
-	%this.objective[0] = "Continue down the road";
 	%this.objective[1] = "Find a way out of the forest";
-	%this.objective[2] = "Help the lost travellers. Helped:" SPC %helped @ ", of" SPC %totalLost;
+	%this.objective[2] = "Help the lost people. Helped:" SPC %this.helped @ ", of" SPC %this.totalLost;
+	
+	%this.currentObjective = 1;
 
 	LoadScene(%startScene);
+}
+
+function Lesson3A::UpdateStatus(%this)
+{
+}
+
+//	Runs each time a person is helped
+function Lesson3A::CheckHelpedPeople(%this)
+{
+	if (%this.helped == %this.totalToExit)
+	{
+	}
 }

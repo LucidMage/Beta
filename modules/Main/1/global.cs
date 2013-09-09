@@ -10,7 +10,7 @@ $DataSaveFormat = xml;
 $DialogueResponseMax = 9;
 
 //	GUI
-$GUIResponseHeight = 50;
+$GUIResponseHeight = 40;
 
 // Sprites
 $SpriteDirectionUp = "North";
