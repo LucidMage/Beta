@@ -1,0 +1,237 @@
+<TmxMapAsset
+    AssetName="lesson3A_map"
+    MapFile="forest.tmx"
+	>	
+
+	<TmxMapAsset.Layers>
+		<Layer Name = "Water" Layer = "30" Render="true" useObjects="true" ></Layer>
+		<Layer Name = "GroundBottom" Layer = "27" Render="true" useObjects="true" ></Layer>
+		<Layer Name = "GroundTop" Layer = "26" Render="true" useObjects="true" ></Layer>
+		<Layer Name = "Cliff" Layer = "25" Render="true" useObjects="true" ></Layer>
+		<Layer Name = "TreeBottom" Layer = "19" Render="true" useObjects="true" ></Layer>
+		<Layer Name = "TreeMiddle" Layer = "17" Render="true" useObjects="true" ></Layer>
+		<Layer Name = "TreeTop" Layer = "16" Render="true" useObjects="true" ></Layer>
+		
+		<Layer Name = "Collision" Layer = "19" Render = "false" useObjects="true"></Layer>
+		<Layer Name = "Trigger" Layer = "19" Render = "false" useObjects="true"></Layer>
+		<Layer Name = "Sprite" Layer = "18" Render = "false" useObjects="true"></Layer>
+	</TmxMapAsset.Layers>
+
+<!--	Tags	-->
+	<TmxMapAsset.Tiles>
+	
+	<!-- Square -->
+		<Tile Tag="CollisionSquare" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>-1 -1</Point>
+						<Point>1 -1</Point>
+						<Point>-1 1</Point>
+						<Point>1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		
+	<!-- Half Square -->
+		<Tile Tag="CollisionHalfNorth" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>-1 0</Point>
+						<Point>1 0</Point>
+						<Point>-1 1</Point>
+						<Point>1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionHalfSouth" >
+			<SceneObject TamlId="1" BodyType="Static">
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>-1 0</Point>
+						<Point>1 0</Point>
+						<Point>-1 -1</Point>
+						<Point>1 -1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionHalfWest" >
+			<SceneObject TamlId="1" BodyType="Static">
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>0 -1</Point>
+						<Point>-1 -1</Point>
+						<Point>0 1</Point>
+						<Point>-1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionHalfEast" >
+			<SceneObject TamlId="1" BodyType="Static">
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>0 -1</Point>
+						<Point>1 -1</Point>
+						<Point>0 1</Point>
+						<Point>1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		
+	<!-- Quarter Square -->
+		<Tile Tag="CollisionQuarterWest" >
+			<SceneObject TamlId="1" BodyType="Static">
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>-0.5 -1</Point>
+						<Point>-1 -1</Point>
+						<Point>-0.5 1</Point>
+						<Point>-1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionQuarterEast" >
+			<SceneObject TamlId="1" BodyType="Static">
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>0.5 -1</Point>
+						<Point>1 -1</Point>
+						<Point>0.5 1</Point>
+						<Point>1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		
+	<!-- Inner Corner -->
+		<Tile Tag="CollisionInnerCornerNorthWest" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>0 0</Point>
+						<Point>-1 1</Point>
+						<Point>0 1</Point>
+						<Point>-1 0</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionInnerCornerNorthEast" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>0 0</Point>
+						<Point>1 1</Point>
+						<Point>0 1</Point>
+						<Point>1 0</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionInnerCornerSouthWest" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>0 0</Point>
+						<Point>-1 -1</Point>
+						<Point>0 -1</Point>
+						<Point>-1 0</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionInnerCornerSouthEast" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>0 0</Point>
+						<Point>1 -1</Point>
+						<Point>0 -1</Point>
+						<Point>1 0</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		
+	<!-- Outer Corner -->
+		<Tile Tag="CollisionOuterCornerNorthWest" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>-1 0</Point>
+						<Point>1 0</Point>
+						<Point>-1 1</Point>
+						<Point>1 1</Point>
+					</Polygon>
+					<Polygon>
+						<Point>0 -1</Point>
+						<Point>-1 -1</Point>
+						<Point>0 1</Point>
+						<Point>-1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionOuterCornerNorthEast" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>-1 0</Point>
+						<Point>1 0</Point>
+						<Point>-1 -1</Point>
+						<Point>1 -1</Point>
+					</Polygon>
+					<Polygon>
+						<Point>0 -1</Point>
+						<Point>-1 -1</Point>
+						<Point>0 1</Point>
+						<Point>-1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionOuterCornerSouthWest" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>-1 0</Point>
+						<Point>1 0</Point>
+						<Point>-1 -1</Point>
+						<Point>1 -1</Point>
+					</Polygon>
+					<Polygon>
+						<Point>0 -1</Point>
+						<Point>-1 -1</Point>
+						<Point>0 1</Point>
+						<Point>-1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+		<Tile Tag="CollisionOuterCornerSouthEast" >
+			<SceneObject TamlId="1" BodyType="Static">				
+				<SceneObject.CollisionShapes>
+					<Polygon>
+						<Point>-1 0</Point>
+						<Point>1 0</Point>
+						<Point>-1 -1</Point>
+						<Point>1 -1</Point>
+					</Polygon>
+					<Polygon>
+						<Point>0 -1</Point>
+						<Point>1 -1</Point>
+						<Point>0 1</Point>
+						<Point>1 1</Point>
+					</Polygon>
+				</SceneObject.CollisionShapes>
+			</SceneObject>
+		</Tile>
+	</TmxMapAsset.Tiles>
+</TmxMapAsset>
