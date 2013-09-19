@@ -18,9 +18,7 @@ function SetupPlayer(%scene, %position, %layer)
    %player.setDefaultDensity(0);
    */
    
-   echo("Getting character from profile");
    %player = Profile.character;
-   echo("Setup in player setup");
    %player.Setup();
    %player.setDefaultDensity(100);	//	So player cannot push characters
    

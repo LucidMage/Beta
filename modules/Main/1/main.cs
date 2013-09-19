@@ -29,11 +29,8 @@ function Main::create( %this )
 	/*%year = YearGroups.findObjectByInternalName("Year8");
 	echo(%year);
 	LoadYearGroup(%year);*/
-
-   //  Debug
-   //  Enable visualization for "collision", "position", and "aabb"
-   %scene = GameWindow.getScene();
-   %scene.setDebugOn("collision");//, "position", "aabb");
+	
+	OpenProfileGUI();
    
    // Initialize the "cannot render" proxy.
    new RenderProxy(CannotRenderProxy)

@@ -15,7 +15,7 @@
         Profile="PurpleButtonProfile"
 		Text="Menu"
 		ButtonType="PushButton"
-        command="cycleManipulation(true);"
+        command="ToggleInGameMenu;"
         canSaveDynamicFields="0"
         isContainer="0"
         HorizSizing="right"

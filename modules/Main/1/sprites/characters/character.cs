@@ -104,12 +104,12 @@ function Character::UpdateImages(%this)
 	{
 		%state = %this.state;
 	}
-	
+	/*
 	echo("Gender:" SPC %this.gender);
 	echo("Ethnicity:" SPC %this.ethnicity);
 	echo("State:" SPC %state);
 	echo("Torso:" SPC %this.torso);
-	echo("Legs:" SPC %this.legs);
+	echo("Legs:" SPC %this.legs);*/
 	%animation = %this.getSpriteName() @ %this.gender @ %this.ethnicity @ %state @ %this.direction;
 	echo(%animation);
 	%this.setSpriteAnimation("Assets:" @ %animation);

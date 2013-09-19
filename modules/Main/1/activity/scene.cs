@@ -30,17 +30,17 @@ function DestroyScene(%scene)
 
 // Load scene from file
 function LoadScene(%scene)
-{
+{/*
    // File Path: Data/ProfileName.Lesson#.SceneName.taml
    %path = $DataSavePath @ Player.displayName @ "." @ Main.ActiveActivity @ "." @ %scene.getName() @ $DataSaveExtension;
    echo(%path);
    //%savedScene = TamlRead(%path);
    
    // Check saved scene isn't null
-   if (%savedScene $= "")
+   if (%savedScene $= "")*/
       CreateScene(%scene);
-   else
-      SetScene(%savedScene);
+   /*else
+      SetScene(%savedScene);*/
 }
 
 // Save scene to file, persistent scene

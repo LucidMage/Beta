@@ -6,13 +6,13 @@
     Position="0 0"
     Extent="1024 768"
     MinExtent="320 320"
-    Visible="1"
-	Image="@asset=Sandbox:blueGradient">
+    Visible="0"
+	Image="@asset=Assets:blueGradient">
 	
 	<GuiPopUpMenuCtrl
 			Name="BackgroundColorSelectList"
 			canSaveDynamicFields="0"
-			isContainer="0"
+			isContainer="1"
 			Profile="GuiPopUpMenuProfile"
 			HorizSizing="relative"
 			VertSizing="relative"

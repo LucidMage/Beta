@@ -11,9 +11,15 @@ function PreSetupActivity(%activity)
 //	Requires elements from the activity itself to work
 function PostSetupActivity(%activity)
 {
+	//Canvas.pushDialog(ToolboxDialog);
 	Canvas.pushDialog(InGameGUI);
 	
 	UpdateHelpBar(%activity, "");
+}
+
+function ToggleInGameMenu()
+{
+	inGameMenu.visible = !inGameMenu.visible;
 }
 
 //	Update the text in the In-game GUI Help Bar
@@ -61,6 +67,11 @@ function LoadYearGroup( %moduleDefinition )
    
 	//	Default Activity Settings
 	CentreWindowOnSprite(Player);
+
+   //  Debug
+   //  Enable visualization for "collision", "position", and "aabb"
+   %scene = GameWindow.getScene();
+   %scene.setDebugOn("collision");//, "position", "aabb");
 }
 
 function UnloadYearGroup()

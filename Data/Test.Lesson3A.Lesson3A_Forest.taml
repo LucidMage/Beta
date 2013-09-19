@@ -3003,6 +3003,21 @@
     <SceneObject
         SceneLayer="25"
         Size="1.92 1.92"
+        Position="4.8 -41.28"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
         Position="6.72 24"
         BodyType="Static"
         Awake="0">
@@ -3138,6 +3153,21 @@
     <SceneObject
         SceneLayer="25"
         Size="1.92 1.92"
+        Position="6.72 -41.28"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
         Position="8.64 24"
         BodyType="Static"
         Awake="0">
@@ -3198,7 +3228,127 @@
     <SceneObject
         SceneLayer="25"
         Size="1.92 1.92"
+        Position="8.64 -41.28"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
+        Position="10.56 31.68"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
+        Position="10.56 -41.28"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
+        Position="12.48 31.68"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
+        Position="12.48 -41.28"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
+        Position="14.4 31.68"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
+        Position="14.4 -41.28"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
         Position="16.32 -12.48"
+        BodyType="Static"
+        Awake="0">
+        <SceneObject.CollisionShapes>
+            <Polygon>
+                <Point>1 -1</Point>
+                <Point>1 1</Point>
+                <Point>-1 1</Point>
+                <Point>-1 -1</Point>
+            </Polygon>
+        </SceneObject.CollisionShapes>
+    </SceneObject>
+    <SceneObject
+        SceneLayer="25"
+        Size="1.92 1.92"
+        Position="16.32 -41.28"
         BodyType="Static"
         Awake="0">
         <SceneObject.CollisionShapes>
@@ -16396,10 +16546,28 @@
         </SceneObject.CollisionShapes>
     </SceneObject>
     <SceneObject
-        Name="StartObstaclePos"
+        Name="L3A_SweatyPersonPos"
         SceneLayer="18"
         Size="1.92 1.92"
-        Position="6.72 -41.28"
+        Position="-18.24 16.32"
+        Awake="0" />
+    <SceneObject
+        Name="L3A_UnderarmHairPos"
+        SceneLayer="18"
+        Size="1.92 1.92"
+        Position="-14.4 -20.16"
+        Awake="0" />
+    <SceneObject
+        Name="L3A_BroadShoulderPersonPos"
+        SceneLayer="18"
+        Size="1.92 1.92"
+        Position="-0.96 29.76"
+        Awake="0" />
+    <SceneObject
+        Name="L3A_PubicHairPos"
+        SceneLayer="18"
+        Size="1.92 1.92"
+        Position="0.96 2.88"
         Awake="0" />
     <SceneObject
         Name="PlayerPos"
@@ -16408,21 +16576,16 @@
         Position="10.56 -29.76"
         Awake="0" />
     <SceneObject
-        Name="EndObstaclePos"
-        SceneLayer="18"
-        Size="1.92 1.92"
-        Position="12.48 31.68"
-        Awake="0" />
-    <SceneObject
-        Name="UnderarmHairPos"
+        Name="StoneSignPos"
         SceneLayer="18"
         Size="1.92 1.92"
         Position="12.48 -18.24"
         Awake="0" />
     <SceneObject
+        Name="L3A_DevelopBreastGirlPos"
         SceneLayer="18"
         Size="1.92 1.92"
-        Position="12.48 -41.28"
+        Position="18.24 2.88"
         Awake="0" />
     <CompositeSprite
         Name="Player"
@@ -16436,16 +16599,16 @@
         CollisionCallback="1"
         collisionSize="0.6 0.8"
         damping="20"
-        DialogueTree="2220"
+        DialogueTree="2274"
         direction="North"
         displayName="Test"
-        ethnicity="pakeha"
-        gender="female"
-        Legs="dress"
+        Ethnicity="Maori"
+        Gender="Female"
+        Legs="Dress"
         positionAdjust="0 -0.5"
         speed="4"
         state="Idle"
-        Torso="plaid"
+        Torso="Plaid"
         useRange="1.5">
         <CompositeSprite.Behaviors>
             <PlayerControlsBehaviour
@@ -16485,7 +16648,7 @@
                 Size="2 2" />
             <Sprite
                 Name="Head"
-                Animation="Assets:HeadFemalePakehaNorth"
+                Animation="Assets:HeadFemaleMaoriNorth"
                 Position="0 0"
                 Size="2 2" />
             <Sprite
@@ -16503,7 +16666,7 @@
         Name="L3A_UnderarmHairPerson"
         class="Character"
         SceneLayer="18"
-        Position="12.48 -18.24"
+        Position="-14.4 -20.16"
         FixedAngle="1"
         DefaultDensity="1000000"
         DefaultFriction="0"
@@ -16514,8 +16677,8 @@
         DialogueTree="L3A_UnderarmHairDialogueTree"
         direction="South"
         displayName="Girl with Raised Arms"
-        ethnicity="Maori"
-        gender="Female"
+        Ethnicity="Maori"
+        Gender="Female"
         helped="0"
         Legs="Dress"
         positionAdjust="0 -0.5"
@@ -16558,6 +16721,282 @@
                 Position="0 0"
                 Size="2 2" />
             <Sprite
+                Position="0 0"
+                Size="2 2" />
+        </CompositeSprite.Sprites>
+    </CompositeSprite>
+    <CompositeSprite
+        Name="L3A_DevelopBreastGirl"
+        class="Character"
+        SceneLayer="18"
+        Position="18.24 2.88"
+        FixedAngle="1"
+        DefaultDensity="1000000"
+        DefaultFriction="0"
+        LinearDamping="20"
+        CollisionCallback="1"
+        collisionSize="0.6 0.8"
+        damping="20"
+        DialogueTree="L3A_DevelopBreastDialogueTree"
+        direction="South"
+        displayName="Girl Covering Chest"
+        Ethnicity="Maori"
+        Gender="Male"
+        helped="0"
+        Legs="Dress"
+        positionAdjust="0 -0.5"
+        speed="4"
+        state="Idle"
+        useRange="1.5">
+        <CompositeSprite.CollisionShapes>
+            <Polygon>
+                <Point>-0.3 -0.9</Point>
+                <Point>0.3 -0.9</Point>
+                <Point>0.3 -0.1</Point>
+                <Point>-0.3 -0.1</Point>
+            </Polygon>
+            <Polygon>
+                <Point>-0.3 -0.9</Point>
+                <Point>0.3 -0.9</Point>
+                <Point>0.3 -0.1</Point>
+                <Point>-0.3 -0.1</Point>
+            </Polygon>
+        </CompositeSprite.CollisionShapes>
+        <CompositeSprite.Sprites>
+            <Sprite
+                Name="Legs"
+                Animation="Assets:LegsDressIdleSouth"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Name="Torso"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Name="Head"
+                Animation="Assets:HeadMaleMaoriSouth"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+        </CompositeSprite.Sprites>
+    </CompositeSprite>
+    <CompositeSprite
+        Name="L3A_SweatyPerson"
+        class="Character"
+        SceneLayer="18"
+        Position="-18.24 16.32"
+        FixedAngle="1"
+        DefaultDensity="1000000"
+        DefaultFriction="0"
+        LinearDamping="20"
+        CollisionCallback="1"
+        collisionSize="0.6 0.8"
+        damping="20"
+        DialogueTree="L3A_SweatyDialogueTree"
+        direction="South"
+        displayName="Sweaty Boy"
+        Ethnicity="Maori"
+        Gender="Male"
+        helped="0"
+        Legs="Dress"
+        positionAdjust="0 -0.5"
+        speed="4"
+        state="Idle"
+        useRange="1.5">
+        <CompositeSprite.CollisionShapes>
+            <Polygon>
+                <Point>-0.3 -0.9</Point>
+                <Point>0.3 -0.9</Point>
+                <Point>0.3 -0.1</Point>
+                <Point>-0.3 -0.1</Point>
+            </Polygon>
+            <Polygon>
+                <Point>-0.3 -0.9</Point>
+                <Point>0.3 -0.9</Point>
+                <Point>0.3 -0.1</Point>
+                <Point>-0.3 -0.1</Point>
+            </Polygon>
+        </CompositeSprite.CollisionShapes>
+        <CompositeSprite.Sprites>
+            <Sprite
+                Name="Legs"
+                Animation="Assets:LegsDressIdleSouth"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Name="Torso"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Name="Head"
+                Animation="Assets:HeadMaleMaoriSouth"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+        </CompositeSprite.Sprites>
+    </CompositeSprite>
+    <CompositeSprite
+        Name="L3A_BroadShoulderPerson"
+        class="Character"
+        SceneLayer="18"
+        Position="-0.96 29.76"
+        FixedAngle="1"
+        DefaultDensity="1000000"
+        DefaultFriction="0"
+        LinearDamping="20"
+        CollisionCallback="1"
+        collisionSize="0.6 0.8"
+        damping="20"
+        DialogueTree="L3A_BroadShoulderDialogueTree"
+        direction="South"
+        displayName="Broad Shouldered Boy"
+        Ethnicity="Maori"
+        Gender="Male"
+        helped="0"
+        Legs="Dress"
+        positionAdjust="0 -0.5"
+        speed="4"
+        state="Idle"
+        useRange="1.5">
+        <CompositeSprite.CollisionShapes>
+            <Polygon>
+                <Point>-0.3 -0.9</Point>
+                <Point>0.3 -0.9</Point>
+                <Point>0.3 -0.1</Point>
+                <Point>-0.3 -0.1</Point>
+            </Polygon>
+            <Polygon>
+                <Point>-0.3 -0.9</Point>
+                <Point>0.3 -0.9</Point>
+                <Point>0.3 -0.1</Point>
+                <Point>-0.3 -0.1</Point>
+            </Polygon>
+        </CompositeSprite.CollisionShapes>
+        <CompositeSprite.Sprites>
+            <Sprite
+                Name="Legs"
+                Animation="Assets:LegsDressIdleSouth"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Name="Torso"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Name="Head"
+                Animation="Assets:HeadMaleMaoriSouth"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+        </CompositeSprite.Sprites>
+    </CompositeSprite>
+    <CompositeSprite
+        Name="L3A_PubicHairPerson"
+        class="Character"
+        SceneLayer="18"
+        Position="0.96 2.88"
+        FixedAngle="1"
+        DefaultDensity="1000000"
+        DefaultFriction="0"
+        LinearDamping="20"
+        CollisionCallback="1"
+        collisionSize="0.6 0.8"
+        damping="20"
+        DialogueTree="L3A_PubicHairDialogueTree"
+        direction="South"
+        displayName="Girl with Raised Arms"
+        Ethnicity="Maori"
+        Gender="Female"
+        helped="0"
+        Legs="Dress"
+        positionAdjust="0 -0.5"
+        speed="4"
+        state="Idle"
+        useRange="1.5">
+        <CompositeSprite.CollisionShapes>
+            <Polygon>
+                <Point>-0.3 -0.9</Point>
+                <Point>0.3 -0.9</Point>
+                <Point>0.3 -0.1</Point>
+                <Point>-0.3 -0.1</Point>
+            </Polygon>
+            <Polygon>
+                <Point>-0.3 -0.9</Point>
+                <Point>0.3 -0.9</Point>
+                <Point>0.3 -0.1</Point>
+                <Point>-0.3 -0.1</Point>
+            </Polygon>
+        </CompositeSprite.CollisionShapes>
+        <CompositeSprite.Sprites>
+            <Sprite
+                Name="Legs"
+                Animation="Assets:LegsDressIdleSouth"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Name="Torso"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Name="Head"
+                Animation="Assets:HeadFemaleMaoriSouth"
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+            <Sprite
+                Position="0 0"
+                Size="2 2" />
+        </CompositeSprite.Sprites>
+    </CompositeSprite>
+    <CompositeSprite
+        Name="L3A_StoneSign"
+        class="Readable"
+        SceneLayer="18"
+        Position="12.48 -18.24"
+        BodyType="Static"
+        DialogueTree="L3A_StoneSignDialogueTree"
+        displayName="Stone Sign">
+        <CompositeSprite.CollisionShapes>
+            <Polygon>
+                <Point>-0.5 -0.5</Point>
+                <Point>0.5 -0.5</Point>
+                <Point>0.5 0.5</Point>
+                <Point>-0.5 0.5</Point>
+            </Polygon>
+        </CompositeSprite.CollisionShapes>
+        <CompositeSprite.Sprites>
+            <Sprite
+                Image="Assets:StoneSign"
+                Frame="0"
                 Position="0 0"
                 Size="2 2" />
         </CompositeSprite.Sprites>

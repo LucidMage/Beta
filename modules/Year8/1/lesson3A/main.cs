@@ -15,12 +15,12 @@ function Lesson3A::Setup(%this)
 	
 	//	Objective tracking
 	%this.helped = 0;
-	%this.totalLost = 0;
+	//%this.totalLost = 0;
 
 	//	Set Starting Scene
 	%startScene = Lesson3A_Forest;
-	
-	%this.SetupDialogue();
+
+	LoadScene(%startScene);
 	
 	%this.totalToExit = %this.totalLost;
 
@@ -29,18 +29,23 @@ function Lesson3A::Setup(%this)
 	%this.objective[2] = "Help the lost people. Helped:" SPC %this.helped @ ", of" SPC %this.totalLost;
 	
 	%this.currentObjective = 1;
-
-	LoadScene(%startScene);
 }
 
 function Lesson3A::UpdateStatus(%this)
 {
+	if (HasHelpedPeople())
+		%this.currentObjective = 0;
+	else
+		%this.currentObjective = 2;
+	
+	UpdateHelpBar(%this, "");
 }
 
 //	Runs each time a person is helped
-function Lesson3A::CheckHelpedPeople(%this)
+function Lesson3A::HasHelpedPeople(%this)
 {
-	if (%this.helped == %this.totalToExit)
-	{
-	}
+	if (%this.helped >= %this.totalToExit)
+		return true;
+	else
+		return false;
 }

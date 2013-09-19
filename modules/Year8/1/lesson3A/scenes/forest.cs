@@ -18,6 +18,7 @@ function Lesson3A_Forest::Setup(%this)
 	%this.add(%mapSprite);
 
 	%this.SetupCharacters();
+	%this.SetupObstacles();
 	%this.SetupTriggers();
 }
 
@@ -40,16 +41,124 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		torso = "";
 		legs = $SpriteLegsDress;
 
-		Position = UnderarmHairPos.getPosition();
-		SceneLayer = UnderarmHairPos.getSceneLayer();
+		Position = L3A_UnderarmHairPos.getPosition();
+		SceneLayer = L3A_UnderarmHairPos.getSceneLayer();
 		
 		helped = false;
 	};
 	L3A_UnderarmHairPerson.Setup();
 	L3A_UnderarmHairPerson.dialogueTree = L3A_UnderarmHairDialogueTree;
+	
+	//	Girl Developing Breasts
+	new CompositeSprite(L3A_DevelopBreastGirl)
+	{
+		displayName = "Girl Covering Chest";
+		class = "Character";
+		gender = $SpriteGenderMale;
+		ethnicity = $SpriteEthnicityMaori;
+		torso = "";
+		legs = $SpriteLegsDress;
 
+		Position = L3A_DevelopBreastGirlPos.getPosition();
+		SceneLayer = L3A_DevelopBreastGirlPos.getSceneLayer();
+		
+		helped = false;
+	};
+	L3A_DevelopBreastGirl.Setup();
+	L3A_DevelopBreastGirl.dialogueTree = L3A_DevelopBreastDialogueTree;
+
+	//  Sweaty Person
+	new CompositeSprite(L3A_SweatyPerson)
+	{
+		displayName = "Sweaty Boy";
+		class = "Character";
+		gender = $SpriteGenderMale;
+		ethnicity = $SpriteEthnicityMaori;
+		torso = "";
+		legs = $SpriteLegsDress;
+
+		Position = L3A_SweatyPersonPos.getPosition();
+		SceneLayer = L3A_SweatyPersonPos.getSceneLayer();
+		
+		helped = false;
+	};
+	L3A_SweatyPerson.Setup();
+	L3A_SweatyPerson.dialogueTree = L3A_SweatyDialogueTree;
+
+	//  Broad Shouldered Person
+	new CompositeSprite(L3A_BroadShoulderPerson)
+	{
+		displayName = "Broad Shouldered Boy";
+		class = "Character";
+		gender = $SpriteGenderMale;
+		ethnicity = $SpriteEthnicityMaori;
+		torso = "";
+		legs = $SpriteLegsDress;
+
+		Position = L3A_BroadShoulderPersonPos.getPosition();
+		SceneLayer = L3A_BroadShoulderPersonPos.getSceneLayer();
+		
+		helped = false;
+	};
+	L3A_BroadShoulderPerson.Setup();
+	L3A_BroadShoulderPerson.dialogueTree = L3A_BroadShoulderDialogueTree;
+
+	//  Pubic Hair Person
+	new CompositeSprite(L3A_PubicHairPerson)
+	{
+		displayName = "Girl with Raised Arms";
+		class = "Character";
+		gender = $SpriteGenderFemale;
+		ethnicity = $SpriteEthnicityMaori;
+		torso = "";
+		legs = $SpriteLegsDress;
+
+		Position = L3A_PubicHairPos.getPosition();
+		SceneLayer = L3A_PubicHairPos.getSceneLayer();
+		
+		helped = false;
+	};
+	L3A_PubicHairPerson.Setup();
+	L3A_PubicHairPerson.dialogueTree = L3A_PubicHairDialogueTree;
+	
 	// Add to Scene
 	%this.add(L3A_UnderarmHairPerson);
+	Lesson3A.totalLost++;
+	
+	%this.add(L3A_DevelopBreastGirl);
+	Lesson3A.totalLost++;
+	
+	%this.add(L3A_SweatyPerson);
+	Lesson3A.totalLost++;
+	
+	%this.add(L3A_BroadShoulderPerson);
+	Lesson3A.totalLost++;
+	
+	%this.add(L3A_PubicHairPerson);
+	Lesson3A.totalLost++;
+}
+
+//	Obstacles
+function Lesson3A_Forest::SetupObstacles(%this)
+{
+	echo("Setup Obstacles");
+	
+	//	Stone Sign
+	new CompositeSprite(L3A_StoneSign)
+	{
+		displayName = "Stone Sign";
+		//Image = "Assets:StoneSign";
+		class = "Readable";
+		Size = "1.5, 1.5";
+
+		Position = StoneSignPos.getPosition();
+		SceneLayer = StoneSignPos.getSceneLayer();
+	};
+	L3A_StoneSign.Setup("Assets:StoneSign");
+	L3A_StoneSign.dialogueTree = L3A_StoneSignDialogueTree;
+	
+	// Add to Scene
+	%this.add(L3A_StoneSign);
 }
 
 //	Triggers

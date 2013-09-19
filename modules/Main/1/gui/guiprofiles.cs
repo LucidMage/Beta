@@ -24,6 +24,7 @@ $platformFontType = ($platform $= "windows") ? "lucida console" : "monaco";
 $platformFontSize = ($platform $= "ios") ? 18 : 12;
 
 $fontSizeLabel = 24;
+$fontSizeSmallLabel = 20;
 $fontSizeText = 18;
 $fontType = "arial";
 
@@ -506,30 +507,63 @@ if (!isObject(DialogueTextProfile)) new GuiControlProfile (DialogueTextProfile)
     cursorColor = "0 0 0 255";
 };
 
+if (!isObject(GuiHeaderProfile)) new GuiControlProfile (GuiHeaderProfile)
+{
+    border = false;
+
+    // font
+    fontType = $fontType;
+    fontSize = $fontSizeLabel;
+
+    fontColor = "white";
+
+    modal = true;
+    justify = "center";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+};
+
+if (!isObject(GuiLabelProfile)) new GuiControlProfile (GuiLabelProfile)
+{
+    border = false;
+
+    // font
+    fontType = $fontType;
+    fontSize = $fontSizeSmallLabel;
+
+    fontColor = "white";
+
+    modal = true;
+    justify = "left";
+    autoSizeWidth = false;
+    autoSizeHeight = false;
+    returnTab = false;
+    numbersOnly = false;
+    cursorColor = "0 0 0 255";
+};
+
 if (!isObject(PurpleButtonProfile)) new GuiControlProfile (PurpleButtonProfile : GuiButtonProfile)
 {
-    fontSize = $platformFontSize;
+    fontType = $fontType;
+    fontSize = $fontSizeText;
     fontColor = "255 255 255 255";
     fontColorHL = "255 255 255 255";
     bitmap = "./images/purpleButton.png";
 };
 
-if (!isObject(DialogueResponseProfile)) new GuiControlProfile (DialogueResponseProfile : GuiButtonProfile)
+if (!isObject(WhiteButtonProfile)) new GuiControlProfile (WhiteButtonProfile : GuiButtonProfile)
 {
-    justify = "left";
-	
-    // font
     fontType = $fontType;
     fontSize = $fontSizeText;
-
     fontColor = "black";
     fontColorHL = "95 95 95 255";
     bitmap = "./images/whiteButton.png";
-/*
-    modal = true;
-    autoSizeWidth = true;
-    autoSizeHeight = true;
-    returnTab = false;
-    numbersOnly = false;
-    cursorColor = "0 0 0 255";*/
+};
+
+if (!isObject(DialogueResponseProfile)) new GuiControlProfile (DialogueResponseProfile : WhiteButtonProfile)
+{
+    justify = "left";
 };
