@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="HeadFemaleMaoriEmbarrassedNorth"
+    Image="@asset=Assets:heademotions"
+    animationFrames="70"
+    animationTime="1"
+    animationCycle="1"
+     />

@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="HeadMalePIReadEast"
+    Image="@asset=Assets:heademotions"
+    animationFrames="24"
+    animationTime="1"
+    animationCycle="1"
+     />

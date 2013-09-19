@@ -1,0 +1,97 @@
+﻿Before Divisions v2
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemaleAsianCheerEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemaleAsianCheerNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemaleAsianCheerSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemaleAsianCheerWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemaleMaoriCheerEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemaleMaoriCheerNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemaleMaoriCheerSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemaleMaoriCheerWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemalePICheerEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemalePICheerNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemalePICheerSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemalePICheerWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemalePakehaCheerEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemalePakehaCheerNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemalePakehaCheerSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadFemalePakehaCheerWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMaleAsianCheerEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMaleAsianCheerNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMaleAsianCheerSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMaleAsianCheerWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMaleMaoriCheerEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMaleMaoriCheerNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMaleMaoriCheerSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMaleMaoriCheerWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMalePICheerEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMalePICheerNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMalePICheerSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMalePICheerWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMalePakehaCheerEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMalePakehaCheerNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMalePakehaCheerSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Cheer/HeadMalePakehaCheerWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemaleAsianEmbarrassedEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemaleAsianEmbarrassedNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemaleAsianEmbarrassedSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemaleAsianEmbarrassedWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemaleMaoriEmbarrassedEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemaleMaoriEmbarrassedNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemaleMaoriEmbarrassedSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemaleMaoriEmbarrassedWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemalePIEmbarrassedEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemalePIEmbarrassedNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemalePIEmbarrassedSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemalePIEmbarrassedWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemalePakehaEmbarrassedEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemalePakehaEmbarrassedNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemalePakehaEmbarrassedSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadFemalePakehaEmbarrassedWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMaleAsianEmbarrassedEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMaleAsianEmbarrassedNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMaleAsianEmbarrassedSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMaleAsianEmbarrassedWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMaleMaoriEmbarrassedEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMaleMaoriEmbarrassedNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMaleMaoriEmbarrassedSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMaleMaoriEmbarrassedWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMalePIEmbarrassedEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMalePIEmbarrassedNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMalePIEmbarrassedSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMalePIEmbarrassedWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMalePakehaEmbrrassedEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMalePakehaEmbrrassedNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMalePakehaEmbrrassedSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Embarrassed/HeadMalePakehaEmbrrassedWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMaleMaoriReadEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMaleMaoriReadNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMaleMaoriReadSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMaleMaoriReadWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMalePIReadEast.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMalePIReadNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMalePIReadSouth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMalePIReadWest.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMalePakehaReadNorth.asset - Copy (2).taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMalePakehaReadNorth.asset - Copy (3).taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMalePakehaReadNorth.asset.taml
+	new file:   modules/Assets/animations/characters/Emotion/Read/HeadMalePakehaReadSouth.asset.taml
+	new file:   modules/Assets/images/sprites/stoneSign.asset.taml
+	new file:   modules/Assets/images/sprites/stonesign.png
+	new file:   modules/Assets/images/tiles/divisions2.png
+	new file:   modules/Assets/images/tiles/divisionsWall.png
+new file:   modules/Main/1/gui/Profile.gui.taml
+	new file:   modules/Main/1/sprites/readible.cs
+	new file:   modules/Year8/1/lesson3A/dialogue/stoneSign.cs
+	new file:   modules/Year8/1/lesson3A/dialogue/sweaty.cs
+
+
