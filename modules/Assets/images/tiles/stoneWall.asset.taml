@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="StoneWall"
+    ImageFile="stoneWall.png"
+    CellCountX="10"
+    CellCountY="8"
+    CellWidth="64"
+    CellHeight="64" />

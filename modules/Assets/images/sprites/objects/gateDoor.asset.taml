@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="GateDoor"
+    ImageFile="gateDoor.png"
+    CellCountX="2"
+    CellCountY="1"
+    CellWidth="53"
+    CellHeight="121" />

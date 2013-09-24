@@ -1,0 +1,24 @@
+<!-- Inventory GUI -->
+<GuiControl
+    Name="InventoryGUI"
+    Profile="GuiDefaultProfile"
+    HorizSizing="relative"
+    VertSizing="relative"
+    Position="600 400"
+    Extent="200 200"
+    MinExtent="160 120"
+    Visible="1">
+	
+	<!-- Profile Options -->
+	<GuiSpriteCtrl
+		Name="InventoryContainer"
+		Profile="GuiSolidProfile"
+		HorizSizing="relative"
+		VertSizing="height"
+		Position="400 0"
+		Extent="400 600"
+		MinExtent="320 240"
+		Visible="1"
+		Image="@asset=Assets:PurpleStyro">
+	</GuiSpriteCtrl>
+</GuiControl>

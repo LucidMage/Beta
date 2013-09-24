@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="DivisionsTiles2"
+    ImageFile="divisionsTiles2.png"
+    CellCountX="16"
+    CellCountY="8"
+    CellWidth="64"
+    CellHeight="64" />

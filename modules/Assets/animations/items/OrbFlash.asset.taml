@@ -1,0 +1,8 @@
+<AnimationAsset
+    AssetName="OrbFlash"
+    Image="@asset=Assets:Orb"
+    animationFrames="0 1 2"
+    animationTime="0.5"
+    animationCycle="true"
+	RandomStart="true"
+     />

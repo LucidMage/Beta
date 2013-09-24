@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="Log2"
+    ImageFile="log2.png"
+    CellCountX="1"
+    CellCountY="1"
+    CellWidth="128"
+    CellHeight="32" />

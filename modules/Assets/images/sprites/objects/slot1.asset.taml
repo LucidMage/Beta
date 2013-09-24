@@ -1,0 +1,7 @@
+<ImageAsset
+    AssetName="Slot1"
+    ImageFile="slot1.png"
+    CellCountX="1"
+    CellCountY="1"
+    CellWidth="32"
+    CellHeight="32" />
