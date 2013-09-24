@@ -12,14 +12,14 @@
 	<!-- Profile Options -->
 	<GuiSpriteCtrl
 		Name="ProfileContainer"
-		Profile="GuiToolboxProfile"
-		HorizSizing="width"
+		Profile="GuiSolidProfile"
+		HorizSizing="relative"
 		VertSizing="height"
 		Position="400 0"
 		Extent="400 600"
 		MinExtent="320 240"
 		Visible="1"
-		Image="@asset=Assets:blueGradient">
+		Image="@asset=Assets:PurpleGradient">
 
 		<!-- Header -->
 		<GuiTextCtrl
@@ -296,6 +296,49 @@
 			sbUsesNAColor="0"
 			reverseTextList="0"
 			bitmapBounds="16 16" />
+			
+		<!-- Accessories -->
+		<GuiTextCtrl
+			Name="AccessoryText"
+			canSaveDynamicFields="0"
+			isContainer="0"
+			Profile="GuiLabelProfile"
+			HorizSizing="width"
+			VertSizing="relative"
+			Position="20 260"
+			Extent="130 30"
+			MinExtent="80 15"
+			canSave="1"
+			Visible="1"
+			Active="1"
+			hovertime="1000"
+			toolTipProfile="GuiToolTipProfile"
+			toolTip="Choose your accessory"
+			text="Accessory"
+			maxLength="255"
+			truncate="0" />
+		<GuiPopUpMenuCtrl
+			Name="AccessoryList"
+			canSaveDynamicFields="0"
+			isContainer="0"
+			Profile="GuiPopUpMenuProfile"
+			HorizSizing="width"
+			VertSizing="relative"
+			Position="150 260"
+			Extent="200 30"
+			MinExtent="80 30"
+			canSave="1"
+			Visible="1"
+			Active="1"
+			hovertime="1000"
+			toolTipProfile="GuiToolTipProfile"
+			toolTip="Choose your accessory"
+			tooltipWidth="250"
+			maxLength="1024"
+			maxPopupHeight="200"
+			sbUsesNAColor="0"
+			reverseTextList="0"
+			bitmapBounds="16 16" />
 		
 		<!-- Play -->
 		<GuiButtonCtrl
@@ -308,8 +351,8 @@
 			isContainer="0"
 			HorizSizing="relative"
 			VertSizing="top"
-			Position="20 540"
-			Extent="180 60"
+			Position="20 520"
+			Extent="170 60"
 			MinExtent="80 30"
 			canSave="1"
 			Visible="1"
@@ -331,8 +374,8 @@
 			isContainer="0"
 			HorizSizing="relative"
 			VertSizing="top"
-			Position="220 540"
-			Extent="180 60"
+			Position="210 520"
+			Extent="170 60"
 			MinExtent="80 30"
 			canSave="1"
 			Visible="1"

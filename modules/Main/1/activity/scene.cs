@@ -6,7 +6,7 @@ function CreateScene(%sceneName)
       
    //  Create Scene
    new Scene(%sceneName);
-   %sceneName.setup();  // Run setup
+   %sceneName.Setup();  // Run setup
    
    // Sanity!
    if ( !isObject(GameWindow) )

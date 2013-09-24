@@ -58,59 +58,58 @@ new ScriptObject(L3A_SweatyDialogueHelpedGreeting)	{	class = Dialogue;	};
 L3A_SweatyDialogueHelpedGreeting.Setup(%text);
 
 //==	Middle - Part 1    ==//
-//	"Because of hormones"
-%text = "Why would hormones make my armpits grow hair?";
-new ScriptObject(L3A_UnderarmHairDialogueMidAnswer1Part1)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueMidAnswer1Part1.Setup(%text);
-L3A_UnderarmHairDialogueMidAnswer1Part1.canEnd = false;
+//	"You might have a fever"
+%text = "I don't think so. I'm not feeling sick. Any other ideas?";
+new ScriptObject(L3A_SweatyDialogueMidAnswer0)	{	class = Dialogue;	};
+L3A_SweatyDialogueMidAnswer0.Setup(%text);
+L3A_SweatyDialogueMidAnswer0.canEnd = false;
 
-//	"For warmth and protection"
-%text = "Protection? From what?";
-new ScriptObject(L3A_UnderarmHairDialogueMidAnswer2Part1)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueMidAnswer2Part1.Setup(%text);
-L3A_UnderarmHairDialogueMidAnswer2Part1.canEnd = false;
+//	"Your sweat glands have become more active"
+%text = "Alright. That explains the sweat but what about the stench?";
+new ScriptObject(L3A_SweatyDialogueMidAnswer1Part1)	{	class = Dialogue;	};
+L3A_SweatyDialogueMidAnswer1Part1.Setup(%text);
+L3A_SweatyDialogueMidAnswer1Part1.canEnd = false;
 
-//	"To get in the way of deodorant"
-%text = "Huh, stupid hair. So will there be any problems if I remove it?";
-new ScriptObject(L3A_UnderarmHairDialogueMidAnswer3)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueMidAnswer3.Setup(%text);
-L3A_UnderarmHairDialogueMidAnswer3.canEnd = false;
-
-//	"To catch sweat"
-%text = "Sweat. So if I remove it will sweat build up in my armpits?";
-new ScriptObject(L3A_UnderarmHairDialogueMidAnswer4)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueMidAnswer4.Setup(%text);
-L3A_UnderarmHairDialogueMidAnswer4.canEnd = false;
+//	"This forest is warmer than other places"
+%text = "Hmm... maybe. Doesn't explain why my sweat stinks though.";
+new ScriptObject(L3A_SweatyDialogueMidAnswer2Part1)	{	class = Dialogue;	};
+L3A_SweatyDialogueMidAnswer2Part1.Setup(%text);
+L3A_SweatyDialogueMidAnswer2Part1.canEnd = false;
 
 //==	Middle - Part 2    ==//
-//	"Bacteria"
-%text = "Bacteria? Really? So if I remove it my armpits will be infected by bacteria?";
-new ScriptObject(L3A_UnderarmHairDialogueMidAnswer1Part2)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueMidAnswer1Part2.Setup(%text);
-L3A_UnderarmHairDialogueMidAnswer1Part2.canEnd = false;
+//	"Maybe its from being in this forest"
+%text = "You could be right. There are some weird smells here. Anything I could do to get rid of the smell?";
+new ScriptObject(L3A_SweatyDialogueMidAnswer1Part2)	{	class = Dialogue;	};
+L3A_SweatyDialogueMidAnswer1Part2.Setup(%text);
+L3A_SweatyDialogueMidAnswer1Part2.canEnd = false;
 
-//	"Dirt and sweat"
-%text = "Huh. So if I remove it my armpits will just get dirty and sweaty?";
-new ScriptObject(L3A_UnderarmHairDialogueMidAnswer2Part2)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueMidAnswer2Part2.Setup(%text);
-L3A_UnderarmHairDialogueMidAnswer2Part2.canEnd = false;
-
-//	"I don't know"
-%text = "Well... okay. But I don't want armpit hair. Will something bad happen if I remove it?";
-new ScriptObject(L3A_UnderarmHairDialogueMidAnswer3Part2)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueMidAnswer3Part2.Setup(%text);
-L3A_UnderarmHairDialogueMidAnswer3Part2.canEnd = false;
+//	"Your sweat has pheromones which attract others"
+%text = "Really! This smell is supposed to attract people. Anything I could do to get rid of the smell?";
+new ScriptObject(L3A_SweatyDialogueMidAnswer2Part2)	{	class = Dialogue;	};
+L3A_SweatyDialogueMidAnswer2Part2.Setup(%text);
+L3A_SweatyDialogueMidAnswer2Part2.canEnd = false;
 
 //==	End    ==//
-//	Helped
-%text = "Okay, thank you for explaining armpit hair to me";
-new ScriptObject(L3A_UnderarmHairDialogueEndHelped)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueEndHelped.Setup(%text);
+//	"Keep it. It might bring you luck"
+%text = "Hmm... never thought of it that way. I'll think about it, thank you.";
+new ScriptObject(L3A_SweatyDialogueEndHelped1)	{	class = Dialogue;	};
+L3A_SweatyDialogueEndHelped1.Setup(%text);
+
+//	"Use deodorant"
+//	"Just wash yourself"
+%text = "Hah, of course. Glad to know its easy to get rid of, thank you.";
+new ScriptObject(L3A_SweatyDialogueEndHelped2)	{	class = Dialogue;	};
+L3A_SweatyDialogueEndHelped2.Setup(%text);
+
+//	"Wear perfume"
+%text = "I don't want to start wearing perfume but thanks for the suggestion. I think I'll swim it off instead. Thanks for the help.";
+new ScriptObject(L3A_SweatyDialogueEndHelped3)	{	class = Dialogue;	};
+L3A_SweatyDialogueEndHelped3.Setup(%text);
 
 //	Not helped
-%text = "Crap! I don't know what to do about it. If you think of anything, please tell me.";
-new ScriptObject(L3A_UnderarmHairDialogueEndNotHelped)	{	class = Dialogue;	};
-L3A_UnderarmHairDialogueEndNotHelped.Setup(%text);
+%text = "Alright. I'll be resting here if anything comes to mind.";
+new ScriptObject(L3A_SweatyDialogueEndNotHelped)	{	class = Dialogue;	};
+L3A_SweatyDialogueEndNotHelped.Setup(%text);
 
 //======	Assemble Tree    ======//
 //==	Beginning    ==//
@@ -118,91 +117,88 @@ L3A_SweatyDialogueTree.rootDialogue[0] = L3A_SweatyDialogueInitGreeting;
 L3A_SweatyDialogueTree.rootDialogue[1] = L3A_SweatyDialogueRepeatGreeting;
 L3A_SweatyDialogueTree.rootDialogue[2] = L3A_SweatyDialogueHelpedGreeting;
 
+//	Link to Extended Greeting
+%text = "No, I'm travelling the Sexuality Road";
+L3A_SweatyDialogueInitGreeting.AddResponse(%text, L3A_SweatyDialogueInitGreeting2);
 //	Link to Explaination 1
-%text = "Under your arms?";
-L3A_UnderarmHairDialogueInitGreeting.AddResponse(%text, L3A_UnderarmHairDialogueInitExplain1);
+%text = "Why are you sweaty?";
+L3A_SweatyDialogueInitGreeting.AddResponse(%text, L3A_SweatyDialogueInitExplain1);
+L3A_SweatyDialogueInitGreeting2.AddResponse(%text, L3A_SweatyDialogueInitExplain1);
 //	Link to Explaination 2
-%text = "No I can't";
-L3A_UnderarmHairDialogueInitGreeting.AddResponse(%text, L3A_UnderarmHairDialogueInitExplain2);
+%text = "Poo! You stink!";
+L3A_SweatyDialogueInitGreeting.AddResponse(%text, L3A_SweatyDialogueInitExplain2);
+L3A_SweatyDialogueInitGreeting2.AddResponse(%text, L3A_SweatyDialogueInitExplain2);
 
-//	Initial Explaination 1 Responses
-//	Link to Distracted
-%text = "Can you lower your arms, its distracting me.";
-L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueDistracted);
-L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueDistracted);
-L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueDistracted);
+//	Link to Continued Explaination
+%text = "[Continue]";
+L3A_SweatyDialogueInitExplain1.AddResponse(%text, L3A_SweatyDialogueInitExplainContinue);
+L3A_SweatyDialogueInitExplain2.AddResponse(%text, L3A_SweatyDialogueInitExplainContinue);
+
+//	Link to Continued Explaination 2
+%text = "Other than from exercising?";
+L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueInitExplainContinue2);
+L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueInitExplainContinue2);
 
 //==	Middle - Part 1    ==//
-//	Link to "Because of hormones"
-%text = "Because of hormones";
-L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part1);
-L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part1);
-L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part1);
-L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part1);
+//	Link to "You might have a fever"
+%text = "You might have a fever";
+L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueMidAnswer0);
+L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueMidAnswer0);
+L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueMidAnswer0);
 
-//	Link to "For warmth and protection"
-%text = "For warmth and protection";
-L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
-L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
-L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
-L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
-L3A_UnderarmHairDialogueMidAnswer1Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
+//	Link to "Your sweat glands have become more active"
+%text = "Your sweat glands have become more active";
+L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part1);
+L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part1);
+L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part1);
+L3A_SweatyDialogueMidAnswer0.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part1);
 
-//	Link to "To get in the way of deodorant"
-%text = "To get in the way of deodorant";
-L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
-L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
-L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
-L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
-L3A_UnderarmHairDialogueMidAnswer1Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
-
-//	Link to "To catch sweat"
-%text = "To catch sweat";
-L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer4);
-L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer4);
-L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer4);
-L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer4);
-L3A_UnderarmHairDialogueMidAnswer1Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer4);
+//	Link to "This forest is warmer than other places"
+%text = "This forest is warmer than other places";
+L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part1);
+L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part1);
+L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part1);
+L3A_SweatyDialogueMidAnswer0.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part1);
 
 //==	Middle - Part 2    ==//
-//	Link to "Bacteria"
-%text = "Bacteria";
-L3A_UnderarmHairDialogueMidAnswer2Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part2);
+//	Link to "Maybe its from being in this forest"
+%text = "Maybe its from being in this forest";
+L3A_SweatyDialogueMidAnswer1Part1.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part2);
+L3A_SweatyDialogueMidAnswer2Part1.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part2);
 
-//	Link to "Dirt and sweat"
-%text = "Dirt and sweat";
-L3A_UnderarmHairDialogueMidAnswer2Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part2);
-
-//	Link to "I don't know"
-%text = "I don't know";
-L3A_UnderarmHairDialogueMidAnswer1Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3Part2);
-L3A_UnderarmHairDialogueMidAnswer2Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3Part2);
+//	Link to "Your sweat has pheromones which attract others"
+%text = "Your sweat has pheromones which attract others";
+L3A_SweatyDialogueMidAnswer1Part1.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part2);
+L3A_SweatyDialogueMidAnswer2Part1.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part2);
 
 //==	End    ==//
-//	Link to Helped
-%text = "No but its your choice what you do with it";
-L3A_UnderarmHairDialogueMidAnswer3.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-L3A_UnderarmHairDialogueMidAnswer4.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-L3A_UnderarmHairDialogueMidAnswer1Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-L3A_UnderarmHairDialogueMidAnswer2Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-L3A_UnderarmHairDialogueMidAnswer3Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-%text = "Nothing bad will happen. You'll just feel a bit colder";
-L3A_UnderarmHairDialogueMidAnswer3.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-L3A_UnderarmHairDialogueMidAnswer4.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-L3A_UnderarmHairDialogueMidAnswer1Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-L3A_UnderarmHairDialogueMidAnswer2Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-L3A_UnderarmHairDialogueMidAnswer3Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
+//	Link to Helped 1
+%text = "Keep it. It might bring you luck.";
+L3A_SweatyDialogueMidAnswer1Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped1);
+L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped1);
+
+//	Link to Helped 2
+%text = "Use deodorant";
+L3A_SweatyDialogueMidAnswer1Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped2);
+L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped2);
+%text = "Just wash yourself";
+L3A_SweatyDialogueMidAnswer1Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped2);
+L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped2);
+
+//	Link to Helped 3
+%text = "Wear perfume";
+L3A_SweatyDialogueMidAnswer1Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped3);
+L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped3);
 
 //	Link to Not Helped
-%text = "I don't know";
-L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueEndNotHelped);
-L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueEndNotHelped);
-%text = "No";
-L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueEndNotHelped);
-L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueEndNotHelped);
+%text = "I've got no idea";
+L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
+L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
+%text = "Nope";
+L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
 
 //======	Callbacks    ======//
-function L3A_UnderarmHairDialogueTree::onOpen(%this)
+function L3A_SweatyDialogueTree::onOpen(%this)
 {
 	if (%this.owner.helped)
 		%this.selectedRootDialogue = 2;
@@ -211,9 +207,11 @@ function L3A_UnderarmHairDialogueTree::onOpen(%this)
 	
 	return true;
 }
-function L3A_UnderarmHairDialogueTree::onClose(%this)
+function L3A_SweatyDialogueTree::onClose(%this)
 {
-	if (%this.currentDialogue $= L3A_UnderarmHairDialogueEndHelped)
+	if (%this.currentDialogue $= L3A_SweatyDialogueEndHelped1 ||
+		%this.currentDialogue $= L3A_SweatyDialogueEndHelped2 ||
+		%this.currentDialogue $= L3A_SweatyDialogueEndHelped3)
 	{
 		%this.owner.helped = true;
 		Lesson3A.helped++;
@@ -222,7 +220,7 @@ function L3A_UnderarmHairDialogueTree::onClose(%this)
 
 	return true;
 }
-function L3A_UnderarmHairDialogueTree::onNext(%this)
+function L3A_SweatyDialogueTree::onNext(%this)
 {
 	return true;
 }

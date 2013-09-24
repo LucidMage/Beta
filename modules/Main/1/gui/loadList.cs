@@ -7,3 +7,4 @@ exec("./guiControls.cs");
 TamlRead("./Profile.gui.taml");
 TamlRead("./InGame.gui.taml");
 TamlRead("./InGameMenu.gui.taml");
+TamlRead("./Inventory.gui.taml");

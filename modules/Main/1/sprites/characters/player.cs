@@ -1,43 +1,84 @@
 function SetupPlayer(%scene, %position, %layer)
 {
-   /*
-   %player = new CompositeSprite(Player)
-   {
-      displayName = "Test Player";
-      class = "Character";
-      imageName = "Assets:TD_Wizard_";  // temporary
-      
-      Position = %position;
-      SceneLayer = %layer;
-      // Graphics are defined by the sprites added below
-      //Animation = "Assets:TD_Wizard_WalkSouth";
-      //Image = "Assets:TD_Wizard_CompSprite";
-   };
-   
-   // Must be different than other characters to stop the player from pushing other characters
-   %player.setDefaultDensity(0);
-   */
-   
-   %player = Profile.character;
-   %player.Setup();
-   %player.setDefaultDensity(100);	//	So player cannot push characters
-   
-   %player.setPosition(%position);
-   %player.setSceneLayer(%layer);
+	error("Setup Player");
+	
+	/*
+	%player = new CompositeSprite(Player)
+	{
+		displayName = "Test Player";
+		class = "Character";
+		imageName = "Assets:TD_Wizard_";  // temporary
 
-   // Set Behaviours
-   %player.setGeneralBehaviours();
-   /*%controls = PlayerControlsBehaviour.createInstance();
-   %player.addBehavior(%controls);
-   
-   %controls = InteractBehaviour.createInstance();
-   %player.addBehavior(%controls);*/
-   
-   // Inventory
-   //%inventory = new ScriptObject(Inventory);
+		Position = %position;
+		SceneLayer = %layer;
+		// Graphics are defined by the sprites added below
+		//Animation = "Assets:TD_Wizard_WalkSouth";
+		//Image = "Assets:TD_Wizard_CompSprite";
+	};
 
-   // Add to Scene
-   %scene.add(%player);
+	// Must be different than other characters to stop the player from pushing other characters
+	%player.setDefaultDensity(0);
+	*/
+
+	%player = Profile.character;
+	%player.Setup();
+	%player.setDefaultDensity(100);	//	So player cannot push characters
+
+	%player.setPosition(%position);
+	%player.setSceneLayer(%layer);
+
+	// Set Behaviours
+	%player.setGeneralBehaviours();
+	/*%controls = PlayerControlsBehaviour.createInstance();
+	%player.addBehavior(%controls);
+
+	%controls = InteractBehaviour.createInstance();
+	%player.addBehavior(%controls);*/
+
+	// Inventory
+	//%inventory = new ScriptObject(Inventory);
+
+	// Add to Scene
+	%scene.add(%player);
+	error("End of Setup Player");
+}
+
+//	Character shown during customization
+function SetupPlayerPreview()
+{
+	if (!isObject(PlayerPreview))
+	{
+		new CompositeSprite(PlayerPreview)
+		{
+			class = Character;
+			
+			direction = $SpriteDirectionDown;
+			state = $SpriteStateIdle;
+		};
+	}
+	PlayerPreview.gender = Profile.gender;
+	PlayerPreview.ethnicity = Profile.ethnicity;
+
+	PlayerPreview.torso = Profile.torso;
+	PlayerPreview.legs = Profile.legs;
+	
+	%size = 5;
+	
+	PlayerPreview.setBodyType(static);
+	
+	PlayerPreview.addSprite();
+	PlayerPreview.setSpriteName("legs");
+	PlayerPreview.setSpriteSize(%size);
+	
+	PlayerPreview.addSprite();
+	PlayerPreview.setSpriteName("torso");
+	PlayerPreview.setSpriteSize(%size);
+	
+	PlayerPreview.addSprite();
+	PlayerPreview.setSpriteName("head");
+	PlayerPreview.setSpriteSize(%size);
+	
+	PlayerPreview.UpdateImages();
 }
 
 function Player::setGeneralBehaviours(%this)

@@ -33,45 +33,45 @@ function UpdateHelpBar(%activity, %text)
 
 function LoadYearGroup( %moduleDefinition )
 {
-   // Sanity!
-   if ( !isObject( %moduleDefinition ) )
-   {
-      error( "Cannot load year group as the specified year group is not available." );
-      return;
-   }
-   
-   // Unload the current year group
-   UnloadYearGroup();
-   
-   // Create a scene.
-   //CreateScene();
-   
-   // Now is a good time to purge any idle assets.
-   AssetDatabase.purgeAssets();
-   
-   // Set current year group
-   Main.ActiveYear = %moduleDefinition;
-   
-   // Load year group
-   if ( !ModuleDatabase.loadExplicit( %moduleDefinition.ModuleId, %moduleDefinition.VersionId ) )
-   {
-      error( "Failed to load year group '" @ %moduleDefinition.ModuleId @ "'." );
-      return;
-   }
-   
-   // Add the scene so it's unloaded when the activty is.
-   %moduleDefinition.ScopeSet.add(GameWindow.getScene());
-   
-   // Add activity scope-set as a listener.
-   GameWindow.addInputListener( %moduleDefinition.ScopeSet );
-   
+	// Sanity!
+	if ( !isObject( %moduleDefinition ) )
+	{
+		error( "Cannot load year group as the specified year group is not available." );
+		return;
+	}
+
+	// Unload the current year group
+	UnloadYearGroup();
+
+	// Create a scene.
+	//CreateScene();
+
+	// Now is a good time to purge any idle assets.
+	AssetDatabase.purgeAssets();
+
+	// Set current year group
+	Main.ActiveYear = %moduleDefinition;
+
+	// Load year group
+	if ( !ModuleDatabase.loadExplicit( %moduleDefinition.ModuleId, %moduleDefinition.VersionId ) )
+	{
+		error( "Failed to load year group '" @ %moduleDefinition.ModuleId @ "'." );
+		return;
+	}
+
+	// Add the scene so it's unloaded when the activity is.
+	%moduleDefinition.ScopeSet.add(GameWindow.getScene());
+
+	// Add activity scope-set as a listener.
+	GameWindow.addInputListener( %moduleDefinition.ScopeSet );
+
 	//	Default Activity Settings
 	CentreWindowOnSprite(Player);
 
-   //  Debug
-   //  Enable visualization for "collision", "position", and "aabb"
-   %scene = GameWindow.getScene();
-   %scene.setDebugOn("collision");//, "position", "aabb");
+	//  Debug
+	//  Enable visualization for "collision", "position", and "aabb"
+	%scene = GameWindow.getScene();
+	%scene.setDebugOn("collision");//, "position", "aabb");
 }
 
 function UnloadYearGroup()
@@ -97,34 +97,35 @@ function UnloadYearGroup()
 
 function ScanForYearGroups()
 {
-   %toLoad = 0;  // temp
-   
-   // Find modules
-   %activityModules = ModuleDatabase.findModuleTypes( $ModuleTypeActivity, false );
-   
-   // Check for an existing set of yeargroups
-   if ( !isObject(YearGroups) )
-   {
-      new SimSet(YearGroups);
-   }
-   
-   YearGroups.clear();
-   
-   // Get module count
-   %moduleCount = getWordCount( %activityModules );
-   
-   // Add modules
-   for ( %i = 0; %i < %moduleCount; %i++ )
-   {
-      // Get module definition
-      %moduleDefinition = getWord( %activityModules, %i );
-      
-      if (%toLoad == 0)
-         %toLoad = %moduleDefinition;
-      
-      // Add to yeargroup set
-      YearGroups.add( %moduleDefinition );
-   }
-   
-   LoadYearGroup(%toLoad);
+	%toLoad = 0;  // temp
+
+	// Find modules
+	%activityModules = ModuleDatabase.findModuleTypes( $ModuleTypeActivity, false );
+
+	// Check for an existing set of yeargroups
+	if ( !isObject(YearGroups) )
+	{
+		new SimSet(YearGroups);
+	}
+
+	YearGroups.clear();
+
+	// Get module count
+	%moduleCount = getWordCount( %activityModules );
+
+	// Add modules
+	for ( %i = 0; %i < %moduleCount; %i++ )
+	{
+		// Get module definition
+		%moduleDefinition = getWord( %activityModules, %i );
+
+		if (%toLoad == 0)
+			%toLoad = %moduleDefinition;
+
+		// Add to yeargroup set
+		YearGroups.add( %moduleDefinition );
+	}
+
+	Main.YearGroup = %toLoad;
+	//LoadYearGroup(%toLoad);
 }

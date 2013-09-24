@@ -1,7 +1,20 @@
-function Item::setup(%this)
+function Item::Setup(%this)
 {
-   %this.setBodyType(static);
-   %this.createPolygonBoxCollisionShape(0.5, 0.5);
+	error("Item setup");
+		
+	%this.setBodyType(static);
+	%this.createPolygonBoxCollisionShape(%this.collisionSize);
+	
+	//	Setup Image to appear behind Character torso
+	%this.addSprite();
+	
+	if (%this.animationName !$= "")
+		%this.setSpriteAnimation(%this.animationName);
+	else if (%this.imageName !$= "")
+		%this.setSpriteImage(%this.imageName);
+		
+	%this.setSpriteLocalPosition(%this.imagePos);
+	%this.setSpriteSize(%this.imageSize);
 }
 
 function Item::Use(%this, %user)

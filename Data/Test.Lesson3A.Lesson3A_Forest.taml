@@ -16599,7 +16599,7 @@
         CollisionCallback="1"
         collisionSize="0.6 0.8"
         damping="20"
-        DialogueTree="2274"
+        DialogueTree="2276"
         direction="North"
         displayName="Test"
         Ethnicity="Maori"

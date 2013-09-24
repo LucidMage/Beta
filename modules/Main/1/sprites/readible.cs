@@ -1,19 +1,29 @@
-function Readable::setup(%this, %image)
+function Readable::Setup(%this)
 {
 	error("Readable setup");
 	%this.setBodyType(static);
-	%this.createPolygonBoxCollisionShape(%this.getSize());
+	%this.createPolygonBoxCollisionShape(%this.collisionSize);
 	
 	//	Dialogue Tree
-	%this.dialogueTree = new ScriptObject()
+	if (%this.dialogueTree == 0)
 	{
-		class = DialogueTree;
-	};
-	%this.dialogueTree.Setup(%this);
+		%this.dialogueTree = new ScriptObject()
+		{
+			class = DialogueTree;
+		};
+		%this.dialogueTree.Setup(%this);
+	}
 	
+	//	Setup Image to appear behind Character torso
 	%this.addSprite();
-	%this.setSpriteSize(2);
-	%this.setSpriteImage(%image);
+	
+	if (%this.animationName !$= "")
+		%this.setSpriteAnimation(%this.animationName);
+	else if (%this.imageName !$= "")
+		%this.setSpriteImage(%this.imageName);
+		
+	%this.setSpriteLocalPosition(%this.imagePos);
+	%this.setSpriteSize(%this.imageSize);
 }
 
 function Readable::Use(%this, %user)

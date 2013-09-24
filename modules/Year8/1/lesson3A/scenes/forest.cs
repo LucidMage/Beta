@@ -88,11 +88,11 @@ function Lesson3A_Forest::SetupCharacters(%this)
 	//  Broad Shouldered Person
 	new CompositeSprite(L3A_BroadShoulderPerson)
 	{
-		displayName = "Broad Shouldered Boy";
+		displayName = "Broad shouldered boy";
 		class = "Character";
 		gender = $SpriteGenderMale;
 		ethnicity = $SpriteEthnicityMaori;
-		torso = "";
+		torso = $SpriteTorsoHoodie;
 		legs = $SpriteLegsDress;
 
 		Position = L3A_BroadShoulderPersonPos.getPosition();
@@ -106,7 +106,7 @@ function Lesson3A_Forest::SetupCharacters(%this)
 	//  Pubic Hair Person
 	new CompositeSprite(L3A_PubicHairPerson)
 	{
-		displayName = "Girl with Raised Arms";
+		displayName = "Girl looking down";
 		class = "Character";
 		gender = $SpriteGenderFemale;
 		ethnicity = $SpriteEthnicityMaori;
@@ -147,15 +147,19 @@ function Lesson3A_Forest::SetupObstacles(%this)
 	new CompositeSprite(L3A_StoneSign)
 	{
 		displayName = "Stone Sign";
-		//Image = "Assets:StoneSign";
 		class = "Readable";
-		Size = "1.5, 1.5";
+		
+		collisionSize = "1.25, 1";
+		imageName = "Assets:StoneSign";
+		imagePos = "0, 0.2";
+		imageSize = "2, 2";
+		
+		dialogueTree = L3A_StoneSignDialogueTree;
 
 		Position = StoneSignPos.getPosition();
 		SceneLayer = StoneSignPos.getSceneLayer();
 	};
-	L3A_StoneSign.Setup("Assets:StoneSign");
-	L3A_StoneSign.dialogueTree = L3A_StoneSignDialogueTree;
+	L3A_StoneSign.Setup();
 	
 	// Add to Scene
 	%this.add(L3A_StoneSign);

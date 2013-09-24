@@ -31,18 +31,19 @@ function Main::create( %this )
 	LoadYearGroup(%year);*/
 	
 	OpenProfileGUI();
-   
-   // Initialize the "cannot render" proxy.
-   new RenderProxy(CannotRenderProxy)
-   {
-      Image = "Assets:CannotRender";
-   };
-   Main.add( CannotRenderProxy );
+
+	// Initialize the "cannot render" proxy.
+	new RenderProxy(CannotRenderProxy)
+	{
+		Image = "Assets:CannotRender";
+	};
+	Main.add( CannotRenderProxy );
 }
 
 //  Code called when program ends
 function Main::destroy( %this )
 {
+	UnloadYearGroup();
     destroySceneWindow();
 }
 

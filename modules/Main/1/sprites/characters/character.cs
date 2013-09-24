@@ -2,7 +2,7 @@
 // Anything here will overwrite previously defined fields
 function Character::onAdd(%this)
 {
-	%this.Setup();
+	//%this.Setup();
 }
 
 function SetupCharacter(%character)

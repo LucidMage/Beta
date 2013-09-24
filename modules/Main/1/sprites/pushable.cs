@@ -1,18 +1,28 @@
-function Pushable::onAdd(%this)
+function Pushable::Setup(%this)
 {
-   %this.SceneLayer = 14;
-   %this.Size = 1;
+	error("Pushable setup");
+	%this.setBodyType(dynamic);
+	%this.setAngle(%this.angle);
    
-   %this.setBodyType(dynamic);
-   
-   // This effects how characters collide
-   %this.setDefaultDensity(350);   // Made ridiculously high so characters will not budge
-   %this.setDefaultRestitution(0.1);	//	Bounciness
-   %this.setDefaultFriction(0);
-   %this.setLinearDamping(2);	//	How quickly it slows down
-   
-   %this.createPolygonBoxCollisionShape(1, 1);
-   
-   %this.setCollisionCallback(true);
-   %this.setFixedAngle(true);
+	// This effects how characters collide
+	%this.setDefaultDensity(%this.density);
+	%this.setDefaultRestitution(0.1);	//	Bounciness
+	%this.setDefaultFriction(0);
+	%this.setLinearDamping(2);	//	How quickly it slows down
+	
+	%this.createPolygonBoxCollisionShape(%this.collisionSize);
+	
+	%this.setCollisionCallback(true);
+	%this.setFixedAngle(true);
+	
+	//	Setup Image to appear behind Character torso
+	%this.addSprite();
+	
+	if (%this.animationName !$= "")
+		%this.setSpriteAnimation(%this.animationName);
+	else if (%this.imageName !$= "")
+		%this.setSpriteImage(%this.imageName);
+		
+	%this.setSpriteLocalPosition(%this.imagePos);
+	%this.setSpriteSize(%this.imageSize);
 }
