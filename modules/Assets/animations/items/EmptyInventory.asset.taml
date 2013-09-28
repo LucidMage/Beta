@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="EmptyInventory"
+    Image="@asset=Assets:Blank"
+    animationFrames="0"
+    animationTime="1"
+    animationCycle="true"
+     />

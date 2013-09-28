@@ -1,0 +1,190 @@
+<!-- Select Activity Pop-up GUI -->
+<GuiControl
+    Name="SelectActivityGUI"
+    Profile="GuiDefaultProfile"
+    HorizSizing="relative"
+    VertSizing="relative"
+    Position="0 0"
+    Extent="800 600"
+    MinExtent="320 240"
+    Visible="1">
+	
+	<!-- Selection Box -->
+	<GuiSpriteCtrl
+		Name="SelectActivityContainer"
+		Profile="GuiSolidProfile"
+		HorizSizing="relative"
+		VertSizing="relative"
+		Position="100 100"
+		Extent="600 400"
+		MinExtent="320 240"
+		Visible="1"
+		Image="@asset=Assets:PurpleGradient">
+
+		<!-- Header -->
+		<GuiTextCtrl
+			Name="SelectActivityLabel"
+			canSaveDynamicFields="0"
+			isContainer="0"
+			Profile="GuiHeaderProfile"
+			HorizSizing="center"
+			VertSizing="bottom"
+			Position="0 0"
+			Extent="600 60"
+			MinExtent="80 15"
+			canSave="1"
+			Visible="1"
+			Active="1"
+			hovertime="1000"
+			toolTipProfile="GuiToolTipProfile"
+			toolTip="Choose an activity to play"
+			text="Select an activity:"
+			maxLength="255"
+			truncate="0" />
+		
+		<!-- Controls Container -->
+		<GuiControl
+			Name="SelectActivityControlsContainer"
+			Profile="GuiDefaultProfile"
+			HorizSizing="relative"
+			VertSizing="relative"
+			Position="20 60"
+			Extent="380 325"
+			MinExtent="200 200"
+			Visible="1">
+			<!-- Controls Label -->
+			<GuiTextCtrl
+				Name="SelectActivityControlsLabel"
+				canSaveDynamicFields="0"
+				isContainer="0"
+				Profile="DialogueLabelProfile"
+				HorizSizing="width"
+				VertSizing="relative"
+				Position="0 0"
+				Extent="400 30"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="0"
+				text="Controls:"
+				maxLength="255"
+				truncate="0" />
+			
+			<!-- Movement -->
+			<GuiMLTextCtrl
+				Name="SelectActivityControlsMovement"
+				canSaveDynamicFields="0"
+				isContainer="0"
+				Profile="DialogueTextProfile"
+				HorizSizing="width"
+				VertSizing="relative"
+				Position="20 45"
+				Extent="380 30"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="0"
+				text="Movement = Arrow Keys"
+				maxLength="255"
+				truncate="0" />
+			
+			<!-- Use -->
+			<GuiMLTextCtrl
+				Name="SelectActivityControlsUse"
+				canSaveDynamicFields="0"
+				isContainer="0"
+				Profile="DialogueTextProfile"
+				HorizSizing="width"
+				VertSizing="relative"
+				Position="20 75"
+				Extent="380 30"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="0"
+				text="Use objects/Talk to people = Spacebar"
+				maxLength="255"
+				truncate="0" />
+		</GuiControl>
+		
+		<!-- Button Container -->
+		<GuiControl
+			Name="SelectActivityButtonsContainer"
+			Profile="GuiDefaultProfile"
+			HorizSizing="relative"
+			VertSizing="relative"
+			Position="420 60"
+			Extent="200 325"
+			MinExtent="200 200"
+			Visible="1">
+			<!-- Divisions -->
+			<GuiButtonCtrl
+				Name="SelectActivityDivisionsButton"
+				Profile="WhiteButtonProfile"
+				Text="Divisions"
+				ButtonType="PushButton"
+				command="SelectActivity(Lesson2);"
+				canSaveDynamicFields="0"
+				isContainer="0"
+				HorizSizing="relative"
+				VertSizing="relative"
+				Position="0 0"
+				Extent="160 60"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="1"
+				hovertime="1000"
+				toolTipProfile="GuiToolTipProfile"
+				toolTip="The road is blocked by gates..."
+				groupNum="-1"
+				useMouseEvents="1" />
+			
+			<!-- Mix 'n Match -->
+			<GuiButtonCtrl
+				Name="SelectActivityMixNMatchButton"
+				Profile="WhiteButtonProfile"
+				Text="Mix 'n Match"
+				ButtonType="PushButton"
+				command="SelectActivity(Lesson3A);"
+				canSaveDynamicFields="0"
+				isContainer="0"
+				HorizSizing="relative"
+				VertSizing="relative"
+				Position="0 75"
+				Extent="160 60"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="1"
+				hovertime="1000"
+				toolTipProfile="GuiToolTipProfile"
+				toolTip="You are trapped in a forest..."
+				groupNum="-1"
+				useMouseEvents="1" />
+			
+			<!-- Quit -->
+			<GuiButtonCtrl
+				Name="SelectActivityQuitButton"
+				Profile="PurpleButtonProfile"
+				Text="Quit"
+				ButtonType="PushButton"
+				command="quit();"
+				canSaveDynamicFields="0"
+				isContainer="0"
+				HorizSizing="relative"
+				VertSizing="relative"
+				Position="0 265"
+				Extent="160 60"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="1"
+				hovertime="1000"
+				toolTipProfile="GuiToolTipProfile"
+				toolTip="Exit the game"
+				groupNum="-1"
+				useMouseEvents="1" />
+		</GuiControl>
+	</GuiSpriteCtrl>
+</GuiControl>

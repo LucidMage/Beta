@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="AccessoryCapWest"
+    Image="@asset=Assets:Torso"
+    animationFrames="26"
+    animationTime="1"
+    animationCycle="1"
+     />
