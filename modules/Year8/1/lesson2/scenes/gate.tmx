@@ -1026,7 +1026,7 @@
  </layer>
  <layer name="Sprite" width="30" height="32">
   <data encoding="base64" compression="zlib">
-   eJztklkOgCAMRIn3v4X7jvtyOv0kRDAxtVTs+yzJzHSKEAzD/IEsuJ7nhvkbxDdeI3CWRNNLEXYdLB6r4W0CyhWdOiXSPQsknwrxf+pIh94qLZEcNmYHGbcP9EKRXumtI9ThDpilfqi1EOoDmhBht8bj/hi/OABaihCN
+   eJztk0kKgDAMRYv3v4XzXOfhdLoUsVGkjQnmLVPIf/2lSgmC8AcS73qeGuYuCG+yessu0WlfjHDXDsiYDWeDJa9g35MjvWeGlFM8yPEduWjEvwFRE/GAGD9wXBj0QpH20FtDqMPVokv5ctdEqA+OVNKfwIQNrX8QjQ==
   </data>
  </layer>
  <layer name="WallTop" width="30" height="32">
@@ -1034,24 +1034,24 @@
    eJxjYMAN9BnxSOIAemToGSz2TgeaoUSiOdSwFwRI9fNQtxcU1vJEhLciVN00KtkLA4T8jexPXyS2D4Xu2APE2/DgnWj2YXMPPoBNLzrYCVSzC4h3E2kmMX4mFJ5z0OTnEmEmqWltA5TeiMQmB5Bq71oovRWIt5OgD92N5NqLDywE4kVQvAIqtosO9q4mIK9IRp6G2Yvsp8VoatYRMIOS8gvZ7M0k6qVWuUkqoJW9G+lkL3oeIZSuqGUvehqnZbpCBqSmq1EwCkbB4AFLGRB1E3KdOwoGJwAAbyQpfg==
   </data>
  </layer>
- <layer name="TreeMiddle" width="30" height="32">
+ <layer name="TreeMiddle" width="30" height="32" visible="0">
   <data encoding="base64" compression="zlib">
    eJztVlsOwyAMYxxoO8gebXf/w4wfS5GLSVCh+6klVAnaJI6T0JR8PHNKr7K2sr458MEAvIufT1lLWavwiXdm+a7xRTyzfLf4ts5mAzVw4Rget/b53Tm/sMeZcwlAP8yaA4CdgWfOYfCKzGHPRg/gY/Ss8+y98pjZ3qsNazpqznp2VuPzCO9evuxzVC1H9OVa7sl1zX4kX/wvwc8IbJzRvFl+iIH5RvXm2mzlDWdenMoGx8RziLnguQbi82qEzxVvu6/0jfpWmth9mxPYtz3k3UVerlkrxXfL+/5VvYT3lJ7Kjrp3ajXAPtgmgzXivHEeFrFn4/R6jL9T/cF5sPExT5UzpbvqmVpsNc1rsXh9rfpW2f0XfuC3aM8=
   </data>
  </layer>
- <layer name="TreeTop" width="30" height="32">
+ <layer name="TreeTop" width="30" height="32" visible="0">
   <data encoding="base64" compression="zlib">
    eJztVkEOwyAMQ3xr3dru/48aF0uRh5OgwXZYLaFK0CZxEoeW4uNeS3m0tbd1VP+d2YDds60n2Uc8q3x7fL2z1bg1v9uPfF+44KGn09WAHlbNAcDOQPj8Bl/wyszhyMYI4GP2rIvsbXXObB+tDdd01pyN7BzG5ye8R/myz1m9nKkv9/JIrnv2M/nifwl+ZmDjzObN8kMMzDdbb+5NL284i+JUNjgmnkPMBc8jEV/UI3yueNt9718x41vVxO7bnMCP1VB0F0W55lopvmd916/SEt5T9VR21L3T6wH2wTYZrD3OG+dhF3s2zkhj/J3SB+fBxsc8Vc5U3ZVmerH1at6LJdK10q2y+294Ae17Uic=
   </data>
  </layer>
  <objectgroup name="collision" width="30" height="32">
-  <object x="0" y="768" width="336" height="1279"/>
-  <object x="640" y="1792" width="448" height="256"/>
-  <object x="320" y="1856" width="320" height="192"/>
-  <object x="320" y="1728" width="128" height="128"/>
-  <object x="1088" y="1728" width="832" height="320"/>
-  <object x="1408" y="1216" width="512" height="512"/>
-  <object x="1344" y="1600" width="64" height="128"/>
-  <object x="2880" y="768"/>
+  <object x="0" y="832" width="337" height="1213"/>
+  <object x="320" y="1792" width="768" height="256"/>
+  <object x="1408" y="1280" width="512" height="768"/>
+  <object x="1088" y="1728" width="320" height="320"/>
+ </objectgroup>
+ <objectgroup name="trigger" width="30" height="32">
+  <object name="L2_Exit" x="512" y="0" width="768" height="320"/>
+  <object name="L2_ExitWarn" x="576" y="320" width="704" height="192"/>
  </objectgroup>
 </map>

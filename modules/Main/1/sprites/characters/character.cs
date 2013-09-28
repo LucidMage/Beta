@@ -1,8 +1,6 @@
-// The closest thing I can find to a class constructor.
-// Anything here will overwrite previously defined fields
-function Character::onAdd(%this)
+function Character::onRemoveFromScene(%this)
 {
-	//%this.Setup();
+	%this.interactionZone.delete();
 }
 
 function SetupCharacter(%character)
@@ -31,40 +29,18 @@ function SetupCharacter(%character)
 	%character.setFixedAngle(true); // Stop from rotating on collision
 	
 	//	Dialogue Tree
-	%character.dialogueTree = new ScriptObject()
+	/*%character.dialogueTree = new ScriptObject()
 	{
 		class = DialogueTree;
-	};
+	};*/
 	%character.dialogueTree.Setup(%character);
 }
 
-function Character::Setup(%this)
+function Character::Setup(%this, %scene)
 {
 	echo("Character Setup");
 	SetupCharacter(%this);
-/*
-	%this.damping = 20;
-	%this.direction = $SpriteDirectionDown;   // The direction they are facing. Used for determining image
-	%this.speed = 4;
-	%this.state = $SpriteStateIdle;	// What the sprite is doing. Used for determining image
-	%this.positionAdjust = "0 -0.5";
-	%this.useRange = 1.5;	// How close does something have to be for the character to use it
-
-	%this.setBodyType(dynamic);
-
-	// This effects how characters collide
-	%this.setDefaultDensity(1000000);   // Made ridiculously high so characters will not budge
-	%this.setDefaultRestitution(0);	//	Bounciness
-	%this.setDefaultFriction(0);
-	%this.setLinearDamping(%this.damping);	//	How quickly it slows down
-
-	// Collision Circle, if size not set = size of image
-	// (radius, [relative xPos, relative yPos])
-	%this.createPolygonBoxCollisionShape(1, 1, %this.positionAdjust.x, %this.positionAdjust.y);
-
-	%this.setCollisionCallback(true);   // So onCollision will be called
-	%this.setFixedAngle(true); // Stop from rotating on collision
-*/
+	
 	// Sprites, or graphics, the character is composed of
 	%this.addSprite();
 	%this.setSpriteName("legs");
@@ -78,20 +54,43 @@ function Character::Setup(%this)
 	%this.setSpriteName("head");
 	%this.setSpriteSize(2);
 	
+	%this.addSprite();
+	%this.setSpriteName("accessory");
+	%this.setSpriteSize(2);
+	
 	%this.UpdateImages();
-	/*
-	//	Dialogue Tree
-	%this.dialogueTree = new ScriptObject()
-	{
-		class = DialogueTree;
-	};
-	%this.dialogueTree.setup(%this);*/
+	
+	%scene.add(%this);
+	addInteractionZone(%this, %scene);
 	echo("End of Character Setup");
 }
 
 // Change the images to match the current state
 function Character::UpdateImages(%this)
 {
+	echo("Gender:" SPC %this.gender);
+	echo("Ethnicity:" SPC %this.ethnicity);
+	echo("State:" SPC %state);
+	echo("Hair Colour:" SPC %this.hairColour);
+	echo("Hair Style:" SPC %this.hairStyle);
+	echo("Torso:" SPC %this.torso);
+	echo("Legs:" SPC %this.legs);
+	echo("Accessory:" SPC %this.accessory);
+	
+	//	Accessory
+	%this.selectSpriteName("accessory");
+		
+	%animation = %this.getSpriteName() @ %this.accessory @ %this.direction;
+	%this.setSpriteAnimation("Assets:" @ %animation);
+	echo(%animation);
+	
+	//	Hair
+	%this.selectSpriteName("hair");
+		
+	%animation = %this.getSpriteName() @ %this.hairColour @ %this.hairStyle @ %this.direction;
+	%this.setSpriteAnimation("Assets:" @ %animation);
+	echo(%animation);
+	
 	//	Head
 	%this.selectSpriteName("head");
 
@@ -104,14 +103,7 @@ function Character::UpdateImages(%this)
 	{
 		%state = %this.state;
 	}
-	/*
-	echo("Gender:" SPC %this.gender);
-	echo("Ethnicity:" SPC %this.ethnicity);
-	echo("State:" SPC %state);
-	echo("Torso:" SPC %this.torso);
-	echo("Legs:" SPC %this.legs);*/
 	%animation = %this.getSpriteName() @ %this.gender @ %this.ethnicity @ %state @ %this.direction;
-	echo(%animation);
 	%this.setSpriteAnimation("Assets:" @ %animation);
 	
 	//	Torso

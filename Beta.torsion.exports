@@ -11472,6 +11472,17 @@ This will close any open connection, but not destroy this object. Thus, the obje
 @return Returns the numer of tile layers in the map.</desc>
 </method>
 <method>
+<name>getLayerOverrideCount</name>
+<desc>Gets the number of layer override entries.
+@return Returns the number of layer override entries.</desc>
+</method>
+<method>
+<name>getLayerOverrideName</name>
+<args>index</args>
+<desc>Gets the TMX layer name at (index).
+@return Returns the TMX layer name at the specified index.</desc>
+</method>
+<method>
 <name>getMapFile</name>
 <desc>Gets the map file.
 @return Returns the tmx map file.</desc>
@@ -11482,10 +11493,21 @@ This will close any open connection, but not destroy this object. Thus, the obje
 @return Returns the tmx map orientation layout.</desc>
 </method>
 <method>
+<name>getSceneLayer</name>
+<args>TMX_layer_name</args>
+<desc>Gets the overridden scene render layer for (TMX_layer_name).
+@return Returns  the overridden scene render layer defined for the given layer name.</desc>
+</method>
+<method>
 <name>setMapFile</name>
 <args>MapFile</args>
 <desc>Sets the map file (tmx file).
 @return No return value.</desc>
+</method>
+<method>
+<name>setSceneLayer</name>
+<args>TMX_layer_name, scene_layer_number, shouldRender, useObjects</args>
+<desc>Sets the overridden scene render layer for (TMX_layer_name).</desc>
 </method>
 <field>
 <name>MapFile</name>
@@ -11504,6 +11526,10 @@ This will close any open connection, but not destroy this object. Thus, the obje
 <args>layerName, propertyName, x, y</args>
 <desc>Gets a property value for the specific x/y coord on the given layer.
 The property value or blank if one can not be found.</desc>
+</method>
+<method>
+<name>setMap</name>
+<desc>Set the map this MapSprite is to load.</desc>
 </method>
 <method>
 <name>setMapToMeterFactor</name>

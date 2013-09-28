@@ -19,16 +19,42 @@ function SetupPlayer(%scene, %position, %layer)
 	// Must be different than other characters to stop the player from pushing other characters
 	%player.setDefaultDensity(0);
 	*/
+	
+	if (!isObject(Player))
+	{
+		// Create Default Player Character
+		new CompositeSprite(Player)
+		{
+			class = "Character";
+		};
 
-	%player = Profile.character;
-	%player.Setup();
-	%player.setDefaultDensity(100);	//	So player cannot push characters
+		// Must be different than other characters to stop the player from pushing other characters
+		Player.setDefaultDensity(0);
+	}
+	
+	Player.displayName = Profile.displayName;
+	Player.direction = $SpriteDirectionDown;
+	Player.state = $SpriteStateIdle;
+	
+	Player.gender = Profile.gender;
+	Player.ethnicity = Profile.ethnicity;
 
-	%player.setPosition(%position);
-	%player.setSceneLayer(%layer);
+	Player.hairColour = Profile.hairColour;
+	Player.hairStyle = Profile.hairStyle;
+	Player.torso = Profile.torso;
+	Player.legs = Profile.legs;
+	Player.accessory = Profile.accessory;
+
+	Profile.character = Player;
+	
+	Player.Setup();
+	Player.setDefaultDensity(100);	//	So player cannot push characters
+
+	Player.setPosition(%position);
+	Player.setSceneLayer(%layer);
 
 	// Set Behaviours
-	%player.setGeneralBehaviours();
+	Player.setGeneralBehaviours();
 	/*%controls = PlayerControlsBehaviour.createInstance();
 	%player.addBehavior(%controls);
 
@@ -39,7 +65,8 @@ function SetupPlayer(%scene, %position, %layer)
 	//%inventory = new ScriptObject(Inventory);
 
 	// Add to Scene
-	%scene.add(%player);
+	%scene.add(Player);
+	//addInteractionZone(%player, %scene);
 	error("End of Setup Player");
 }
 
@@ -59,8 +86,11 @@ function SetupPlayerPreview()
 	PlayerPreview.gender = Profile.gender;
 	PlayerPreview.ethnicity = Profile.ethnicity;
 
+	PlayerPreview.hairColour = Profile.hairColour;
+	PlayerPreview.hairStyle = Profile.hairStyle;
 	PlayerPreview.torso = Profile.torso;
 	PlayerPreview.legs = Profile.legs;
+	PlayerPreview.accessory = Profile.accessory;
 	
 	%size = 5;
 	
@@ -78,6 +108,14 @@ function SetupPlayerPreview()
 	PlayerPreview.setSpriteName("head");
 	PlayerPreview.setSpriteSize(%size);
 	
+	PlayerPreview.addSprite();
+	PlayerPreview.setSpriteName("hair");
+	PlayerPreview.setSpriteSize(%size);
+	
+	PlayerPreview.addSprite();
+	PlayerPreview.setSpriteName("accessory");
+	PlayerPreview.setSpriteSize(%size);
+	
 	PlayerPreview.UpdateImages();
 }
 
@@ -86,10 +124,14 @@ function Player::setGeneralBehaviours(%this)
 	echo("Setting General Behaviour");
 	%this.clearBehaviors();
 
+	echo("Create Instance of Player Controls");
 	%controls = PlayerControlsBehaviour.createInstance();
+	echo("Adding Behaviour");
 	%this.addBehavior(%controls);
 
+	echo("Create Instance of Interaction");
 	%controls = InteractBehaviour.createInstance();
+	echo("Adding Behaviour");
 	%this.addBehavior(%controls);
 	echo("General Behaviour Set");
 }

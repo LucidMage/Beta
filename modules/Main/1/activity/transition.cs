@@ -12,13 +12,14 @@ function Transition::onRemove(%this)
    if ($ActivityScene == %this.toScene)
       LoadActivity(Main.ActiveActivity);
 }*/
-function Transition::onAddToScene(%this)
+function Transition::Setup(%this)
 {
-   %this.setBodyType(static);
-   %this.createPolygonBoxCollisionShape(%this.width, %this.height);
-   
-   %this.setCollisionCallback(true);   // So onCollision will be called
-   %this.setFixedAngle(true); // Stop from rotating on collision
+	echo("Transition Setup");
+	%this.setBodyType(static);
+	%this.createPolygonBoxCollisionShape(%this.width, %this.height);
+
+	%this.setCollisionCallback(true);   // So onCollision will be called
+	%this.setFixedAngle(true); // Stop from rotating on collision
 }
 
 // Change to a different scene when player collides with transition
@@ -30,7 +31,7 @@ function Transition::onEnter (%this, %object)
 		%scene = GameWindow.getScene();
 
 		// Pause Scene
-		//%scene.setScenePause(true);
+		%scene.setScenePause(true);
 		/*
 		// Transition 'Mask'
 		%fadeTo = new Sprite()

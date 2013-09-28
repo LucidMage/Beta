@@ -15,13 +15,13 @@
         Profile="PurpleButtonProfile"
 		Text="Menu"
 		ButtonType="PushButton"
-        command="ToggleInGameMenu;"
+        command="ToggleInGameMenu();"
         canSaveDynamicFields="0"
         isContainer="0"
         HorizSizing="right"
         VertSizing="bottom"
         Position="0 0"
-        Extent="80 30"
+        Extent="80 45"
         MinExtent="80 30"
         canSave="1"
         Visible="1"
@@ -39,10 +39,10 @@
 		HorizSizing="width"
 		VertSizing="bottom"
 		Position="80 0"
-		Extent="720 30"
+		Extent="720 45"
 		MinExtent="80 30"
 		Visible="1"
-		Image="@asset=Assets:blueGradient">
+		Image="@asset=Assets:PurpleGradient">
 		
 		<!-- Text Explaining Something -->
 		<GuiTextCtrl
@@ -53,7 +53,7 @@
 			HorizSizing="width"
 			VertSizing="bottom"
 			Position="20 0"
-			Extent="640 30"
+			Extent="640 45"
 			MinExtent="80 30"
 			canSave="1"
 			Visible="1"
@@ -69,11 +69,11 @@
 		Profile="GuiToolboxProfile"
 		HorizSizing="width"
 		VertSizing="bottom"
-		Position="0 30"
+		Position="0 45"
 		Extent="800 90"
 		MinExtent="80 60"
 		Visible="0"
-		Image="@asset=Assets:blueGradient">
+		Image="@asset=Assets:PurpleGradient">
 		
 		<!-- Name of Guy Talking -->
 		<GuiTextCtrl
@@ -122,7 +122,7 @@
 		Extent="600 120"
 		MinExtent="80 60"
 		Visible="0"
-		Image="@asset=Assets:blueGradient">
+		Image="@asset=Assets:PurpleGradient">
 		
 		<!-- Scroller -->
 		<GuiScrollCtrl
@@ -170,16 +170,126 @@
 		</GuiScrollCtrl>
 	</GuiSpriteCtrl>
 	
-	<!-- Invetory -->
+	<!-- Inventory -->
+	<GuiSpriteCtrl
+		Name="InventorySelectContainer"
+		Profile="GuiInventoryContainerProfile"
+        HorizSizing="left"
+        VertSizing="top"
+		Position="560 375"
+		Extent="240 180"
+		MinExtent="80 60"
+		Visible="1"
+		Image="@asset=Assets:PurpleBackground">
+		
+		<!-- Selected Item -->
+		<GuiSpriteCtrl
+			Name="InventorySelectedItem"
+			Profile="GuiSolidProfile"
+			HorizSizing="center"
+			VertSizing="center"
+			Position="70 0"
+			Extent="100 100"
+			MinExtent="40 30"
+			Visible="1"
+			Image="@asset=Assets:highlightBackground"/>
+		
+		<!-- Dialogue -->
+		<GuiMLTextCtrl
+			Name="InventorySelectedText"
+			canSaveDynamicFields="0"
+			isContainer="0"
+			Profile="DialogueTextProfile"
+			HorizSizing="width"
+			VertSizing="relative"
+			Position="20 120"
+			Extent="200 60"
+			MinExtent="80 60"
+			canSave="1"
+			Visible="1"
+			Active="0"
+			text="No items"
+			maxLength="255"
+			truncate="0" />
+	</GuiSpriteCtrl>
+	
+	<!-- Open Inventory -->
 	<GuiSpriteCtrl
 		Name="InventoryContainer"
-		Profile="GuiSunkenContainerProfile"
+		Profile="GuiSolidProfile"
 		HorizSizing="left"
-		VertSizing="top"
-		Position="600 480"
-		Extent="200 120"
-		MinExtent="60 60"
+		VertSizing="relative"
+		Position="560 375"
+		Extent="240 180"
+		MinExtent="160 120"
 		Visible="0"
-		Image="@asset=Assets:blueGradient">
+		Image="@asset=Assets:PurpleGradient">
+		
+		<!-- Scroller -->
+		<GuiScrollCtrl
+			Name="InventoryScroller"
+			canSaveDynamicFields="1"
+			isContainer="1"
+			Profile="GuiLightScrollProfile"
+			HorizSizing="relative"
+			VertSizing="relative"
+			Position="0 0"
+			Extent="240 180"
+			MinExtent="80 60"
+			canSave="1"
+			Visible="1"
+			Active="1"
+			hovertime="1000"
+			willFirstRespond="1"
+			hScrollBar="alwaysOff"
+			vScrollBar="dynamic"
+			constantThumbHeight="0"
+			childMargin="2 3" >
+
+			<!-- Array Holding Options -->
+			<GuiDynamicCtrlArrayControl
+				Name="InventoryArray"
+				canSaveDynamicFields="0"
+				internalName="objectList"
+				isContainer="1"
+				Profile="GuiTransparentProfile"
+				HorizSizing="width"
+				VertSizing="height"
+				Position="0 0"
+				Extent="240 180"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="1"
+				tooltipprofile="GuiToolTipProfile"
+				hovertime="1000"
+				colCount="1"
+				colSize="240"
+				rowSize="35"
+				rowSpacing="5"
+				colSpacing="5" />
+		</GuiScrollCtrl>
 	</GuiSpriteCtrl>
+	
+    <GuiButtonCtrl
+        Name="InventoryButton"
+        Profile="PurpleButtonProfile"
+		Text="Open Inventory"
+		ButtonType="PushButton"
+        command="ToggleInventory();"
+        canSaveDynamicFields="0"
+        isContainer="0"
+        HorizSizing="left"
+        VertSizing="top"
+        Position="560 555"
+        Extent="240 45"
+        MinExtent="80 30"
+        canSave="1"
+        Visible="1"
+        Active="1"
+		hovertime="1000"
+		toolTipProfile="GuiToolTipProfile"
+		toolTip="Show all of your current items"
+        groupNum="-1"
+        useMouseEvents="1" />
 </GuiControl>

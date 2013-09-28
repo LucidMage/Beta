@@ -2,7 +2,7 @@
     AssetName="Torso"
     imageFile="torsos.png"
     cellCountX="4"
-    cellCountY="4"
+    cellCountY="7"
     cellWidth="64"
     cellHeight="64"
 	 />

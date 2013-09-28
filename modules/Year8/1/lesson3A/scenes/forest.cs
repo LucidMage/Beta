@@ -1,8 +1,3 @@
-function Lesson3A_Forest::onAdd(%this)
-{
-	echo("Lesson3A Forest onAdd");
-}
-
 //	Scene Setup
 function Lesson3A_Forest::Setup(%this)
 {
@@ -36,6 +31,8 @@ function Lesson3A_Forest::SetupCharacters(%this)
 	{
 		displayName = "Girl with Raised Arms";
 		class = "Character";
+		dialogueTree = L3A_UnderarmHairDialogueTree;
+		
 		gender = $SpriteGenderFemale;
 		ethnicity = $SpriteEthnicityMaori;
 		torso = "";
@@ -46,14 +43,17 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		helped = false;
 	};
+	//L3A_UnderarmHairPerson.dialogueTree.Setup(L3A_UnderarmHairPerson);
 	L3A_UnderarmHairPerson.Setup();
-	L3A_UnderarmHairPerson.dialogueTree = L3A_UnderarmHairDialogueTree;
+	//L3A_UnderarmHairPerson.dialogueTree = L3A_UnderarmHairDialogueTree;
 	
 	//	Girl Developing Breasts
 	new CompositeSprite(L3A_DevelopBreastGirl)
 	{
 		displayName = "Girl Covering Chest";
 		class = "Character";
+		dialogueTree = L3A_DevelopBreastDialogueTree;
+		
 		gender = $SpriteGenderMale;
 		ethnicity = $SpriteEthnicityMaori;
 		torso = "";
@@ -64,14 +64,17 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		helped = false;
 	};
+	//L3A_DevelopBreastGirl.dialogueTree.Setup(L3A_DevelopBreastDialogueTree);
 	L3A_DevelopBreastGirl.Setup();
-	L3A_DevelopBreastGirl.dialogueTree = L3A_DevelopBreastDialogueTree;
+	//L3A_DevelopBreastGirl.dialogueTree = L3A_DevelopBreastDialogueTree;
 
 	//  Sweaty Person
 	new CompositeSprite(L3A_SweatyPerson)
 	{
 		displayName = "Sweaty Boy";
 		class = "Character";
+		dialogueTree = L3A_SweatyDialogueTree;
+		
 		gender = $SpriteGenderMale;
 		ethnicity = $SpriteEthnicityMaori;
 		torso = "";
@@ -82,14 +85,17 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		helped = false;
 	};
+	//L3A_SweatyPerson.dialogueTree.Setup(L3A_SweatyDialogueTree);
 	L3A_SweatyPerson.Setup();
-	L3A_SweatyPerson.dialogueTree = L3A_SweatyDialogueTree;
+	//L3A_SweatyPerson.dialogueTree = L3A_SweatyDialogueTree;
 
 	//  Broad Shouldered Person
 	new CompositeSprite(L3A_BroadShoulderPerson)
 	{
 		displayName = "Broad shouldered boy";
 		class = "Character";
+		dialogueTree = L3A_DevelopBreastDialogueTree;
+		
 		gender = $SpriteGenderMale;
 		ethnicity = $SpriteEthnicityMaori;
 		torso = $SpriteTorsoHoodie;
@@ -100,14 +106,17 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		helped = false;
 	};
+	//L3A_BroadShoulderPerson.dialogueTree.Setup(L3A_DevelopBreastDialogueTree);
 	L3A_BroadShoulderPerson.Setup();
-	L3A_BroadShoulderPerson.dialogueTree = L3A_BroadShoulderDialogueTree;
+	//L3A_BroadShoulderPerson.dialogueTree = L3A_BroadShoulderDialogueTree;
 
 	//  Pubic Hair Person
 	new CompositeSprite(L3A_PubicHairPerson)
 	{
 		displayName = "Girl looking down";
 		class = "Character";
+		dialogueTree = L3A_PubicHairDialogueTree;
+		
 		gender = $SpriteGenderFemale;
 		ethnicity = $SpriteEthnicityMaori;
 		torso = "";
@@ -118,8 +127,9 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		helped = false;
 	};
+	//L3A_PubicHairPerson.dialogueTree.Setup(L3A_PubicHairDialogueTree);
 	L3A_PubicHairPerson.Setup();
-	L3A_PubicHairPerson.dialogueTree = L3A_PubicHairDialogueTree;
+	//L3A_PubicHairPerson.dialogueTree = L3A_PubicHairDialogueTree;
 	
 	// Add to Scene
 	%this.add(L3A_UnderarmHairPerson);

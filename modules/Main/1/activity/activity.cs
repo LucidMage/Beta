@@ -1,20 +1,51 @@
 Main.ActiveYear = "";
+//Main.HelpMessage = 0;
 
 //	Defaults for all activities
 function PreSetupActivity(%activity)
 {
+	%scene = GameWindow.getScene();
+	%scene.clear();
+   
 	%activity.objective[0] = "Continue your journey on the road.";
 	//	Default to objective 0
 	%activity.currentObjective = 0;
+	
+	// Inventory
+	if (isObject(Inventory))
+		Inventory.delete();
+	
+	new ScriptObject(Inventory);
+	Inventory.Setup();
 }
 
 //	Requires elements from the activity itself to work
 function PostSetupActivity(%activity)
 {
+	//	Default Activity Settings
+	CentreWindowOnSprite(Player);
+
+	//  Debug
+	%scene = GameWindow.getScene();
+	//  Enable visualization for "collision", "position", and "aabb"
+	%scene.setDebugOn("collision");//, "position", "aabb");
+
 	//Canvas.pushDialog(ToolboxDialog);
 	Canvas.pushDialog(InGameGUI);
 	
-	UpdateHelpBar(%activity, "");
+	echo("Schedule Help Message");
+	//Main.HelpMessage = 0;
+	//%activity.schedule(100, UpdateHelpBar(%activity));
+	UpdateHelpBar(%activity, 0);
+}
+
+function EndActivity(%activity)
+{
+	%activity.onEnd();
+	
+	%scene = GameWindow.getScene();
+	%scene.setScenePause(true);
+	OpenSelectActivityGUI();
 }
 
 function ToggleInGameMenu()
@@ -25,10 +56,23 @@ function ToggleInGameMenu()
 //	Update the text in the In-game GUI Help Bar
 function UpdateHelpBar(%activity, %text)
 {
-	if (%text $= "")
+	echo("Activity =" SPC %activity);
+	
+	if (%text == 0)
+	{
+		echo("No message");
+		warn("# =" SPC %activity.currentObjective);
+		warn("Help Text =" SPC %activity.objective[%activity.currentObjective]);
 		HelpText.Text = %activity.objective[%activity.currentObjective];
+	}
 	else
+	{
+		echo("Message");
+		warn("Help Text =" SPC %text);
 		HelpText.Text = %text;
+		
+		%activity.schedule($GUIHelpUpdateDelay, UpdateHelpBar(%activity, 0));
+	}
 }
 
 function LoadYearGroup( %moduleDefinition )
@@ -64,14 +108,6 @@ function LoadYearGroup( %moduleDefinition )
 
 	// Add activity scope-set as a listener.
 	GameWindow.addInputListener( %moduleDefinition.ScopeSet );
-
-	//	Default Activity Settings
-	CentreWindowOnSprite(Player);
-
-	//  Debug
-	//  Enable visualization for "collision", "position", and "aabb"
-	%scene = GameWindow.getScene();
-	%scene.setDebugOn("collision");//, "position", "aabb");
 }
 
 function UnloadYearGroup()

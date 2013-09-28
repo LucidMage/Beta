@@ -10,6 +10,7 @@ $DataSaveFormat = xml;
 $DialogueResponseMax = 9;
 
 //==	GUI    ==//
+$GUIHelpUpdateDelay = 5000;
 $GUIResponseHeight = 40;
 
 //==	Sprites    ==//

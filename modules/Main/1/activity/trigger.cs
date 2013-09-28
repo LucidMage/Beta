@@ -3,6 +3,7 @@
 
 function SetupTrigger(%trigger)
 {
+	echo("Setup Trigger");
    %trigger.setBodyType(static);
    %trigger.setCollisionCallback(true);	// So onCollision will be called
    %trigger.setFixedAngle(true);		// Stop from rotating on collision

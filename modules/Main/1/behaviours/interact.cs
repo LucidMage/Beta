@@ -17,17 +17,6 @@ function InteractBehaviour::onBehaviorAdd(%this)
 
    // bindObj(getWord(object.behaviour field, [function parameters excluding %this]), "function name", object)
    GlobalActionMap.bindObj(getWord(%this.useKey, 0), getWord(%this.useKey, 1), "Use", %this);
-   
-   // For debugging
-   %scene = GameWindow.getScene();
-   
-    %object = new ShapeVector();
-    %object.Size = "1 1";
-    %object.PickingAllowed = false;
-    %object.IsCircle = false;
-    %object.FillMode = false;
-    %object.LineColor = Red;
-    %this.RangeOverlay = %object;
 }
 
 function InteractBehaviour::onBehaviorRemove(%this)
@@ -43,8 +32,6 @@ function InteractBehaviour::onBehaviorRemove(%this)
 //	Run the use function of whatever sprite is within range
 function InteractBehaviour::Use(%this, %val)
 {
-	//echo("Running Use");
-	
 	//echo("Val is " @ %val);
 	if (%val > 0)
 	{
@@ -81,16 +68,22 @@ function InteractBehaviour::Use(%this, %val)
 		
 		for (%i = 0; %i < %count; %i++)
 		{
-		   %object = getWord(%picked, %i);
-		   %object.Use(%this.owner);
+			%object = getWord(%picked, %i);
+			echo("Object:" SPC %object);
+			echo("Class:" SPC %object.class);
+
+			if (%object.class $= InteractionZone)
+			{
+				echo("Owner:" SPC %object.owner);
+				%object.owner.Use(%this.owner);
+			}
+			else
+				%object.Use(%this.owner);
 		}
 		
 		// For debugging
 		%this.RangeOverlay.PolyList = %startPos SPC %endPos;
-		//GameWindow.getScene().add(%this.RangeOverlay);
 	}
-	
-	//echo("End of Use");
 }
 
 //	Scheduled method to display description of what will happen when they use an object in range
@@ -108,14 +101,14 @@ function InteractBehaviour::DisplayUsable()
 	//	Should be in the direction the character is facing
 	switch$(%direction)
 	{
-	   case $SpriteDirectionUp:
-		  %range.y += %this.owner.useRange;
-	   case $SpriteDirectionRight:
-		   %range.x += %this.owner.useRange;
-	   case $SpriteDirectionDown:
-		   %range.y -= %this.owner.useRange;
-	   case $SpriteDirectionLeft:
-		   %range.x -= %this.owner.useRange;
+		case $SpriteDirectionUp:
+			%range.y += %this.owner.useRange;
+		case $SpriteDirectionRight:
+			%range.x += %this.owner.useRange;
+		case $SpriteDirectionDown:
+			%range.y -= %this.owner.useRange;
+		case $SpriteDirectionLeft:
+			%range.x -= %this.owner.useRange;
 	}
 	
 	// Get sprites within range
@@ -127,7 +120,43 @@ function InteractBehaviour::DisplayUsable()
 	
 	for (%i = 0; %i < %count; %i++)
 	{
-	   %object = getWord(%picked, %i);
-	   HelpText.Text = %object.DisplayUse();
+		%object = getWord(%picked, %i);
+		UpdateHelpBar(%this, %object.DisplayUse());
+	}
+}
+
+//	Interaction Zone class functions
+function addInteractionZone(%sprite, %scene)
+{
+	error("Add Interaction Zone");
+	
+	%sprite.interactionZone = new Trigger()
+	{
+		class = InteractionZone;
+		owner = %sprite;
+		BodyType = dynamic;
+		Position = %sprite.getPosition();
+		SceneLayer = %sprite.getSceneLayer();
+	};
+	%sprite.interactionZone.setDefaultDensity(1);   // Made ridiculously high so characters will not budge
+	/*%sprite.interactionZone.setDefaultRestitution(0);	//	Bounciness
+	%sprite.interactionZone.setDefaultFriction(0);
+	%sprite.interactionZone.setLinearDamping(0);*/	//	How quickly it slows down
+	%sprite.interactionZone.setCollisionSuppress(true);   // So onCollision will be called
+	
+	echo(%sprite.collisionSize);
+	%radius = %sprite.collisionSize.x * 2;
+	%sprite.interactionZone.createCircleCollisionShape(%radius);
+	
+	echo("Scene" SPC %scene);
+	%scene.add(%sprite.interactionZone);
+	%sprite.interactionJoin = %scene.createWeldJoint(%sprite, %sprite.interactionZone, "0 0", "0 0", 0, 0, false);
+}
+
+function InteractionZone::onStay(%this, %object)
+{
+	if (%object.getName() $= Player)
+	{
+		UpdateHelpBar(%this, %object.DisplayUse());
 	}
 }

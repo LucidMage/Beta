@@ -49,10 +49,34 @@ function Main::destroy( %this )
 
 function Main::loadPreferences( %this )
 {
-   // Load the default preferences.
-   //exec( "./defaults.cs" );
-   
-   // Load the last session preferences if available.
-   if ( isFile("preferences.cs") )
-      exec( "preferences.cs" );   
+	// Load the default preferences.
+	//exec( "./defaults.cs" );
+
+	// Load the last session preferences if available.
+	if ( isFile("preferences.cs") )
+		exec( "preferences.cs" );
+}
+
+function OpenSelectActivityGUI()
+{
+	//	Disable all GUI buttons and player controls
+
+	Canvas.pushDialog(SelectActivityGUI);
+}
+
+function SelectActivity(%lesson)
+{
+	echo("Select Activity");
+	/*%scene = GameWindow.getScene();
+	echo("Destroying");
+	DestroyScene(%scene);
+	echo("After Destroying the Scene");*/
+	
+	Main.ActiveActivity = %lesson;//Lesson2;//3A;//Lesson1;
+	echo("Resetting");
+	Year8.reset();
+	echo("After Reset");
+	
+	Canvas.popDialog(ProfileGUI);
+	Canvas.popDialog(SelectActivityGUI);
 }

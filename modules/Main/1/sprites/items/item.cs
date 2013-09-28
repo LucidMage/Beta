@@ -1,4 +1,28 @@
-function Item::Setup(%this)
+/*function Item::onAdd(%this)
+{
+	echo("Item onAdd");
+	
+	%this.interactionZone = new Trigger()
+	{
+		class = InteractionZone;
+		Position = %this.getPosition();
+		SceneLayer = %this.getSceneLayer();
+	};
+	echo(%this.collisionSize);
+	%radius = %this.collisionSize.x * 2;
+	%this.interactionZone.createCircleCollisionShape(%radius);
+	
+	%scene = %this.getScene();
+	%scene.add(%this.interactionZone);
+	%this.interactionJoin = %scene.createWeldJoint(%this, %this.interactionZone, "0 0", "0 0", 0, 0, false);
+}*/
+
+function Item::onRemoveFromScene(%this)
+{
+	%this.interactionZone.delete();
+}
+
+function Item::Setup(%this, %scene)
 {
 	error("Item setup");
 		
@@ -15,6 +39,9 @@ function Item::Setup(%this)
 		
 	%this.setSpriteLocalPosition(%this.imagePos);
 	%this.setSpriteSize(%this.imageSize);
+	
+	%scene.add(%this);
+	addInteractionZone(%this, %scene);
 }
 
 function Item::Use(%this, %user)
@@ -27,4 +54,10 @@ function Item::Use(%this, %user)
 function Item::DisplayUse()
 {
 	return "Pick up" SPC %this.displayName @ ".";
+}
+
+//	Callback when item is added to inventory. True = item is added as normal
+function Item::onPickUp(%this)
+{
+	return true;
 }

@@ -1,7 +1,3 @@
-function Lesson2_Gate::onAdd(%this)
-{
-}
-
 //	Scene Setup
 function Lesson2_Gate::Setup(%this)
 {
@@ -19,7 +15,6 @@ function Lesson2_Gate::Setup(%this)
 	%this.SetupCharacters();
 	%this.SetupItems();
 	%this.SetupObstacles();
-	%this.SetupTriggers();
 }
 
 //	Characters
@@ -37,185 +32,117 @@ function Lesson2_Gate::SetupItems(%this)
 	echo("Setup Items");
 	
 	//  Orbs
-	%orbSize = "1.5, 1.5";
-	//	"Boys usually reach puberty before girls"
+	//	"Boys usually reach puberty before girls."
 	new CompositeSprite(L2_Orb1)
 	{
-		displayName = "Boys usually reach puberty before girls";
+		displayName = "Boys usually reach puberty before girls.";
+		answer = false;
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
 		Position = Orb1Pos.getPosition();
 		SceneLayer = Orb1Pos.getSceneLayer();
 	};
-	L2_Orb1.Setup();
+	%this.SetupOrb(L2_Orb1);
 	
-	//	"Mood swings are common during puberty"
+	//	"Mood swings are common during puberty."
 	%position = Orb2Pos.getPosition();
 	%position.x += 0.5;
 	new CompositeSprite(L2_Orb2)
 	{
-		displayName = "Mood swings are common during puberty";
+		displayName = "Mood swings are common during puberty.";
+		answer = true;
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
 		Position = %position;
 		SceneLayer = Orb2Pos.getSceneLayer();
 	};
-	L2_Orb2.Setup();
+	%this.SetupOrb(L2_Orb2);
 	
-	//	"The physical changes of puberty can affect the emotions"
-	%position = Orb3Pos.getPosition();
-	%position.x += 0;
+	//	"The physical changes of puberty can affect the emotions."
 	new CompositeSprite(L2_Orb3)
 	{
-		displayName = "The physical changes of puberty can affect the emotions";
+		displayName = "The physical changes of puberty can affect the emotions.";
+		answer = true;
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
-		Position = %position;
+		Position = Orb3Pos.getPosition();
 		SceneLayer = Orb3Pos.getSceneLayer();
 	};
-	L2_Orb3.Setup();
+	%this.SetupOrb(L2_Orb3);
 	
-	//	"All the changes at puberty are visible"
-	%position = Orb4Pos.getPosition();
-	%position.x += 0;
+	//	"All the changes at puberty are visible."
 	new CompositeSprite(L2_Orb4)
 	{
-		displayName = "All the changes at puberty are visible";
+		displayName = "All the changes at puberty are visible.";
+		answer = false;
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
-		Position = %position;
+		Position = Orb4Pos.getPosition();
 		SceneLayer = Orb4Pos.getSceneLayer();
 	};
-	L2_Orb4.Setup();
+	%this.SetupOrb(L2_Orb4);
 	
-	//	"Only boys' voices get deeper at puberty"
-	%position = Orb5Pos.getPosition();
-	%position.x += 0;
+	//	"Only boys' voices get deeper at puberty."
 	new CompositeSprite(L2_Orb5)
 	{
-		displayName = "Only boys' voices get deeper at puberty";
+		displayName = "Only boys' voices get deeper at puberty.";
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
-		Position = %position;
+		answer = false;
+		Position = Orb5Pos.getPosition();
 		SceneLayer = Orb5Pos.getSceneLayer();
 	};
-	L2_Orb5.Setup();
+	%this.SetupOrb(L2_Orb5);
 	
-	//	"People develop in different ways and at different ages"
-	%position = Orb6Pos.getPosition();
-	%position.x += 0;
+	//	"People develop in different ways and at different ages."
 	new CompositeSprite(L2_Orb6)
 	{
-		displayName = "People develop in different ways and at different ages";
+		displayName = "People develop in different ways and at different ages.";
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
-		Position = %position;
+		answer = true;
+		Position = Orb6Pos.getPosition();
 		SceneLayer = Orb6Pos.getSceneLayer();
 	};
-	L2_Orb6.Setup();
+	%this.SetupOrb(L2_Orb6);
 	
-	//	"Young people are sexually mater after puberty"
-	%position = Orb7Pos.getPosition();
-	%position.x += 0;
+	//	"Young people are sexually mature after puberty."
 	new CompositeSprite(L2_Orb7)
 	{
-		displayName = "Young people are sexually mater after puberty";
+		displayName = "Young people are sexually mature after puberty.";
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
-		Position = %position;
+		answer = true;
+		Position = Orb7Pos.getPosition();
 		SceneLayer = Orb7Pos.getSceneLayer();
 	};
-	L2_Orb7.Setup();
+	%this.SetupOrb(L2_Orb7);
 	
-	//	"It is normal for boys to develop breasts during puberty"
-	%position = Orb8Pos.getPosition();
-	%position.x += 0;
+	//	"It is normal for boys to develop breasts during puberty."
 	new CompositeSprite(L2_Orb8)
 	{
-		displayName = "It is normal for boys to develop breasts during puberty";
+		displayName = "It is normal for boys to develop breasts during puberty.";
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
-		Position = %position;
+		answer = true;
+		Position = Orb8Pos.getPosition();
 		SceneLayer = Orb8Pos.getSceneLayer();
 	};
-	L2_Orb8.Setup();
+	%this.SetupOrb(L2_Orb8);
 	
-	//	"You sweat and smell more during and after puberty"
-	%position = Orb9Pos.getPosition();
-	%position.x += 0;
+	//	"You sweat and smell more during and after puberty."
 	new CompositeSprite(L2_Orb9)
 	{
-		displayName = "You sweat and smell more during and after puberty";
+		displayName = "You sweat and smell more during and after puberty.";
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
-		Position = %position;
+		answer = true;
+		Position = Orb9Pos.getPosition();
 		SceneLayer = Orb9Pos.getSceneLayer();
 	};
-	L2_Orb9.Setup();
+	%this.SetupOrb(L2_Orb9);
 	
-	//	"Hormones are chemicals created by the body and are responsible for puberty"
-	%position = Orb10Pos.getPosition();
-	%position.x += 0;
+	//	"Hormones are chemicals created by the body and are responsible for puberty."
 	new CompositeSprite(L2_Orb10)
 	{
-		displayName = "Hormones are chemicals created by the body and are responsible for puberty";
+		displayName = "Hormones are chemicals created by the body and are responsible for puberty.";
 		class = "Item";
-		collisionSize = "0.5, 0.5";
-		animationName = "Assets:OrbFlash";
-		imagePos = "0, 0";
-		imageSize = %orbSize;
-
-		Position = %position;
+		answer = true;
+		Position = Orb10Pos.getPosition();
 		SceneLayer = Orb10Pos.getSceneLayer();
 	};
-	L2_Orb10.Setup();
-	
-	%this.add(L2_Orb1);
-	%this.add(L2_Orb2);
-	%this.add(L2_Orb3);
-	%this.add(L2_Orb4);
-	%this.add(L2_Orb5);
-	%this.add(L2_Orb6);
-	%this.add(L2_Orb7);
-	%this.add(L2_Orb8);
-	%this.add(L2_Orb9);
-	%this.add(L2_Orb10);
+	%this.SetupOrb(L2_Orb10);
 }
 
 //	Obstacles
@@ -224,8 +151,6 @@ function Lesson2_Gate::SetupObstacles(%this)
 	echo("Setup Obstacles");
 	
 	//	Rocks
-	%position = Rock0WestPos.getPosition();
-	%position.x += 0.65;
 	new CompositeSprite(L2_Rock0West)
 	{
 		displayName = "Rock";
@@ -238,7 +163,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 		imagePos = "0, 0";
 		imageSize = "2, 2";
 
-		Position = %position;
+		Position = Rock0WestPos.getPosition();
 		SceneLayer = Rock0WestPos.getSceneLayer();
 	};
 	L2_Rock0West.Setup();
@@ -263,7 +188,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 	L2_Rock1West.Setup();
 	
 	%position = Rock2WestPos.getPosition();
-	%position.x += 0.65;
+	%position.x += 0.5;
 	new CompositeSprite(L2_Rock2West)
 	{
 		displayName = "Rock";
@@ -301,8 +226,6 @@ function Lesson2_Gate::SetupObstacles(%this)
 	};
 	L2_Rock1East.Setup();
 	
-	%position = Rock2EastPos.getPosition();
-	%position.y += 0;
 	new CompositeSprite(L2_Rock2East)
 	{
 		displayName = "Rock";
@@ -315,7 +238,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 		imagePos = "0, 0";
 		imageSize = "2.25, 2.25";
 
-		Position = %position;
+		Position = Rock2EastPos.getPosition();
 		SceneLayer = Rock2EastPos.getSceneLayer();
 	};
 	L2_Rock2East.Setup();
@@ -379,6 +302,48 @@ function Lesson2_Gate::SetupObstacles(%this)
 	L2_StoneSign.Setup();
 	//L2_StoneSign.dialogueTree = L2_StoneSignDialogueTree;
 	
+	//	Slot In
+	%position = SlotInWestPos.getPosition();
+	%position.y += 1;
+	new CompositeSprite(L2_SlotInWest)
+	{
+		class = "Static";
+		slot = true;	//	Slot for true statements
+		Position = %position;
+		SceneLayer = SlotInWestPos.getSceneLayer();
+	};
+	%this.SetupSlotIn(L2_SlotInWest);
+	
+	%position = SlotInEastPos.getPosition();
+	%position.y += 1;
+	new CompositeSprite(L2_SlotInEast)
+	{
+		class = "Static";
+		slot = false;	//	Slot for false statements
+		Position = %position;
+		SceneLayer = SlotInEastPos.getSceneLayer();
+	};
+	%this.SetupSlotIn(L2_SlotInEast);
+	
+	//	Slot Out
+	new CompositeSprite(L2_SlotOutWest)
+	{
+		class = "Static";
+		slot = true;	//	Slot for true statements
+		Position = SlotOutWestPos.getPosition();
+		SceneLayer = SlotOutWestPos.getSceneLayer();
+	};
+	%this.SetupSlotOut(L2_SlotOutWest);
+	
+	new CompositeSprite(L2_SlotOutEast)
+	{
+		class = "Static";
+		slot = false;	//	Slot for false statements
+		Position = SlotOutEastPos.getPosition();
+		SceneLayer = SlotOutEastPos.getSceneLayer();
+	};
+	%this.SetupSlotOut(L2_SlotOutEast);
+	
 	// Add to Scene
 	%this.add(L2_Rock0West);
 	%this.add(L2_Rock1West);
@@ -387,11 +352,124 @@ function Lesson2_Gate::SetupObstacles(%this)
 	%this.add(L2_Rock1East);
 	%this.add(L2_Rock2East);
 	%this.add(L2_Log2East);
+	
 	%this.add(L2_StoneSign);
 }
 
-//	Triggers
-function Lesson2_Gate::SetupTriggers(%this)
+//	Setup Orbs
+function Lesson2_Gate::SetupOrb(%this, %orb)
 {
-	echo("Setup Triggers");
+	Lesson2.totalOrbs++;
+	%orb.collisionSize = "0.5, 0.5";
+	%orb.animationName = "Assets:OrbFlash";
+	%orb.imagePos = "0, 0";
+	%orb.imageSize = "1.5, 1.5";
+	%orb.Setup(%this);
+	
+	//%this.add(%orb);
+}
+function L2_Orb1::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb2::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb3::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb4::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb5::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb6::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb7::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb8::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb9::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb10::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+
+//	Setup Slots
+function Lesson2_Gate::SetupSlotIn(%this, %slot)
+{
+	%slot.displayName = "Slot";
+	
+	%slot.collisionSize = "1.1, 1.5";
+	%slot.imageName = "Assets:Slot2";
+	%slot.imagePos = "0.1, -0.25";
+	%slot.imageSize = "1.25, 2";
+	%slot.Setup();
+	
+	%this.add(%slot);
+}
+function Lesson2_Gate::SetupSlotOut(%this, %slot)
+{
+	%slot.displayName = "Slot";
+	
+	%slot.collisionSize = "1, 1";
+	%slot.imageName = "Assets:Slot1";
+	%slot.imagePos = "0, 0";
+	%slot.imageSize = "1, 1";
+	%slot.Setup();
+	
+	%this.add(%slot);
+}
+
+//	Slot Use
+function L2_SlotInWest::Use(%this, %user)
+{
+	echo("Using West Slot");
+	echo(L2_SlotInWest SPC L2_SlotInWest.slot);
+	
+	%item = Inventory.UseSelectedItem();
+	warn(%item);
+	
+	checkOrb(%this, %item);
+}
+function L2_SlotInEast::Use(%this, %user)
+{
+	echo("Using East Slot");
+	echo(L2_SlotInEast SPC L2_SlotInEast.slot);
+	
+	%item = Inventory.UseSelectedItem();
+	warn(%item);
+	
+	checkOrb(%this, %item);
+}
+function Lesson2_Gate::checkOrb(%slot, %item)
+{
+	switch$(%item)
+	{
+		case L2_Orb1:
+		case L2_Orb2:
+		case L2_Orb3:
+		case L2_Orb4:
+		case L2_Orb5:
+		case L2_Orb6:
+		case L2_Orb7:
+		case L2_Orb8:
+		case L2_Orb9:
+		case L2_Orb10:
+			echo("Is an orb");
+			if (%slot.slot == %item.answer)
+			{
+				echo("Orb is in the correct slot");
+			}
+			else
+			{
+				error("Orb is in the wrong slot");
+			}
+		default:
+			echo("Not an orb");
+	}
+}
+
+//	Triggers
+function L2_Exit::onEnter(%this, %object)
+{
+	if (%object.getName() $= Player)
+	{
+		UpdateHelpBar(%this, "Leaving Divisions");
+
+		// New scenes cannot be called during onCollision else the game will crash
+		%this.schedule(100, EndActivity());
+	}
+}
+function L2_ExitWarn::onEnter(%this, %object)
+{
+	UpdateHelpBar(%this, "You are about the leave Divisions");
+}
+function L2_ExitWarn::onLeave(%this, %object)
+{
+	UpdateHelpBar(%this, 0);
 }

@@ -1,5 +1,5 @@
 <TorsionProject>
-<Name>Alpha</Name>
+<Name>Beta</Name>
 <WorkingDir/>
 <EntryScript>main.cs</EntryScript>
 <DebugHook>dbgSetParameters( #port#, "#password#", true );</DebugHook>

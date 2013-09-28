@@ -567,3 +567,10 @@ if (!isObject(DialogueResponseProfile)) new GuiControlProfile (DialogueResponseP
 {
     justify = "left";
 };
+
+if (!isObject(GuiInventoryContainerProfile)) new GuiControlProfile (GuiInventoryContainerProfile)
+{
+    opaque = true;
+    fillColor = "255 255 255 95";
+    bitmap = "./images/sunkenContainer";
+};

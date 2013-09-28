@@ -11,32 +11,14 @@ function CreateProfile()
 			year = 8;
 			gender = $SpriteGenderFemale;
 			ethnicity = $SpriteEthnicityMaori;
-
+			
+			hairColour = $SpriteHairColourBlonde;
+			hairStyle = $SpriteHairStyleWavy;
 			torso = $SpriteTorsoPlaid;
 			legs = $SpriteLegsDress;
+			accessory = $SpriteAccessoryNone;
 		};
 	}
-	if (!isObject(Player))
-	{
-		// Create Default Player Character
-		new CompositeSprite(Player)
-		{
-			class = "Character";
-		};
-
-		// Must be different than other characters to stop the player from pushing other characters
-		Player.setDefaultDensity(0);
-	}
-	
-	Player.displayName = Profile.displayName;
-	
-	Player.gender = Profile.gender;
-	Player.ethnicity = Profile.ethnicity;
-
-	Player.torso = Profile.torso;
-	Player.legs = Profile.legs;
-
-	Profile.character = Player;
 	
 	error("End of Create Profile");
 }
@@ -46,20 +28,17 @@ function OpenProfileGUI()
 	error("Opening Profile");
 	CreateScene(ProfileScene);
 	Canvas.pushDialog(ProfileGUI);
-	UpdateProfileGUI();
+	
+	UpdateProfileGUIOptions();
+	UpdateProfileGUIPreview();
 	error("End of Opening Profile");
 }
 
 function CloseProfileGUI()
 {
 	LoadYearGroup(Main.YearGroup);
-	Canvas.popDialog(ProfileGUI);
-}
-
-function UpdateProfileGUI()
-{
-	UpdateProfileGUIPreview();
-	UpdateProfileGUIOptions();
+	//Canvas.popDialog(ProfileGUI);
+	OpenSelectActivityGUI();
 }
 
 //	Preview of the character they are making
@@ -81,13 +60,13 @@ function UpdateProfileGUIOptions()
     {
         //	Add to the list.  
         GenderList.add($SpriteGenderArray[%i], %i);
-        /*
+        
         if (%i == 0)
             GenderList.setSelected( %i );
 			
         //	Select if it's the default one.
 		if (Profile.gender $= $SpriteGenderArray[%i])
-            GenderList.setSelected( %i );*/
+            GenderList.setSelected( %i );
     }
     GenderList.sort();
 	
@@ -264,5 +243,30 @@ function GenderList::onSelect(%this)
 	Profile.gender = GenderList.getText();
 	echo(Profile.gender);
 	
-	UpdateProfileGUI();
+	//UpdateProfileGUI();
+	UpdateProfileGUIPreview();
+}
+
+function EthnicityList::onSelect(%this)
+{
+	echo(Profile.ethnicity);
+	Profile.ethnicity = EthnicityList.getText();
+	echo(Profile.ethnicity);
+		
+	//	Pacific Islander
+	if (Profile.ethnicity $= $SpriteEthnicityPIFull)
+		Profile.ethnicity = $SpriteEthnicityPI;
+	
+	//UpdateProfileGUI();
+	UpdateProfileGUIPreview();
+}
+
+function AccessoryList::onSelect(%this)
+{
+	echo(Profile.accessory);
+	Profile.accessory = AccessoryList.getText();
+	echo(Profile.accessory);
+	
+	//UpdateProfileGUI();
+	UpdateProfileGUIPreview();
 }

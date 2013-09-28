@@ -25,10 +25,10 @@
 			<SceneObject TamlId="1" BodyType="Static">				
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>-1 -1</Point>
-						<Point>1 -1</Point>
-						<Point>-1 1</Point>
-						<Point>1 1</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>0.9 -0.9</Point>
+						<Point>-0.9 0.9</Point>
+						<Point>0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -39,10 +39,10 @@
 			<SceneObject TamlId="1" BodyType="Static">				
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>-1 0</Point>
-						<Point>1 0</Point>
-						<Point>-1 1</Point>
-						<Point>1 1</Point>
+						<Point>-0.9 0</Point>
+						<Point>0.9 0</Point>
+						<Point>-0.9 0.9</Point>
+						<Point>0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -51,10 +51,10 @@
 			<SceneObject TamlId="1" BodyType="Static">
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>-1 0</Point>
-						<Point>1 0</Point>
-						<Point>-1 -1</Point>
-						<Point>1 -1</Point>
+						<Point>-0.9 0</Point>
+						<Point>0.9 0</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>0.9 -0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -63,10 +63,10 @@
 			<SceneObject TamlId="1" BodyType="Static">
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>0 -1</Point>
-						<Point>-1 -1</Point>
-						<Point>0 1</Point>
-						<Point>-1 1</Point>
+						<Point>0 -0.9</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>0 0.9</Point>
+						<Point>-0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -75,10 +75,10 @@
 			<SceneObject TamlId="1" BodyType="Static">
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>0 -1</Point>
-						<Point>1 -1</Point>
-						<Point>0 1</Point>
-						<Point>1 1</Point>
+						<Point>0 -0.9</Point>
+						<Point>0.9 -0.9</Point>
+						<Point>0 0.9</Point>
+						<Point>0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -89,10 +89,10 @@
 			<SceneObject TamlId="1" BodyType="Static">
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>-0.5 -1</Point>
-						<Point>-1 -1</Point>
-						<Point>-0.5 1</Point>
-						<Point>-1 1</Point>
+						<Point>-0.5 -0.9</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>-0.5 0.9</Point>
+						<Point>-0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -101,10 +101,10 @@
 			<SceneObject TamlId="1" BodyType="Static">
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>0.5 -1</Point>
-						<Point>1 -1</Point>
-						<Point>0.5 1</Point>
-						<Point>1 1</Point>
+						<Point>0.5 -0.9</Point>
+						<Point>0.9 -0.9</Point>
+						<Point>0.5 0.9</Point>
+						<Point>0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -116,9 +116,9 @@
 				<SceneObject.CollisionShapes>
 					<Polygon>
 						<Point>0 0</Point>
-						<Point>-1 1</Point>
-						<Point>0 1</Point>
-						<Point>-1 0</Point>
+						<Point>-0.9 0.9</Point>
+						<Point>0 0.9</Point>
+						<Point>-0.9 0</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -128,9 +128,9 @@
 				<SceneObject.CollisionShapes>
 					<Polygon>
 						<Point>0 0</Point>
-						<Point>1 1</Point>
-						<Point>0 1</Point>
-						<Point>1 0</Point>
+						<Point>0.9 0.9</Point>
+						<Point>0 0.9</Point>
+						<Point>0.9 0</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -140,9 +140,9 @@
 				<SceneObject.CollisionShapes>
 					<Polygon>
 						<Point>0 0</Point>
-						<Point>-1 -1</Point>
-						<Point>0 -1</Point>
-						<Point>-1 0</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>0 -0.9</Point>
+						<Point>-0.9 0</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -152,9 +152,9 @@
 				<SceneObject.CollisionShapes>
 					<Polygon>
 						<Point>0 0</Point>
-						<Point>1 -1</Point>
-						<Point>0 -1</Point>
-						<Point>1 0</Point>
+						<Point>0.9 -0.9</Point>
+						<Point>0 -0.9</Point>
+						<Point>0.9 0</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -165,16 +165,16 @@
 			<SceneObject TamlId="1" BodyType="Static">				
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>-1 0</Point>
-						<Point>1 0</Point>
-						<Point>-1 1</Point>
-						<Point>1 1</Point>
+						<Point>-0.9 0</Point>
+						<Point>0.9 0</Point>
+						<Point>-0.9 0.9</Point>
+						<Point>0.9 0.9</Point>
 					</Polygon>
 					<Polygon>
-						<Point>0 -1</Point>
-						<Point>-1 -1</Point>
-						<Point>0 1</Point>
-						<Point>-1 1</Point>
+						<Point>0 -0.9</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>0 0.9</Point>
+						<Point>-0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -183,16 +183,16 @@
 			<SceneObject TamlId="1" BodyType="Static">				
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>-1 0</Point>
-						<Point>1 0</Point>
-						<Point>-1 1</Point>
-						<Point>1 1</Point>
+						<Point>-0.9 0</Point>
+						<Point>0.9 0</Point>
+						<Point>-0.9 0.9</Point>
+						<Point>0.9 0.9</Point>
 					</Polygon>
 					<Polygon>
-						<Point>0 -1</Point>
-						<Point>1 -1</Point>
-						<Point>0 1</Point>
-						<Point>1 1</Point>
+						<Point>0 -0.9</Point>
+						<Point>0.9 -0.9</Point>
+						<Point>0 0.9</Point>
+						<Point>0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -201,16 +201,16 @@
 			<SceneObject TamlId="1" BodyType="Static">				
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>-1 0</Point>
-						<Point>1 0</Point>
-						<Point>-1 -1</Point>
-						<Point>1 -1</Point>
+						<Point>-0.9 0</Point>
+						<Point>0.9 0</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>0.9 -0.9</Point>
 					</Polygon>
 					<Polygon>
-						<Point>0 -1</Point>
-						<Point>-1 -1</Point>
-						<Point>0 1</Point>
-						<Point>-1 1</Point>
+						<Point>0 -0.9</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>0 0.9</Point>
+						<Point>-0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
@@ -219,16 +219,16 @@
 			<SceneObject TamlId="1" BodyType="Static">				
 				<SceneObject.CollisionShapes>
 					<Polygon>
-						<Point>-1 0</Point>
-						<Point>1 0</Point>
-						<Point>-1 -1</Point>
-						<Point>1 -1</Point>
+						<Point>-0.9 0</Point>
+						<Point>0.9 0</Point>
+						<Point>-0.9 -0.9</Point>
+						<Point>0.9 -0.9</Point>
 					</Polygon>
 					<Polygon>
-						<Point>0 -1</Point>
-						<Point>1 -1</Point>
-						<Point>0 1</Point>
-						<Point>1 1</Point>
+						<Point>0 -0.9</Point>
+						<Point>0.9 -0.9</Point>
+						<Point>0 0.9</Point>
+						<Point>0.9 0.9</Point>
 					</Polygon>
 				</SceneObject.CollisionShapes>
 			</SceneObject>
