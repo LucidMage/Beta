@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="TorsoPlaidWest"
+    Image="@asset=Assets:Torso"
+    animationFrames="2"
+    animationTime="1"
+    animationCycle="1"
+     />

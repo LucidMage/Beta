@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="HeadFemaleMaoriSouth"
+    Image="@asset=Assets:Head"
+    animationFrames="17"
+    animationTime="1"
+    animationCycle="1"
+     />
