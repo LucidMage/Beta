@@ -1,13 +1,7 @@
-// Treat this as a class constructor for the lesson
-function Lesson3A::onAdd( %this )
-{
-	PreSetupActivity(%this);
-	%this.Setup();
-	PostSetupActivity(%this);
-}
-
 function Lesson3A::Setup(%this)
 {
+	PreSetupActivity(%this);
+	
 	// Load Scenes
 	exec("./scenes/loadList.cs");
 	exec("./dialogue/loadList.cs");
@@ -25,20 +19,28 @@ function Lesson3A::Setup(%this)
 	%this.totalToExit = %this.totalLost;
 
 	//	Setup Objectives
-	%this.objective[1] = "Find a way out of the forest";
-	%this.objective[2] = "Help the lost people. Helped:" SPC %this.helped @ ", of" SPC %this.totalLost;
+	%this.objective[1] = "Find a way out of the forest.";
+	%this.objective[2] = "Help the lost people. Helped:" SPC %this.helped @ ", of" SPC %this.totalLost @ ".";
 	
 	%this.currentObjective = 1;
+	
+	PostSetupActivity(%this);
 }
 
 function Lesson3A::UpdateStatus(%this)
 {
-	if (HasHelpedPeople())
+   %this.helped++;
+   
+	if (%this.HasHelpedPeople())
+	{
 		%this.currentObjective = 0;
+		//%this.OpenExit();
+	}
 	else
 		%this.currentObjective = 2;
 	
-	UpdateHelpBar(%this, "");
+	UpdateHelpBar(%this, 0);
+	%this.OpenExit();
 }
 
 //	Runs each time a person is helped
@@ -48,4 +50,11 @@ function Lesson3A::HasHelpedPeople(%this)
 		return true;
 	else
 		return false;
+}
+
+function Lesson3A::OpenExit(%this)
+{
+   GameWindow.startCameraShake(10, 100);
+   Lesson3A_Forest.remove(L3A_ExitObstacle);
+   GameWindow.schedule(500, stopCameraShake);
 }

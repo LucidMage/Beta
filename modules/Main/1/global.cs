@@ -33,7 +33,7 @@ $SpriteEthnicityPI = "PI";	$SpriteEthnicityPIFull = "Pacific Islander";
 $SpriteEthnicityPakeha = "Pakeha";
 $SpriteEthnicityAsian = "Asian";
 $SpriteEthnicityArray[0] = $SpriteEthnicityMaori;
-$SpriteEthnicityArray[1] = $SpriteEthnicityPIFull;
+$SpriteEthnicityArray[1] = $SpriteEthnicityPI;//Full;
 $SpriteEthnicityArray[2] = $SpriteEthnicityPakeha;
 $SpriteEthnicityArray[3] = $SpriteEthnicityAsian;
 $SpriteEthnicityCount = 4;

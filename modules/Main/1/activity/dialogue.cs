@@ -14,8 +14,6 @@ function Dialogue::Setup(%this, %text)
 //	Display dialogue elements
 function Dialogue::Display(%this, %owner, %target)
 {
-	echo("Displaying Dialogue");
-	
 	%this.beenRead = true;
 	
 	DialogueLabel.setText(%owner.displayName);
@@ -50,7 +48,6 @@ function Dialogue::UpdateResponseArray(%this, %owner)
 	}
 	
 	ResponseArray.resize(0, 0, %width, %height);
-	echo("After:" SPC ResponseArray.getExtent().y);
 }
 
 //	Add a response for the player to select

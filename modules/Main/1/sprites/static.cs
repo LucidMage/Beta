@@ -1,4 +1,4 @@
-function Static::Setup(%this)
+function Static::Setup(%this, %scene)
 {
 	error("Static setup");
 	%this.setBodyType(static);
@@ -10,10 +10,15 @@ function Static::Setup(%this)
 	if (%this.animationName !$= "")
 		%this.setSpriteAnimation(%this.animationName);
 	else if (%this.imageName !$= "")
+	{
 		%this.setSpriteImage(%this.imageName);
+		%this.setSpriteImageFrame(%this.imageFrame);
+	}
 		
 	%this.setSpriteLocalPosition(%this.imagePos);
 	%this.setSpriteSize(%this.imageSize);
+	
+	%scene.add(%this);
 }
 
 function Static::Use(%this, %user)

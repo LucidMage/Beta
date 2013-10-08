@@ -3,5 +3,5 @@
     ImageFile="slot2.png"
     CellCountX="1"
     CellCountY="1"
-    CellWidth="40"
+    CellWidth="64"
     CellHeight="64" />

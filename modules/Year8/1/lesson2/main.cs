@@ -1,10 +1,10 @@
 function Lesson2::Setup(%this)
 {
-	echo("Lesson2 onAdd");
 	PreSetupActivity(%this);
 	
 	// Load Scenes
 	exec("./scenes/loadList.cs");
+	exec("./dialogue/loadList.cs");
 	
 	//	Objective tracking
 	%this.found = 0;
@@ -14,30 +14,29 @@ function Lesson2::Setup(%this)
 	//	Set Starting Scene
 	%startScene = Lesson2_Gate;
 
-	echo("Load Scene");
 	LoadScene(%startScene);
-	echo("After Load Scene");
 	
 	%this.totalToExit = %this.totalOrbs;
 
 	//	Setup Objectives
-	%this.objective[1] = "Find a way to open the gate";
+	%this.objective[1] = "Find a way to open the gate.";
 	%this.objective[2] = "Find all of the orbs. Found" SPC %this.found SPC "of" SPC %this.totalOrbs SPC "orbs.";
 	%this.objective[3] = "Use the orbs to open the gate." SPC %this.orbsInGate SPC "of" SPC %this.totalOrbs SPC "orbs slotted.";
 	
 	%this.currentObjective = 0;
 	
 	PostSetupActivity(%this);
+	
 }
 
 function Lesson2::UpdateStatus(%this)
 {
-	echo("All Orbs Slotted" SPC AllOrbsSlotted());
-	echo("All Orbs Found" SPC FoundAllOrbs());
-	
-	if (AllOrbsSlotted())
+	if (%this.AllOrbsSlotted())
+	{
 		%this.currentObjective = 0;
-	else if (FoundAllOrbs())
+		%this.MoveGates();
+	}
+	else if (%this.AllOrbsFound())
 	{
 		%this.objective[3] = "Use the orbs to open the gate." SPC %this.orbsInGate SPC "of" SPC %this.totalOrbs SPC "orbs slotted.";
 		%this.currentObjective = 3;
@@ -53,7 +52,7 @@ function Lesson2::UpdateStatus(%this)
 }
 
 //	Check if all orbs have been found
-function Lesson2::FoundAllOrbs(%this)
+function Lesson2::AllOrbsFound(%this)
 {
 	if (%this.found >= %this.totalOrbs)
 		return true;
@@ -75,4 +74,16 @@ function Lesson2::PickUpOrb(%this)
 {
 	%this.found++;
 	%this.UpdateStatus();
+}
+
+//	Move gates
+function Lesson2::MoveGates(%this)
+{
+   %position = GateWestOpenPos.getPosition();
+   %position.y = L2_DoorWest.getPosition().y;
+   L2_DoorWest.moveTo(%position, L2_DoorWest.speed, false, false);
+   
+   %position = GateEastOpenPos.getPosition();
+   %position.y = L2_DoorEast.getPosition().y;
+   L2_DoorEast.moveTo(%position, L2_DoorEast.speed, false, false);
 }

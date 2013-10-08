@@ -5,11 +5,14 @@ function DialogueTree::Setup(%this, %owner)
 	%this.owner = %owner;
 	%this.owner.dialogueTree = %this;
 	
-	%this.rootDialogue[0] = new ScriptObject()
+	if (!isObject(%this.rootDialogue[0]))
 	{
-		class = Dialogue;
-	};
-	%this.rootDialogue[0].Setup("TEST DIALOGUE, SHOULD DISPLAY IN THE DIALOGUE BOX. THIS DIALOGUE TREE BELONGS TO" SPC %this.owner.displayName @ ". THE CURRENT TARGET IS" SPC %this.target.displayName);
+      %this.rootDialogue[0] = new ScriptObject()
+      {
+         class = Dialogue;
+      };
+      %this.rootDialogue[0].Setup("TEST DIALOGUE, SHOULD DISPLAY IN THE DIALOGUE BOX. THIS DIALOGUE TREE BELONGS TO" SPC %this.owner.displayName @ ". THE CURRENT TARGET IS" SPC %this.target.displayName);
+	}
 	
 	%this.selectedRootDialogue = 0;	//	Used for deciding the dialogue to open with
 }
@@ -18,8 +21,6 @@ function DialogueTree::Setup(%this, %owner)
 //	Target = who the owner is talking to
 function DialogueTree::OpenDialogue(%this, %target)
 {
-	echo("Opening Dialogue");
-	
 	%this.target = %target;
 	
 	//	Continue if no scripting is set for the dialogue to not open
@@ -49,8 +50,6 @@ function DialogueTree::OpenDialogue(%this, %target)
 //	Close dialogue
 function DialogueTree::CloseDialogue(%this)
 {
-	echo("Closing Dialogue");
-	
 	DialogueContainer.setVisible(false);
 	ResponseContainer.setVisible(false);
 	
@@ -63,8 +62,6 @@ function DialogueTree::CloseDialogue(%this)
 
 function DialogueTree::NextDialogue(%this, %i)
 {
-	echo("Next Dialogue");
-	
 	//	Error checking - is %i an index number
 	if (%i > 0 && %i <= $DialogueResponseMax)
 	{

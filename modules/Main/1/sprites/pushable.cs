@@ -1,4 +1,4 @@
-function Pushable::Setup(%this)
+function Pushable::Setup(%this, %scene)
 {
 	error("Pushable setup");
 	%this.setBodyType(dynamic);
@@ -25,4 +25,6 @@ function Pushable::Setup(%this)
 		
 	%this.setSpriteLocalPosition(%this.imagePos);
 	%this.setSpriteSize(%this.imageSize);
+	
+	%scene.add(%this);
 }

@@ -1,7 +1,6 @@
 //	Scene Setup
 function Lesson2_Gate::Setup(%this)
 {
-	echo("Lesson 2 Gate Setup");
 	%this.setName("Lesson2_Gate");
 
 	//	Add Tiled Map
@@ -29,8 +28,6 @@ function Lesson2_Gate::SetupCharacters(%this)
 //	Items
 function Lesson2_Gate::SetupItems(%this)
 {
-	echo("Setup Items");
-	
 	//  Orbs
 	//	"Boys usually reach puberty before girls."
 	new CompositeSprite(L2_Orb1)
@@ -148,8 +145,6 @@ function Lesson2_Gate::SetupItems(%this)
 //	Obstacles
 function Lesson2_Gate::SetupObstacles(%this)
 {
-	echo("Setup Obstacles");
-	
 	//	Rocks
 	new CompositeSprite(L2_Rock0West)
 	{
@@ -166,7 +161,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 		Position = Rock0WestPos.getPosition();
 		SceneLayer = Rock0WestPos.getSceneLayer();
 	};
-	L2_Rock0West.Setup();
+	L2_Rock0West.Setup(%this);
 	
 	%position = Rock1WestPos.getPosition();
 	%position.x += 0.65;
@@ -185,10 +180,10 @@ function Lesson2_Gate::SetupObstacles(%this)
 		Position = %position;
 		SceneLayer = Rock1WestPos.getSceneLayer();
 	};
-	L2_Rock1West.Setup();
+	L2_Rock1West.Setup(%this);
 	
 	%position = Rock2WestPos.getPosition();
-	%position.x += 0.5;
+	%position.x += 0.75;
 	new CompositeSprite(L2_Rock2West)
 	{
 		displayName = "Rock";
@@ -202,9 +197,9 @@ function Lesson2_Gate::SetupObstacles(%this)
 		imageSize = "2.5, 2.5";
 
 		Position = %position;
-		SceneLayer = Rock1WestPos.getSceneLayer();
+		SceneLayer = Rock2WestPos.getSceneLayer();
 	};
-	L2_Rock2West.Setup();
+	L2_Rock2West.Setup(%this);
 	
 	%position = Rock1EastPos.getPosition();
 	%position.y += 0.5;
@@ -224,7 +219,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 		Position = %position;
 		SceneLayer = Rock1EastPos.getSceneLayer();
 	};
-	L2_Rock1East.Setup();
+	L2_Rock1East.Setup(%this);
 	
 	new CompositeSprite(L2_Rock2East)
 	{
@@ -241,7 +236,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 		Position = Rock2EastPos.getPosition();
 		SceneLayer = Rock2EastPos.getSceneLayer();
 	};
-	L2_Rock2East.Setup();
+	L2_Rock2East.Setup(%this);
 	
 	//	Logs
 	%position = Log1WestPos.getPosition();
@@ -261,7 +256,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 		Position = %position;
 		SceneLayer = Log1WestPos.getSceneLayer();
 	};
-	L2_Log1West.Setup();
+	L2_Log1West.Setup(%this);
 	
 	%position = Log2EastPos.getPosition();
 	%position.y += 1;
@@ -281,7 +276,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 		Position = %position;
 		SceneLayer = Log2EastPos.getSceneLayer();
 	};
-	L2_Log2East.Setup();
+	L2_Log2East.Setup(%this);
 	
 	//	Stone Sign
 	new CompositeSprite(L2_StoneSign)
@@ -299,7 +294,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 		Position = StoneSignPos.getPosition();
 		SceneLayer = StoneSignPos.getSceneLayer();
 	};
-	L2_StoneSign.Setup();
+	L2_StoneSign.Setup(%this);
 	//L2_StoneSign.dialogueTree = L2_StoneSignDialogueTree;
 	
 	//	Slot In
@@ -344,6 +339,40 @@ function Lesson2_Gate::SetupObstacles(%this)
 	};
 	%this.SetupSlotOut(L2_SlotOutEast);
 	
+	//	Gate Doors
+	%layer = GatePos.getSceneLayer();
+	%layer += 4;
+	%x = 0.9;
+	%y = 0.9;
+	
+	%position = GatePos.getPosition();
+	%position.x -= %x;
+	%position.y += %y;
+	new CompositeSprite(L2_DoorWest)
+	{
+		displayName = "Gate";
+		collisionSize = %size;
+		imageFrame = 0;
+
+		Position = %position;
+		SceneLayer = %layer;
+	};
+	%this.SetupGate(L2_DoorWest);
+	
+	%position = GatePos.getPosition();
+	%position.x += %x;
+	%position.y += %y;
+	new CompositeSprite(L2_DoorEast)
+	{
+		displayName = "Gate";
+		collisionSize = %size;
+		imageFrame = 1;
+
+		Position = %position;
+		SceneLayer = %layer;
+	};
+	%this.SetupGate(L2_DoorEast);
+	/*
 	// Add to Scene
 	%this.add(L2_Rock0West);
 	%this.add(L2_Rock1West);
@@ -354,6 +383,9 @@ function Lesson2_Gate::SetupObstacles(%this)
 	%this.add(L2_Log2East);
 	
 	%this.add(L2_StoneSign);
+	
+	%this.add(L2_DoorWest);
+	%this.add(L2_DoorEast);*/
 }
 
 //	Setup Orbs
@@ -379,6 +411,42 @@ function L2_Orb8::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
 function L2_Orb9::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
 function L2_Orb10::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
 
+// Setup Gates
+function Lesson2_Gate::SetupGate(%this, %gate)
+{
+	%size = "1.85, 3.5";
+   %gate.speed = 3;
+	%gate.setBodyType(dynamic);
+
+	// This effects how characters collide
+	%gate.setDefaultDensity(1000000);   // Made ridiculously high so characters will not budge
+	%gate.setDefaultRestitution(0);	//	Bounciness
+	%gate.setDefaultFriction(0);
+	%gate.setLinearDamping(1);	//	How quickly it slows down
+	
+	echo(%gate.getCollisionGroups());
+	echo(%gate.getCollisionLayers());
+	// Which objects to collide with
+	%gate.setCollisionGroups(none);
+	%gate.setCollisionGroups(%gate.getSceneLayer());
+	%gate.setCollisionLayers(none);
+	%gate.setCollisionLayers(%gate.getSceneLayer());
+	echo(%gate.getCollisionGroups());
+	echo(%gate.getCollisionLayers());
+	
+	%gate.addSprite();
+	%gate.setSpriteImage("Assets:GateDoor");
+	%gate.setSpriteImageFrame(%gate.imageFrame);
+	%gate.setSpriteSize(%size);
+
+	%gate.createPolygonBoxCollisionShape(%size.x, %size.y);
+
+	%gate.setCollisionCallback(true);   // So onCollision will be called
+	%gate.setFixedAngle(true); // Stop from rotating on collision
+	
+	%this.add(%gate);
+}
+
 //	Setup Slots
 function Lesson2_Gate::SetupSlotIn(%this, %slot)
 {
@@ -386,11 +454,11 @@ function Lesson2_Gate::SetupSlotIn(%this, %slot)
 	
 	%slot.collisionSize = "1.1, 1.5";
 	%slot.imageName = "Assets:Slot2";
-	%slot.imagePos = "0.1, -0.25";
-	%slot.imageSize = "1.25, 2";
-	%slot.Setup();
+	%slot.imagePos = "0, -0.25";
+	%slot.imageSize = "2, 2";
+	%slot.Setup(%this);
 	
-	%this.add(%slot);
+	//%this.add(%slot);
 }
 function Lesson2_Gate::SetupSlotOut(%this, %slot)
 {
@@ -400,15 +468,14 @@ function Lesson2_Gate::SetupSlotOut(%this, %slot)
 	%slot.imageName = "Assets:Slot1";
 	%slot.imagePos = "0, 0";
 	%slot.imageSize = "1, 1";
-	%slot.Setup();
+	%slot.Setup(%this);
 	
-	%this.add(%slot);
+	//%this.add(%slot);
 }
 
 //	Slot Use
 function L2_SlotInWest::Use(%this, %user)
 {
-	echo("Using West Slot");
 	echo(L2_SlotInWest SPC L2_SlotInWest.slot);
 	
 	%item = Inventory.UseSelectedItem();
@@ -418,7 +485,6 @@ function L2_SlotInWest::Use(%this, %user)
 }
 function L2_SlotInEast::Use(%this, %user)
 {
-	echo("Using East Slot");
 	echo(L2_SlotInEast SPC L2_SlotInEast.slot);
 	
 	%item = Inventory.UseSelectedItem();
@@ -462,7 +528,7 @@ function L2_Exit::onEnter(%this, %object)
 		UpdateHelpBar(%this, "Leaving Divisions");
 
 		// New scenes cannot be called during onCollision else the game will crash
-		%this.schedule(100, EndActivity());
+		%this.schedule(100, EndActivity);
 	}
 }
 function L2_ExitWarn::onEnter(%this, %object)

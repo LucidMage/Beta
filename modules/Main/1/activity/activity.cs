@@ -4,8 +4,9 @@ Main.ActiveYear = "";
 //	Defaults for all activities
 function PreSetupActivity(%activity)
 {
-	%scene = GameWindow.getScene();
-	%scene.clear();
+	/*%scene = GameWindow.getScene();
+	if (isObject(%scene))
+	   %scene.clear();*/
    
 	%activity.objective[0] = "Continue your journey on the road.";
 	//	Default to objective 0
@@ -33,7 +34,6 @@ function PostSetupActivity(%activity)
 	//Canvas.pushDialog(ToolboxDialog);
 	Canvas.pushDialog(InGameGUI);
 	
-	echo("Schedule Help Message");
 	//Main.HelpMessage = 0;
 	//%activity.schedule(100, UpdateHelpBar(%activity));
 	UpdateHelpBar(%activity, 0);
@@ -56,18 +56,15 @@ function ToggleInGameMenu()
 //	Update the text in the In-game GUI Help Bar
 function UpdateHelpBar(%activity, %text)
 {
-	echo("Activity =" SPC %activity);
-	
-	if (%text == 0)
+   echo(%text);
+	if (%text $= 0)
 	{
-		echo("No message");
 		warn("# =" SPC %activity.currentObjective);
 		warn("Help Text =" SPC %activity.objective[%activity.currentObjective]);
 		HelpText.Text = %activity.objective[%activity.currentObjective];
 	}
 	else
 	{
-		echo("Message");
 		warn("Help Text =" SPC %text);
 		HelpText.Text = %text;
 		

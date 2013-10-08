@@ -214,7 +214,7 @@
  </layer>
  <layer name="Cliff" width="36" height="50">
   <data encoding="base64" compression="zlib">
-   eJztmG0KwjAMhju9hHffAUSG4Mcmu4B4EPUC6gFMcYEQm64ym1bpA++/Qt7la92Mmc4DdAWdiS6Ocz1oMaJvMK9enm5Ed8e5FahT8IOeKqJZ9X6mN+M50uSUmR+LrdnSyHXTxubnYOQ8aWNrdszID5LCzwZmbAvaOWYN+4grFdhHXKnAPuL6d/bQKy2oc/RMSi91ZD8Ya+zZ68FLo5gfn7dm8BI7P6GgV5qfWrF+IX3bKNevIEN7uw2cwZg+bNw1Uyq4D+qHz5TGjEn5cO3ElDMmxdbI0SeUPZQPfA/lcP+JSQ77jRLiRXpXuOo19R4bmhfcKVYx787Ujy9XWjvF5ydFT/lipupzKabkR+vbS7pT5OKnUCgUcgT/qXK5/rEWfp8n2dmEjA==
+   eJztl30KwjAMxTu9hHffAUSG4Mcmu4B4EPUC6gFMcYFQm64ym4bRH7z/Cnkm6Vs1Zjov0B10Jbp5zvWg1Yj+wbL6eHoQPT3nNqBOwA96qogW1feZ3oz3SJKLMj8WO7O14ecmje3PyfB9ksbO7KzID6LND+6Rq1zgHrnKBe6Rq7lzhFxuQZ0nn3N6qRP7wVpjv70evDSC/Ql5awYvqfsTC3ql/akF5xezt43w/Ao8dLfbyDuY0oetu3WUC9cH9ePeKYk7xvXDl4k57xhXW6JHv1BySA9uDml4/6REQ75RYrxw3wrfvKa+Y2P7gplilfLtTP2EeiWVKSE/OXYqVDPXnnM1OT9S/724N4UWP4VCoaCRHeTT3qNDya1Z8gZXlIJ2
   </data>
  </layer>
  <layer name="TreeBottom" width="36" height="50">
@@ -230,6 +230,11 @@
  <layer name="TreeTop" width="36" height="50">
   <data encoding="base64" compression="zlib">
    eJztmF1uw0AIhJ0Lpv+3ae9e5wGJjvhmwXGqPhSpahLbMDvMAt5t+7e/YM+XbXu5/G7M6x7vCWK+779/nIBH1xUxw//r/vd2+XlfxYXDOrWISRgIYzZ3bWLhJ2IShvg9vuf8BIZ7sYQRH6TRKjerZyamXCjOiZ2l67O4vhnp7fqgeuByElhUU2fuvypehU91qL93zeU8x3e8aM3QvXGUn05MWo9iyPffu+8+92e/TGyHV2tUxnJmXQhz9UcxqIZyTX2UxtW/7qnMhWr+rHqlpv6pJ2ZtU8+bYKw0Tf4r/bhr5H9lldZpfytvnVzRDERGfnTt2Q/ND10+6L4VVo2rXFS6P4pldU0xKV/5eZezqjYd3Yc0t8X/rHuaczQHR2rnqn/RdZoFJ2snvB0suU5SLe/kRmuuPkP1cMWD25NHTWsO5eRmlZan+80ZzWCk67z+av914+XPymn2t+qt+k45yY+bTSuLPuJmZ1eL1I9ycs/MpJjCl/JYxTizHmZ/NM8rb5OaP8W46l+ul3TX6TA6TNV8WOWpo4vVuwRhJx4qTFS3KOa0VlItynGqWTF/pj4wrZU0D1b+iEs625m+E+o+ojn6ZnTeNHlHWeW34of41v3t9OV6rTunqM5VqrUrv+79g3ii5yiPNGeszgUpDunQnZ2QLl39mcSh2cntf/VT6SLOx1bnRW6NGR/pmWpflRNXAzvvI9SPSD8ar4rhcDqupj2PZkGaf1yczuzb0Q/pU3l1fHfPvaf9XXkLc2ck2ahndc5Jq5xW938Du74klg==
+  </data>
+ </layer>
+ <layer name="sprite" width="36" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1UEKgCAABED9/3+SLqW+rLsgRKhBzXxgT7sbAsA3pbg+s7yQCYyXdRlo1Bu7cNoOADr2SR9x+B5+btMBgMcuFBUF7w==
   </data>
  </layer>
  <objectgroup name="collision" width="36" height="50">
@@ -253,15 +258,14 @@
   <object x="256" y="1600">
    <polygon points="0,0 128,128 192,128 256,256 256,320 128,320 128,448 0,448"/>
   </object>
-  <object x="1728" y="256" width="192" height="320"/>
+  <object x="1728" y="192" width="192" height="384"/>
   <object x="1856" y="576" width="64" height="128"/>
   <object x="512" y="512">
    <polygon points="0,0 256,0 256,192 128,192"/>
   </object>
  </objectgroup>
- <layer name="sprite" width="36" height="50">
-  <data encoding="base64" compression="zlib">
-   eJzt1TEKwCAAA0D7//8ILmr7MnehIKI4ePeCLElCAGCV9zmdAFih6jLQ+QZ2odgOAH6kTR+RfQ+XizoAMK0BXRcFNw==
-  </data>
- </layer>
+ <objectgroup name="trigger" width="36" height="50">
+  <object name="L3A_Exit" x="1152" y="0" width="768" height="320"/>
+  <object name="L3A_ExitWarn" x="1216" y="320" width="576" height="192"/>
+ </objectgroup>
 </map>

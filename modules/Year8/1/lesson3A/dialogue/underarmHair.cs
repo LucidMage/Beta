@@ -89,7 +89,7 @@ L3A_UnderarmHairDialogueMidAnswer3Part2.canEnd = false;
 
 //==	End    ==//
 //	Helped
-%text = "Okay, thank you for explaining armpit hair to me";
+%text = "Okay, thank you for explaining armpit hair to me.";
 new ScriptObject(L3A_UnderarmHairDialogueEndHelped)	{	class = Dialogue;	};
 L3A_UnderarmHairDialogueEndHelped.Setup(%text);
 
@@ -120,14 +120,14 @@ L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialog
 
 //==	Middle - Part 1    ==//
 //	Link to "Because of hormones"
-%text = "Because of hormones";
+%text = "Because of hormones.";
 L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part1);
 L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part1);
 L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part1);
 L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part1);
 
 //	Link to "For warmth and protection"
-%text = "For warmth and protection";
+%text = "For warmth and protection.";
 L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
 L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
 L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
@@ -135,7 +135,7 @@ L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueMi
 L3A_UnderarmHairDialogueMidAnswer1Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part1);
 
 //	Link to "To get in the way of deodorant"
-%text = "To get in the way of deodorant";
+%text = "To get in the way of deodorant.";
 L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
 L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
 L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
@@ -143,7 +143,7 @@ L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueMi
 L3A_UnderarmHairDialogueMidAnswer1Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3);
 
 //	Link to "To catch sweat"
-%text = "To catch sweat";
+%text = "To catch sweat.";
 L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer4);
 L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer4);
 L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer4);
@@ -152,27 +152,27 @@ L3A_UnderarmHairDialogueMidAnswer1Part1.AddResponse(%text, L3A_UnderarmHairDialo
 
 //==	Middle - Part 2    ==//
 //	Link to "Bacteria"
-%text = "Bacteria";
+%text = "Bacteria.";
 L3A_UnderarmHairDialogueMidAnswer2Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer1Part2);
 
 //	Link to "Dirt and sweat"
-%text = "Dirt and sweat";
+%text = "Dirt and sweat.";
 L3A_UnderarmHairDialogueMidAnswer2Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer2Part2);
 
 //	Link to "I don't know"
-%text = "I don't know";
+%text = "I don't know.";
 L3A_UnderarmHairDialogueMidAnswer1Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3Part2);
 L3A_UnderarmHairDialogueMidAnswer2Part1.AddResponse(%text, L3A_UnderarmHairDialogueMidAnswer3Part2);
 
 //==	End    ==//
 //	Link to Helped
-%text = "No but its your choice what you do with it";
+%text = "No but its your choice what you do with it.";
 L3A_UnderarmHairDialogueMidAnswer3.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
 L3A_UnderarmHairDialogueMidAnswer4.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
 L3A_UnderarmHairDialogueMidAnswer1Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
 L3A_UnderarmHairDialogueMidAnswer2Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
 L3A_UnderarmHairDialogueMidAnswer3Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
-%text = "Nothing bad will happen. You'll just feel a bit colder";
+%text = "Nothing bad will happen. You'll just feel a bit colder.";
 L3A_UnderarmHairDialogueMidAnswer3.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
 L3A_UnderarmHairDialogueMidAnswer4.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
 L3A_UnderarmHairDialogueMidAnswer1Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
@@ -180,10 +180,10 @@ L3A_UnderarmHairDialogueMidAnswer2Part2.AddResponse(%text, L3A_UnderarmHairDialo
 L3A_UnderarmHairDialogueMidAnswer3Part2.AddResponse(%text, L3A_UnderarmHairDialogueEndHelped);
 
 //	Link to Not Helped
-%text = "I don't know";
+%text = "I don't know.";
 L3A_UnderarmHairDialogueInitExplain1.AddResponse(%text, L3A_UnderarmHairDialogueEndNotHelped);
 L3A_UnderarmHairDialogueInitExplain2.AddResponse(%text, L3A_UnderarmHairDialogueEndNotHelped);
-%text = "No";
+%text = "No.";
 L3A_UnderarmHairDialogueDistracted.AddResponse(%text, L3A_UnderarmHairDialogueEndNotHelped);
 L3A_UnderarmHairDialogueRepeatGreeting.AddResponse(%text, L3A_UnderarmHairDialogueEndNotHelped);
 
@@ -202,7 +202,6 @@ function L3A_UnderarmHairDialogueTree::onClose(%this)
 	if (%this.currentDialogue $= L3A_UnderarmHairDialogueEndHelped)
 	{
 		%this.owner.helped = true;
-		Lesson3A.helped++;
 		Lesson3A.UpdateStatus();
 	}
 

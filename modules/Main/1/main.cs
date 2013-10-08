@@ -27,7 +27,6 @@ function Main::create( %this )
 	CreateProfile();
     ScanForYearGroups();
 	/*%year = YearGroups.findObjectByInternalName("Year8");
-	echo(%year);
 	LoadYearGroup(%year);*/
 	
 	OpenProfileGUI();
@@ -66,16 +65,11 @@ function OpenSelectActivityGUI()
 
 function SelectActivity(%lesson)
 {
-	echo("Select Activity");
-	/*%scene = GameWindow.getScene();
-	echo("Destroying");
+	%scene = GameWindow.getScene();
 	DestroyScene(%scene);
-	echo("After Destroying the Scene");*/
 	
 	Main.ActiveActivity = %lesson;//Lesson2;//3A;//Lesson1;
-	echo("Resetting");
 	Year8.reset();
-	echo("After Reset");
 	
 	Canvas.popDialog(ProfileGUI);
 	Canvas.popDialog(SelectActivityGUI);

@@ -3,5 +3,5 @@
     ImageFile="gateDoor.png"
     CellCountX="2"
     CellCountY="1"
-    CellWidth="53"
-    CellHeight="121" />
+    CellWidth="61"
+    CellHeight="122" />

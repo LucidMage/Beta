@@ -1,7 +1,6 @@
 //	Scene Setup
 function Lesson3A_Forest::Setup(%this)
 {
-	echo("Lesson3A Forest Setup");
 	%this.setName("Lesson3A_Forest");
 
 	//	Add Tiled Map
@@ -14,7 +13,6 @@ function Lesson3A_Forest::Setup(%this)
 
 	%this.SetupCharacters();
 	%this.SetupObstacles();
-	%this.SetupTriggers();
 }
 
 //	Characters
@@ -34,18 +32,18 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		dialogueTree = L3A_UnderarmHairDialogueTree;
 		
 		gender = $SpriteGenderFemale;
-		ethnicity = $SpriteEthnicityMaori;
-		torso = "";
-		legs = $SpriteLegsDress;
+		ethnicity = GetRandomEthnicity();//$SpriteEthnicityMaori;
+		hairColour = GetRandomHairColour();
+		hairStyle = GetRandomHairStyle();
+		torso = $SpriteTorsoTShirtF;
+		legs = GetRandomLegs();//$SpriteLegsDress;
+		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
 
 		Position = L3A_UnderarmHairPos.getPosition();
 		SceneLayer = L3A_UnderarmHairPos.getSceneLayer();
-		
-		helped = false;
 	};
-	//L3A_UnderarmHairPerson.dialogueTree.Setup(L3A_UnderarmHairPerson);
-	L3A_UnderarmHairPerson.Setup();
-	//L3A_UnderarmHairPerson.dialogueTree = L3A_UnderarmHairDialogueTree;
+	%this.SetupLostPerson(L3A_UnderarmHairPerson);
+	//L3A_UnderarmHairPerson.Setup(%this);
 	
 	//	Girl Developing Breasts
 	new CompositeSprite(L3A_DevelopBreastGirl)
@@ -54,19 +52,19 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		class = "Character";
 		dialogueTree = L3A_DevelopBreastDialogueTree;
 		
-		gender = $SpriteGenderMale;
-		ethnicity = $SpriteEthnicityMaori;
-		torso = "";
-		legs = $SpriteLegsDress;
+		gender = $SpriteGenderFemale;
+		ethnicity = GetRandomEthnicity();
+		hairColour = GetRandomHairColour();
+		hairStyle = GetRandomHairStyle();
+		torso = GetRandomTorso();
+		legs = GetRandomLegs();
+		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
 
 		Position = L3A_DevelopBreastGirlPos.getPosition();
 		SceneLayer = L3A_DevelopBreastGirlPos.getSceneLayer();
-		
-		helped = false;
 	};
-	//L3A_DevelopBreastGirl.dialogueTree.Setup(L3A_DevelopBreastDialogueTree);
-	L3A_DevelopBreastGirl.Setup();
-	//L3A_DevelopBreastGirl.dialogueTree = L3A_DevelopBreastDialogueTree;
+	//%this.SetupLostPerson(L3A_DevelopBreastGirl);
+	//L3A_DevelopBreastGirl.Setup(%this);
 
 	//  Sweaty Person
 	new CompositeSprite(L3A_SweatyPerson)
@@ -76,39 +74,39 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		dialogueTree = L3A_SweatyDialogueTree;
 		
 		gender = $SpriteGenderMale;
-		ethnicity = $SpriteEthnicityMaori;
-		torso = "";
-		legs = $SpriteLegsDress;
+		ethnicity = GetRandomEthnicity();
+		hairColour = GetRandomHairColour();
+		hairStyle = GetRandomHairStyle();
+		torso = GetRandomTorso();
+		legs = GetRandomLegs();
+		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
 
 		Position = L3A_SweatyPersonPos.getPosition();
 		SceneLayer = L3A_SweatyPersonPos.getSceneLayer();
-		
-		helped = false;
 	};
-	//L3A_SweatyPerson.dialogueTree.Setup(L3A_SweatyDialogueTree);
-	L3A_SweatyPerson.Setup();
-	//L3A_SweatyPerson.dialogueTree = L3A_SweatyDialogueTree;
+	//%this.SetupLostPerson(L3A_SweatyPerson);
+	//L3A_SweatyPerson.Setup(%this);
 
 	//  Broad Shouldered Person
 	new CompositeSprite(L3A_BroadShoulderPerson)
 	{
 		displayName = "Broad shouldered boy";
 		class = "Character";
-		dialogueTree = L3A_DevelopBreastDialogueTree;
+		dialogueTree = L3A_BroadShoulderDialogueTree;
 		
 		gender = $SpriteGenderMale;
-		ethnicity = $SpriteEthnicityMaori;
-		torso = $SpriteTorsoHoodie;
-		legs = $SpriteLegsDress;
+		ethnicity = GetRandomEthnicity();
+		hairColour = GetRandomHairColour();
+		hairStyle = GetRandomHairStyle();
+		torso = GetRandomTorso();
+		legs = GetRandomLegs();
+		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
 
 		Position = L3A_BroadShoulderPersonPos.getPosition();
 		SceneLayer = L3A_BroadShoulderPersonPos.getSceneLayer();
-		
-		helped = false;
 	};
-	//L3A_BroadShoulderPerson.dialogueTree.Setup(L3A_DevelopBreastDialogueTree);
-	L3A_BroadShoulderPerson.Setup();
-	//L3A_BroadShoulderPerson.dialogueTree = L3A_BroadShoulderDialogueTree;
+	//%this.SetupLostPerson(L3A_BroadShoulderPerson);
+	//L3A_BroadShoulderPerson.Setup(%this);
 
 	//  Pubic Hair Person
 	new CompositeSprite(L3A_PubicHairPerson)
@@ -118,19 +116,19 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		dialogueTree = L3A_PubicHairDialogueTree;
 		
 		gender = $SpriteGenderFemale;
-		ethnicity = $SpriteEthnicityMaori;
-		torso = "";
-		legs = $SpriteLegsDress;
+		ethnicity = GetRandomEthnicity();
+		hairColour = GetRandomHairColour();
+		hairStyle = GetRandomHairStyle();
+		torso = GetRandomTorso();
+		legs = GetRandomLegs();
+		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
 
 		Position = L3A_PubicHairPos.getPosition();
 		SceneLayer = L3A_PubicHairPos.getSceneLayer();
-		
-		helped = false;
 	};
-	//L3A_PubicHairPerson.dialogueTree.Setup(L3A_PubicHairDialogueTree);
-	L3A_PubicHairPerson.Setup();
-	//L3A_PubicHairPerson.dialogueTree = L3A_PubicHairDialogueTree;
-	
+	//%this.SetupLostPerson(L3A_PubicHairPerson);
+	//L3A_PubicHairPerson.Setup(%this);
+	/*
 	// Add to Scene
 	%this.add(L3A_UnderarmHairPerson);
 	Lesson3A.totalLost++;
@@ -145,14 +143,12 @@ function Lesson3A_Forest::SetupCharacters(%this)
 	Lesson3A.totalLost++;
 	
 	%this.add(L3A_PubicHairPerson);
-	Lesson3A.totalLost++;
+	Lesson3A.totalLost++;*/
 }
 
 //	Obstacles
 function Lesson3A_Forest::SetupObstacles(%this)
 {
-	echo("Setup Obstacles");
-	
 	//	Stone Sign
 	new CompositeSprite(L3A_StoneSign)
 	{
@@ -169,14 +165,54 @@ function Lesson3A_Forest::SetupObstacles(%this)
 		Position = StoneSignPos.getPosition();
 		SceneLayer = StoneSignPos.getSceneLayer();
 	};
-	L3A_StoneSign.Setup();
+	L3A_StoneSign.Setup(%this);
 	
+	//	Exit Obstacle
+	new CompositeSprite(L3A_ExitObstacle)
+	{
+		displayName = "Hedge";
+		class = "Static";
+		
+		collisionSize = "6, 2";
+		imageName = "Assets:Hedge";
+		imagePos = "0, 0";
+		imageSize = "6, 2";
+
+		Position = EndObstaclePos.getPosition();
+		SceneLayer = EndObstaclePos.getSceneLayer();
+	};
+	L3A_ExitObstacle.Setup(%this);
+	/*
 	// Add to Scene
 	%this.add(L3A_StoneSign);
+	%this.add(L3A_ExitObstacle);*/
+}
+
+// Setup Lost People
+function Lesson3A_Forest::SetupLostPerson(%this, %person)
+{
+   %person.helped = false;
+   %person.Setup(%this);
+	//%this.add(%person);
+	Lesson3A.totalLost++;
 }
 
 //	Triggers
-function Lesson3A_Forest::SetupTriggers(%this)
+function L3A_Exit::onEnter(%this, %object)
 {
-	echo("Setup Triggers");
+	if (%object.getName() $= Player)
+	{
+		UpdateHelpBar(%this, "Leaving Mix 'n Match");
+
+		// New scenes cannot be called during onCollision else the game will crash
+		%this.schedule(100, EndActivity);
+	}
+}
+function L3A_ExitWarn::onEnter(%this, %object)
+{
+	UpdateHelpBar(%this, "You are about to leave Mix 'n Match");
+}
+function L3A_ExitWarn::onLeave(%this, %object)
+{
+	UpdateHelpBar(%this, 0);
 }

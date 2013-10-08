@@ -1,7 +1,5 @@
 function SetupPlayer(%scene, %position, %layer)
 {
-	error("Setup Player");
-	
 	/*
 	%player = new CompositeSprite(Player)
 	{
@@ -46,9 +44,6 @@ function SetupPlayer(%scene, %position, %layer)
 	Player.accessory = Profile.accessory;
 
 	Profile.character = Player;
-	
-	Player.Setup();
-	Player.setDefaultDensity(100);	//	So player cannot push characters
 
 	Player.setPosition(%position);
 	Player.setSceneLayer(%layer);
@@ -60,6 +55,10 @@ function SetupPlayer(%scene, %position, %layer)
 
 	%controls = InteractBehaviour.createInstance();
 	%player.addBehavior(%controls);*/
+	
+	Player.Setup(%scene);
+	//Player.interactionZone.setEnabled(false);
+	Player.setDefaultDensity(100);	//	So player cannot push characters
 
 	// Inventory
 	//%inventory = new ScriptObject(Inventory);
@@ -67,7 +66,6 @@ function SetupPlayer(%scene, %position, %layer)
 	// Add to Scene
 	%scene.add(Player);
 	//addInteractionZone(%player, %scene);
-	error("End of Setup Player");
 }
 
 //	Character shown during customization
@@ -92,29 +90,28 @@ function SetupPlayerPreview()
 	PlayerPreview.legs = Profile.legs;
 	PlayerPreview.accessory = Profile.accessory;
 	
-	%size = 5;
-	
+	PlayerPreview.imageSize = 5;
 	PlayerPreview.setBodyType(static);
 	
 	PlayerPreview.addSprite();
 	PlayerPreview.setSpriteName("legs");
-	PlayerPreview.setSpriteSize(%size);
+	PlayerPreview.setSpriteSize(PlayerPreview.imageSize);
 	
 	PlayerPreview.addSprite();
 	PlayerPreview.setSpriteName("torso");
-	PlayerPreview.setSpriteSize(%size);
+	PlayerPreview.setSpriteSize(PlayerPreview.imageSize);
 	
 	PlayerPreview.addSprite();
 	PlayerPreview.setSpriteName("head");
-	PlayerPreview.setSpriteSize(%size);
+	PlayerPreview.setSpriteSize(PlayerPreview.imageSize);
 	
 	PlayerPreview.addSprite();
 	PlayerPreview.setSpriteName("hair");
-	PlayerPreview.setSpriteSize(%size);
+	PlayerPreview.setSpriteSize(PlayerPreview.imageSize);
 	
 	PlayerPreview.addSprite();
 	PlayerPreview.setSpriteName("accessory");
-	PlayerPreview.setSpriteSize(%size);
+	PlayerPreview.setSpriteSize(PlayerPreview.imageSize);
 	
 	PlayerPreview.UpdateImages();
 }

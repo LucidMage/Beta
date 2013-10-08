@@ -1,17 +1,18 @@
 function Character::onRemoveFromScene(%this)
 {
-	%this.interactionZone.delete();
+   removeInteractionZone(%this);
 }
 
 function SetupCharacter(%character)
 {
 	%character.damping = 20;
 	%character.direction = $SpriteDirectionDown;   // The direction they are facing. Used for determining image
+	%character.imageSize = 2;
 	%character.speed = 4;
 	%character.state = $SpriteStateIdle;	// What the sprite is doing. Used for determining image
 	%character.positionAdjust = "0 -0.5";
 	%character.collisionSize = "0.6 0.8";
-	%character.useRange = 1.5;	// How close does something have to be for the character to use it
+	%character.useRange = 1;//.5;	// How close does something have to be for the character to use it
 
 	%character.setBodyType(dynamic);
 
@@ -29,60 +30,61 @@ function SetupCharacter(%character)
 	%character.setFixedAngle(true); // Stop from rotating on collision
 	
 	//	Dialogue Tree
-	/*%character.dialogueTree = new ScriptObject()
+	if (!isObject(%character.dialogueTree))
 	{
-		class = DialogueTree;
-	};*/
+      %character.dialogueTree = new ScriptObject()
+      {
+         class = DialogueTree;
+      };
+	}
 	%character.dialogueTree.Setup(%character);
 }
 
 function Character::Setup(%this, %scene)
 {
-	echo("Character Setup");
 	SetupCharacter(%this);
 	
 	// Sprites, or graphics, the character is composed of
 	%this.addSprite();
 	%this.setSpriteName("legs");
-	%this.setSpriteSize(2);
+	%this.setSpriteSize(%this.imageSize);
 	
 	%this.addSprite();
 	%this.setSpriteName("torso");
-	%this.setSpriteSize(2);
+	%this.setSpriteSize(%this.imageSize);
 	
 	%this.addSprite();
 	%this.setSpriteName("head");
-	%this.setSpriteSize(2);
+	%this.setSpriteSize(%this.imageSize);
+	
+	%this.addSprite();
+	%this.setSpriteName("hair");
+	%this.setSpriteSize(%this.imageSize);
 	
 	%this.addSprite();
 	%this.setSpriteName("accessory");
-	%this.setSpriteSize(2);
+	%this.setSpriteSize(%this.imageSize);
 	
 	%this.UpdateImages();
 	
 	%scene.add(%this);
 	addInteractionZone(%this, %scene);
-	echo("End of Character Setup");
 }
 
 // Change the images to match the current state
 function Character::UpdateImages(%this)
 {
-	echo("Gender:" SPC %this.gender);
-	echo("Ethnicity:" SPC %this.ethnicity);
-	echo("State:" SPC %state);
-	echo("Hair Colour:" SPC %this.hairColour);
-	echo("Hair Style:" SPC %this.hairStyle);
-	echo("Torso:" SPC %this.torso);
-	echo("Legs:" SPC %this.legs);
-	echo("Accessory:" SPC %this.accessory);
-	
 	//	Accessory
 	%this.selectSpriteName("accessory");
 		
-	%animation = %this.getSpriteName() @ %this.accessory @ %this.direction;
-	%this.setSpriteAnimation("Assets:" @ %animation);
-	echo(%animation);
+   if (%this.accessory !$= $SpriteAccessoryNone)
+   {
+      %animation = %this.getSpriteName() @ %this.accessory @ %this.direction;
+      %this.setSpriteAnimation("Assets:" @ %animation);
+	   echo(%animation);
+   }
+   else
+	   %this.setSpriteAnimation($SpriteAccessoryNone);
 	
 	//	Hair
 	%this.selectSpriteName("hair");
@@ -152,4 +154,63 @@ function Character::FaceTarget(%this, %target)
 		%this.direction = $SpriteDirectionUp;
 	
 	%this.UpdateImages();
+}
+
+// Randomize Character Functions
+function GetRandomGender(%this)
+{
+   setRandomSeed();  // So it actually is random
+   %r = getRandom($SpriteGenderCount - 1);
+   return $SpriteGenderArray[%r];
+}
+function GetRandomEthnicity(%this)
+{
+   setRandomSeed();  // So it actually is random
+   %r = getRandom($SpriteEthnicityCount - 1);
+   return $SpriteEthnicityArray[%r];
+}
+function GetRandomHairColour(%this)
+{
+   setRandomSeed();  // So it actually is random
+   %r = getRandom($SpriteHairColourCount - 1);
+   return $SpriteHairColourArray[%r];
+}
+function GetRandomHairStyle(%this)
+{
+   setRandomSeed();  // So it actually is random
+   %r = getRandom($SpriteHairStyleCount - 1);
+   return $SpriteHairStyleArray[%r];
+}
+function GetRandomTorso(%this)
+{
+   setRandomSeed();  // So it actually is random
+   %r = getRandom($SpriteTorsoCount - 2);
+   %torso = $SpriteTorsoArray[%r];
+   
+   switch$(%torso)
+   {
+      case 2:
+         if (%this.gender $= $SpriteGenderFemale)
+         {
+            return $SpriteTorsoTShirtF;
+         }
+         else
+         {
+            return $SpriteTorsoTShirt;
+         }
+      default:
+         return %torso;//$SpriteTorsoArray[%r];
+   }
+}
+function GetRandomLegs(%this)
+{
+   setRandomSeed();  // So it actually is random
+   %r = getRandom($SpriteLegsCount - 1);
+   return $SpriteLegsArray[%r];
+}
+function GetRandomAccessory(%this)
+{
+   setRandomSeed();  // So it actually is random
+   %r = getRandom($SpriteAccessoryCount - 1);
+   return $SpriteAccessoryArray[%r];
 }

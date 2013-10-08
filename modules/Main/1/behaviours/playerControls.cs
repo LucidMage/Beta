@@ -86,6 +86,8 @@ function PlayerControlsBehaviour::updateMovement(%this)
 		%this.owner.setLinearVelocityX((%this.right - %this.left) * %this.owner.speed);
 		%this.owner.setLinearVelocityY((%this.up - %this.down) * %this.owner.speed);
 	}
+	
+   %this.owner.interactionZone.UpdateArea();
 }
 
 function PlayerControlsBehaviour::moveUp(%this, %val)

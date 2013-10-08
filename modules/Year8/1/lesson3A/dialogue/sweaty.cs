@@ -12,7 +12,7 @@ L3A_SweatyDialogueInitGreeting.canEnd = false;
 L3A_SweatyDialogueInitGreeting.canRepeat = false;
 
 //	"No, I'm travelling the Sexuality Road"
-%text = "Really, I bet you get a lot of exercise from walking everywhere";
+%text = "Really, I bet you get a lot of exercise from walking everywhere.";
 new ScriptObject(L3A_SweatyDialogueInitGreeting2)	{	class = Dialogue;	};
 L3A_SweatyDialogueInitGreeting2.Setup(%text);
 L3A_SweatyDialogueInitGreeting2.canEnd = false;
@@ -26,7 +26,7 @@ L3A_SweatyDialogueInitExplain1.canEnd = false;
 //L3A_SweatyDialogueInitExplain1.canRepeat = false;
 
 //	"Poo! You stink!"
-%text = "Yeah I know. I don't know how to get rid of it. It seems like I'm getting sweaty and smelly even when I don't do anything";
+%text = "Yeah I know. I don't know how to get rid of it. It seems like I'm getting sweaty and smelly even when I don't do anything.";
 new ScriptObject(L3A_SweatyDialogueInitExplain2)	{	class = Dialogue;	};
 L3A_SweatyDialogueInitExplain2.Setup(%text);
 L3A_SweatyDialogueInitExplain2.canEnd = false;
@@ -118,7 +118,7 @@ L3A_SweatyDialogueTree.rootDialogue[1] = L3A_SweatyDialogueRepeatGreeting;
 L3A_SweatyDialogueTree.rootDialogue[2] = L3A_SweatyDialogueHelpedGreeting;
 
 //	Link to Extended Greeting
-%text = "No, I'm travelling the Sexuality Road";
+%text = "No, I'm travelling the Sexuality Road.";
 L3A_SweatyDialogueInitGreeting.AddResponse(%text, L3A_SweatyDialogueInitGreeting2);
 //	Link to Explaination 1
 %text = "Why are you sweaty?";
@@ -141,20 +141,20 @@ L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueInitExplai
 
 //==	Middle - Part 1    ==//
 //	Link to "You might have a fever"
-%text = "You might have a fever";
+%text = "You might have a fever.";
 L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueMidAnswer0);
 L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueMidAnswer0);
 L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueMidAnswer0);
 
 //	Link to "Your sweat glands have become more active"
-%text = "Your sweat glands have become more active";
+%text = "Your sweat glands have become more active.";
 L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part1);
 L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part1);
 L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part1);
 L3A_SweatyDialogueMidAnswer0.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part1);
 
 //	Link to "This forest is warmer than other places"
-%text = "This forest is warmer than other places";
+%text = "This forest is warmer than other places.";
 L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part1);
 L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part1);
 L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part1);
@@ -162,12 +162,12 @@ L3A_SweatyDialogueMidAnswer0.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part
 
 //==	Middle - Part 2    ==//
 //	Link to "Maybe its from being in this forest"
-%text = "Maybe its from being in this forest";
+%text = "Maybe its from being in this forest.";
 L3A_SweatyDialogueMidAnswer1Part1.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part2);
 L3A_SweatyDialogueMidAnswer2Part1.AddResponse(%text, L3A_SweatyDialogueMidAnswer1Part2);
 
 //	Link to "Your sweat has pheromones which attract others"
-%text = "Your sweat has pheromones which attract others";
+%text = "Your sweat has pheromones which attract others.";
 L3A_SweatyDialogueMidAnswer1Part1.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part2);
 L3A_SweatyDialogueMidAnswer2Part1.AddResponse(%text, L3A_SweatyDialogueMidAnswer2Part2);
 
@@ -178,23 +178,23 @@ L3A_SweatyDialogueMidAnswer1Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped
 L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped1);
 
 //	Link to Helped 2
-%text = "Use deodorant";
+%text = "Use deodorant.";
 L3A_SweatyDialogueMidAnswer1Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped2);
 L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped2);
-%text = "Just wash yourself";
+%text = "Just wash yourself.";
 L3A_SweatyDialogueMidAnswer1Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped2);
 L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped2);
 
 //	Link to Helped 3
-%text = "Wear perfume";
+%text = "Wear perfume.";
 L3A_SweatyDialogueMidAnswer1Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped3);
 L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped3);
 
 //	Link to Not Helped
-%text = "I've got no idea";
+%text = "I've got no idea.";
 L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
 L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
-%text = "Nope";
+%text = "Nope.";
 L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
 
 //======	Callbacks    ======//
@@ -214,7 +214,6 @@ function L3A_SweatyDialogueTree::onClose(%this)
 		%this.currentDialogue $= L3A_SweatyDialogueEndHelped3)
 	{
 		%this.owner.helped = true;
-		Lesson3A.helped++;
 		Lesson3A.UpdateStatus();
 	}
 

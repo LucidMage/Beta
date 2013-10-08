@@ -31,12 +31,12 @@ function Inventory::AddItem(%this, %item)
 	//	If this item doesn't do anything special
 	if (%item.onPickUp())
 	{
+		echo("New Item" SPC %item.getName());
+
 		%this.item[%this.count] = %item;
 		
 		%this.selected = %this.count;
 		%this.count++;
-
-		echo("New Item" SPC %item.getName());
 
 		for (%i = 0; %i < %this.count; %i++)
 		{
@@ -87,11 +87,17 @@ function Inventory::Organize(%this)
 	for (%i = 0; %i < %this.count; %i++)
 	{
 		echo(%i SPC %this.item[%i].getName());
-		if (%this.item[%i] == 0)
+		if (%this.item[%i] $= 0)
 		{
 			//	Shift all items by one slot
-			for (%j = %i++; %j < %this.count; %j++)
-				%this.item[%j--] = %this.item[%j];
+			for (%j = %i + 1; %j < %this.count; %j++)
+			{
+			   echo((%j - 1) SPC %this.item[%j - 1].getName());
+			   echo(%j SPC %this.item[%j].getName());
+				%this.item[%j - 1] = %this.item[%j];
+			   echo((%j - 1) SPC %this.item[%j - 1].getName());
+			   echo(%j SPC %this.item[%j].getName());
+			}
 
 			%this.count--;
 			%this.selected--;
@@ -100,6 +106,16 @@ function Inventory::Organize(%this)
 	
 	if (%this.count <= 0)
 		%this.selected = -1;
+	// temp
+	else
+	   %this.selected = 0;
+   // temp
+		
+   echo("Current inventory:");
+	for (%i = 0; %i < %this.count; %i++)
+	{
+		echo(%i SPC %this.item[%i].getName());
+	}
 		
 	%this.DisplaySelected();
 	echo("End of Organizing:" SPC %this.count);

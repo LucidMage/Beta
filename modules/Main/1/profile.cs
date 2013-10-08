@@ -1,7 +1,5 @@
 function CreateProfile()
 {
-	error("Create Profile");
-	
 	if (!isObject(Profile))
 	{
 		new ScriptObject(Profile)
@@ -19,19 +17,15 @@ function CreateProfile()
 			accessory = $SpriteAccessoryNone;
 		};
 	}
-	
-	error("End of Create Profile");
 }
 
 function OpenProfileGUI()
 {
-	error("Opening Profile");
 	CreateScene(ProfileScene);
 	Canvas.pushDialog(ProfileGUI);
 	
 	UpdateProfileGUIOptions();
 	UpdateProfileGUIPreview();
-	error("End of Opening Profile");
 }
 
 function CloseProfileGUI()
@@ -44,9 +38,7 @@ function CloseProfileGUI()
 //	Preview of the character they are making
 function UpdateProfileGUIPreview()
 {
-	error("Update Player Preview");
 	SetupPlayerPreview();
-	error("End of Update Player Preview");
 }
 
 //	Populate options for customizing the character
@@ -230,18 +222,15 @@ function UpdateProfileGUIOptions()
 
 function ProfileScene::Setup()
 {
-	error("Profile Scene Setup");
 	SetupPlayerPreview();
 	PlayerPreview.setPosition(-5, 0);
 	ProfileScene.add(PlayerPreview);
-	error("End of Profile Scene Setup");
 }
 
 function GenderList::onSelect(%this)
 {
-	echo(Profile.gender);
 	Profile.gender = GenderList.getText();
-	echo(Profile.gender);
+	TorsoList.onSelect();   // Certain torsos apply only to a single gender
 	
 	//UpdateProfileGUI();
 	UpdateProfileGUIPreview();
@@ -249,9 +238,7 @@ function GenderList::onSelect(%this)
 
 function EthnicityList::onSelect(%this)
 {
-	echo(Profile.ethnicity);
 	Profile.ethnicity = EthnicityList.getText();
-	echo(Profile.ethnicity);
 		
 	//	Pacific Islander
 	if (Profile.ethnicity $= $SpriteEthnicityPIFull)
@@ -261,11 +248,67 @@ function EthnicityList::onSelect(%this)
 	UpdateProfileGUIPreview();
 }
 
+function HairList::onSelect(%this)
+{
+	%text = HairList.getText();
+	echo(%text);
+	
+	// Hair Colour
+	Profile.hairColour = getWord(%text, 0);
+	echo(Profile.hairColour);
+	
+	// Hair Style
+	Profile.hairStyle = removeWord(%text, 0);
+	echo(Profile.hairStyle);
+		
+	//	Long Hair
+	if (Profile.hairStyle $= $SpriteHairStyleLongFemFull)
+		Profile.hairStyle = $SpriteHairStyleLongFem;
+	if (Profile.hairStyle $= $SpriteHairStyleLongAndroFull)
+		Profile.hairStyle = $SpriteHairStyleLongAndro;
+	
+	//UpdateProfileGUI();
+	UpdateProfileGUIPreview();
+}
+
+function TorsoList::onSelect(%this)
+{
+	Profile.torso = TorsoList.getText();
+	
+   //	T-Shirt
+   if (Profile.torso $= $SpriteTorsoTShirtFull)
+   {
+      if (Profile.gender $= $SpriteGenderFemale)
+      {
+         Profile.torso = $SpriteTorsoTShirtF;
+      }
+      else
+      {
+         Profile.torso = $SpriteTorsoTShirt;
+      }
+   }
+	
+	//UpdateProfileGUI();
+	UpdateProfileGUIPreview();
+}
+
+function LegsList::onSelect(%this)
+{
+	Profile.legs = LegsList.getText();
+	
+	//UpdateProfileGUI();
+	UpdateProfileGUIPreview();
+}
+
 function AccessoryList::onSelect(%this)
 {
-	echo(Profile.accessory);
 	Profile.accessory = AccessoryList.getText();
-	echo(Profile.accessory);
+	
+	// No accessory
+	if (Profile.accessory $= $SpriteAccessoryNoneFull)
+	{
+	   Profile.accessory = $SpriteAccessoryNone;
+	}
 	
 	//UpdateProfileGUI();
 	UpdateProfileGUIPreview();

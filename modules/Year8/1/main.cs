@@ -22,7 +22,6 @@ function Year8::reset( %this )
 	new ScriptObject(Inventory);
 	Inventory.Setup();
 
-	echo("Setting Active Activity");
 	new ScriptObject(Main.ActiveActivity);
 	Main.ActiveActivity.Setup();
 

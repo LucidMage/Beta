@@ -3,17 +3,55 @@
 <Password>password</Password>
 <Port>6060</Port>
 <LastConfig>Debug</LastConfig>
-<Breakpoints/>
+<Breakpoints>
+<Breakpoint>
+<File>modules\Year8\1\lesson2\scenes\gate.cs</File>
+<Line>509</Line>
+<Pass>0</Pass>
+<Condition/>
+<Enabled/>
+</Breakpoint>
+<Breakpoint>
+<File>modules\Main\1\inventory.cs</File>
+<Line>93</Line>
+<Pass>0</Pass>
+<Condition/>
+<Enabled/>
+</Breakpoint>
+<Breakpoint>
+<File>modules\Main\1\behaviours\interact.cs</File>
+<Line>286</Line>
+<Pass>0</Pass>
+<Condition/>
+<Enabled/>
+</Breakpoint>
+<Breakpoint>
+<File>modules\Main\1\behaviours\interact.cs</File>
+<Line>290</Line>
+<Pass>0</Pass>
+<Condition/>
+<Enabled/>
+</Breakpoint>
+</Breakpoints>
 <Bookmarks/>
 <OpenFiles>
-<File ScrollX="0" ScrollY="0">modules\Main\1\activity\activity.cs</File>
+<File ScrollX="0" ScrollY="36">modules\Main\1\activity\activity.cs</File>
 <File ScrollX="0" ScrollY="0">modules\Main\1\activity\scene.cs</File>
-<File ScrollX="0" ScrollY="39">modules\Year8\1\lesson2\main.cs</File>
-<File ScrollX="0" ScrollY="43" Active="true">modules\Main\1\main.cs</File>
-<File ScrollX="0" ScrollY="0">modules\Main\1\profile.cs</File>
-<File ScrollX="0" ScrollY="0">modules\Year8\1\main.cs</File>
-<File ScrollX="0" ScrollY="0">modules\Year8\1\lesson2\scenes\gate.cs</File>
-<File ScrollX="0" ScrollY="0">modules\Year8\1\lesson3A\scenes\forest.cs</File>
-<File ScrollX="0" ScrollY="21">modules\Main\1\sprites\characters\player.cs</File>
+<File ScrollX="0" ScrollY="169">modules\Year8\1\lesson2\scenes\gate.cs</File>
+<File ScrollX="0" ScrollY="158">modules\Year8\1\lesson3A\scenes\forest.cs</File>
+<File ScrollX="0" ScrollY="48" Active="true">modules\Main\1\sprites\characters\player.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\characters\character.cs</File>
+<File ScrollX="0" ScrollY="15">modules\Main\1\sprites\items\item.cs</File>
+<File ScrollX="0" ScrollY="30">modules\Main\1\behaviours\interact.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\global.cs</File>
+<File ScrollX="0" ScrollY="67">modules\Main\1\inventory.cs</File>
+<File ScrollX="0" ScrollY="9">modules\Year8\1\lesson3A\main.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\activity\dialogueTree.cs</File>
+<File ScrollX="0" ScrollY="91">modules\Year8\1\lesson3A\dialogue\broadShoulders.cs</File>
+<File ScrollX="0" ScrollY="54">modules\Main\1\profile.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\readible.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Year8\1\lesson2\main.cs</File>
+<File ScrollX="0" ScrollY="56">modules\Main\1\behaviours\playerControls.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\activity\sceneWindow.cs</File>
 </OpenFiles>
 </TorsionProjectOptions>

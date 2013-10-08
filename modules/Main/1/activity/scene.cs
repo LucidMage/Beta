@@ -1,14 +1,10 @@
 function CreateScene(%sceneName)
 {
    //  Destroy the scene if it already exists
-	echo("Destroying Scene");
-	//destroyScene(%sceneName);
-	echo("Destroyed Scene");
+	destroyScene(%sceneName);
       
-	echo("Creating Scene");
    //  Create Scene
    new Scene(%sceneName);
-	echo("Created Scene");
    %sceneName.Setup();  // Run setup
    
    // Sanity!
@@ -28,9 +24,7 @@ function DestroyScene(%scene)
         return;
 
     //  Delete Scene
-	echo("Deleting Scene");
 	%scene.delete();
-	echo("Deleted Scene");
 }
 
 // Load scene from file
@@ -71,8 +65,6 @@ function SetSceneToWindow(%scene)
 
 function SetScene(%scene)
 {
-	echo("Setting Scene");
-
     // Sanity!
     if (!isObject(%scene))
     {

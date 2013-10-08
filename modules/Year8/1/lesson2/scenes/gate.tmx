@@ -779,22 +779,22 @@
   <image source="../../../../Assets/images/tiles/divisionsTiles2.png" width="1024" height="512"/>
   <tile id="6">
    <properties>
-    <property name="Tag" value="CollisionHalfWest"/>
+    <property name="Tag" value="CollisionGateNorthWest"/>
    </properties>
   </tile>
   <tile id="8">
    <properties>
-    <property name="Tag" value="CollisionHalfEast"/>
+    <property name="Tag" value="CollisionGateNorthEast"/>
    </properties>
   </tile>
   <tile id="22">
    <properties>
-    <property name="Tag" value="CollisionHalfWest"/>
+    <property name="Tag" value="CollisionGateSouthWest"/>
    </properties>
   </tile>
   <tile id="24">
    <properties>
-    <property name="Tag" value="CollisionHalfEast"/>
+    <property name="Tag" value="CollisionGateSouthEast"/>
    </properties>
   </tile>
  </tileset>
@@ -1003,6 +1003,16 @@
     <property name="Tag" value="Log2EastPos"/>
    </properties>
   </tile>
+  <tile id="24">
+   <properties>
+    <property name="Tag" value="GateWestOpenPos"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="Tag" value="GateEastOpenPos"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Ground" width="30" height="32">
   <data encoding="base64" compression="zlib">
@@ -1026,7 +1036,7 @@
  </layer>
  <layer name="Sprite" width="30" height="32">
   <data encoding="base64" compression="zlib">
-   eJztk0kKgDAMRYv3v4XzXOfhdLoUsVGkjQnmLVPIf/2lSgmC8AcS73qeGuYuCG+yessu0WlfjHDXDsiYDWeDJa9g35MjvWeGlFM8yPEduWjEvwFRE/GAGD9wXBj0QpH20FtDqMPVokv5ctdEqA+OVNKfwIQNrX8QjQ==
+   eJztkVkKgDAMRIv3v4X7Xvf1cPZTxFaRGFPMg/4kMDOZCsEwzB+InPN5rJlDsygfX73V4NcCZwkOeiHCrY3BY9TsOqBcntJJkf4zQfLJbvi4L2WRSDdeURLJYaL/IONkQS8UqXe9VYQ6nAGz5A+1BkJ92EjB/TGWsAFRlxII
   </data>
  </layer>
  <layer name="WallTop" width="30" height="32">
