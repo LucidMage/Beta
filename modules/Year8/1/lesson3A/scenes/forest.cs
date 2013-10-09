@@ -63,7 +63,7 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		Position = L3A_DevelopBreastGirlPos.getPosition();
 		SceneLayer = L3A_DevelopBreastGirlPos.getSceneLayer();
 	};
-	//%this.SetupLostPerson(L3A_DevelopBreastGirl);
+	%this.SetupLostPerson(L3A_DevelopBreastGirl);
 	//L3A_DevelopBreastGirl.Setup(%this);
 
 	//  Sweaty Person
@@ -84,7 +84,7 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		Position = L3A_SweatyPersonPos.getPosition();
 		SceneLayer = L3A_SweatyPersonPos.getSceneLayer();
 	};
-	//%this.SetupLostPerson(L3A_SweatyPerson);
+	%this.SetupLostPerson(L3A_SweatyPerson);
 	//L3A_SweatyPerson.Setup(%this);
 
 	//  Broad Shouldered Person
@@ -105,7 +105,7 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		Position = L3A_BroadShoulderPersonPos.getPosition();
 		SceneLayer = L3A_BroadShoulderPersonPos.getSceneLayer();
 	};
-	//%this.SetupLostPerson(L3A_BroadShoulderPerson);
+	%this.SetupLostPerson(L3A_BroadShoulderPerson);
 	//L3A_BroadShoulderPerson.Setup(%this);
 
 	//  Pubic Hair Person
@@ -126,7 +126,7 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		Position = L3A_PubicHairPos.getPosition();
 		SceneLayer = L3A_PubicHairPos.getSceneLayer();
 	};
-	//%this.SetupLostPerson(L3A_PubicHairPerson);
+	%this.SetupLostPerson(L3A_PubicHairPerson);
 	//L3A_PubicHairPerson.Setup(%this);
 	/*
 	// Add to Scene
@@ -191,10 +191,26 @@ function Lesson3A_Forest::SetupObstacles(%this)
 // Setup Lost People
 function Lesson3A_Forest::SetupLostPerson(%this, %person)
 {
+   if (Lesson3A.totalLost $= "")
+      Lesson3A.totalLost = 0;
+   
    %person.helped = false;
    %person.Setup(%this);
 	//%this.add(%person);
+	%this.helpedPeople[Lesson3A.totalLost] = %person;
+	echo(Lesson3A.totalLost @ ":" SPC %this.helpedPeople[Lesson3A.totalLost]);
 	Lesson3A.totalLost++;
+}
+
+function Lesson3A_Forest::CountHelped(%this)
+{
+   %count = 0;
+   
+   for (%i = 0; %i < Lesson3A.totalLost; %i++)
+      if (%this.helpedPeople[%i].helped)
+         %count++;
+   
+   return %count;
 }
 
 //	Triggers

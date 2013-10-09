@@ -37,13 +37,12 @@ function Lesson2::UpdateStatus(%this)
 		%this.MoveGates();
 	}
 	else if (%this.AllOrbsFound())
-	{
+	{  // So the objective displays the current number
 		%this.objective[3] = "Use the orbs to open the gate." SPC %this.orbsInGate SPC "of" SPC %this.totalOrbs SPC "orbs slotted.";
 		%this.currentObjective = 3;
 	}
 	else
-	{
-		//	Must be reset to display current values
+	{  // So the objective displays the current number
 		%this.objective[2] = "Find all of the orbs. Found" SPC %this.found SPC "of" SPC %this.totalOrbs SPC "orbs.";
 		%this.currentObjective = 2;
 	}

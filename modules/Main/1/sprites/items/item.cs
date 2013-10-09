@@ -30,7 +30,7 @@ function Item::Setup(%this, %scene)
 	%this.createPolygonBoxCollisionShape(%this.collisionSize);
 	
 	if (%this.useRange == 0)
-	   %this.useRange = (0.5 * %this.collisionSize.x);//.5;	// How close does something have to be for the character to use it
+	   %this.useRange = %this.collisionSize.x;//.5;	// How close does something have to be for the character to use it
 	
 	//	Setup Image to appear behind Character torso
 	%this.addSprite();

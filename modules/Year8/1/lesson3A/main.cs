@@ -29,18 +29,21 @@ function Lesson3A::Setup(%this)
 
 function Lesson3A::UpdateStatus(%this)
 {
-   %this.helped++;
+   %this.helped = Lesson3A_Forest.CountHelped();
    
 	if (%this.HasHelpedPeople())
 	{
 		%this.currentObjective = 0;
-		//%this.OpenExit();
+		%this.OpenExit();
 	}
 	else
+	{  // So the objective displays the current number
+	   %this.objective[2] = "Help the lost people. Helped:" SPC %this.helped @ ", of" SPC %this.totalLost @ ".";
 		%this.currentObjective = 2;
+	}
 	
 	UpdateHelpBar(%this, 0);
-	%this.OpenExit();
+	//%this.OpenExit();
 }
 
 //	Runs each time a person is helped

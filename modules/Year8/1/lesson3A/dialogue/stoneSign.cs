@@ -14,7 +14,7 @@ L3A_StoneSignDialogueTree.rootDialogue[0] = L3A_StoneSignGreeting;
 //======	Callbacks    ======//
 function L3A_StoneSignDialogueTree::onOpen(%this)
 {
-	UpdateHelpBar(%this, "You are about to leave Mix 'n Match");
+	UpdateHelpBar(%this, 0);
 	Lesson3A.UpdateStatus();
 	return true;
 }

@@ -74,20 +74,13 @@ function PlayerControlsBehaviour::updateMovement(%this)
       %this.owner.direction = $SpriteDirectionRight;
    
    // Set animation
-   //%count = %this.owner.getSpriteCount();
-   //for (%i = 0; %i < %count; %i++)
-      //%this.owner.selectSpriteId(%i).animation = %this.owner.imageName @ %this.owner.direction;
-   //%this.owner.setSpriteAnimation(%this.owner.getSpriteImage() @ %this.owner.state @ %this.owner.direction);
    %this.owner.updateImages();
-   //%this.owner.setSpriteAnimation(%this.owner.imageName @ %this.owner.state @ %this.owner.direction);
    	
 	if (%this.up > 0 || %this.down > 0 || %this.left > 0 || %this.right > 0)
 	{
 		%this.owner.setLinearVelocityX((%this.right - %this.left) * %this.owner.speed);
 		%this.owner.setLinearVelocityY((%this.up - %this.down) * %this.owner.speed);
 	}
-	
-   %this.owner.interactionZone.UpdateArea();
 }
 
 function PlayerControlsBehaviour::moveUp(%this, %val)

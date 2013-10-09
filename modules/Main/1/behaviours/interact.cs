@@ -68,20 +68,28 @@ function InteractBehaviour::Use(%this, %val)
 		// Iterate over list of picked objects
 		%count = %picked.count;
 		
-		if (%count > 0)
-		//for (%i = 0; %i < %count; %i++)
+		//if (%count > 0)
+		%objectPicked = false;
+		for (%i = 0; %i < %count; %i++)
 		{
-			%object = getWord(%picked, 0);//%i);
+			%object = getWord(%picked, %i);
 			echo("Object:" SPC %object);
 			echo("Class:" SPC %object.class);
-
-			if (%object.class $= InteractionZone)
+			
+			if (%objectPicked == false)
 			{
-				echo("Owner:" SPC %object.owner);
-				%object.owner.Use(%this.owner);
+            if (%object.class $= InteractionZone)
+            {
+               echo("Owner:" SPC %object.owner);
+               %object.owner.Use(%this.owner);
+               %objectPicked = true;
+            }
+            else if (%object.class !$= PlayerInteractionZone)
+            {
+               %object.Use(%this.owner);
+               %objectPicked = true;
+            }
 			}
-			else
-				%object.Use(%this.owner);
 		}
 	}
 }
@@ -159,22 +167,46 @@ function InteractBehaviour::GetUseEndPoint(%this)
 function addInteractionZone(%sprite, %scene)
 {
 	error("Add Interaction Zone");
+	%pos = "0 0";
 	
-	%sprite.interactionZone = new Trigger()
+	if (%sprite $= Player)
 	{
-		class = InteractionZone;
-		owner = %sprite;
-		BodyType = dynamic;//static;
-		Position = "0 0";//%sprite.getPosition();
-		SceneLayer = %sprite.getSceneLayer();
-		Size = (%sprite.useRange * 2) SPC (%sprite.useRange * 2);
-	};
+	   %pos = %sprite.positionAdjust;
+	   
+      %sprite.interactionZone = new SceneObject()
+      {
+         class = PlayerInteractionZone;
+         owner = %sprite;
+         BodyType = dynamic;//static;
+         Position = %pos;//;//%sprite.getPosition();
+         SceneLayer = %sprite.getSceneLayer();
+         Size = (%sprite.useRange * 2) SPC (%sprite.useRange * 2);
+         //Image = "Assets:highlightBackground";
+      };/*
+	   %sprite.interactionZone.setPositionY(-(%sprite.useRange));
+      %sprite.interactionZone.setSizeX(%sprite.collisionSize.x);
+      %sprite.interactionZone.setSizeY(%sprite.useRange);*/
+	}
+	else
+	{
+		echo("Zone is trigger");
+      %sprite.interactionZone = new Trigger()
+      {
+         class = InteractionZone;
+         owner = %sprite;
+         BodyType = dynamic;//static;
+         Position = %pos;//%sprite.getPosition();
+         SceneLayer = %sprite.getSceneLayer();
+         Size = (%sprite.useRange * 2) SPC (%sprite.useRange * 2);
+      };
+	  %sprite.interactionZone.setEnterCallback(true);
+	  %sprite.interactionZone.setLeaveCallback(true);
+	}
    
 	%sprite.interactionZone.setDefaultDensity(1);
 	/*%sprite.interactionZone.setDefaultRestitution(0);	//	Bounciness
 	%sprite.interactionZone.setDefaultFriction(0);
 	%sprite.interactionZone.setLinearDamping(0);*/	//	How quickly it slows down
-	%sprite.interactionZone.setCollisionSuppress(true);   // So onCollision will be called
 	/*
    //%radius = %sprite.useRange * 2;
    %behvaiour = %sprite.getBehavior("InteractBehaviour");
@@ -205,22 +237,26 @@ function addInteractionZone(%sprite, %scene)
       //echo(%sprite.getSize());
       %sprite.interactionZone.createCircleCollisionShape(%sprite.interactionZone.getSizeX());//%radius);
 	}*/
-	//%sprite.interactionZone.UpdateArea();
 	
 	if (%sprite $= Player)
 	{
-	   %sprite.interactionZone.setPositionY(%sprite.useRange);
-      %sprite.interactionZone.setSizeX(%sprite.collisionSize.x);
-      %sprite.interactionZone.setSizeY(%sprite.useRange);
+	   %top = "0 0";
+	   %left = -(%sprite.interactionZone.getSizeX() / 2) SPC -(%sprite.interactionZone.getSizeY());
+	   %right = (%sprite.interactionZone.getSizeX() / 2) SPC -(%sprite.interactionZone.getSizeY());
+      %sprite.interactionZone.createPolygonCollisionShape(%top SPC %left SPC %right);
+      %sprite.interactionZone.setUpdateCallback(true);
+      //%sprite.interactionZone.UpdateArea();
 	}
 	else
 	{
       %sprite.interactionZone.createCircleCollisionShape(%sprite.interactionZone.getSizeX());
 	}
+	//%sprite.interactionZone.setCollisionSuppress(true);
+	%sprite.interactionZone.setCollisionShapeIsSensor(0, true);
 	
 	echo("Scene" SPC %scene);
 	%scene.add(%sprite.interactionZone);
-	%sprite.interactionJoin = %scene.createWeldJoint(%sprite, %sprite.interactionZone, "0 0", "0 0", 0, 0, false);
+	%sprite.interactionJoin = %scene.createRevoluteJoint(%sprite, %sprite.interactionZone, %pos.x, %pos.y);//WeldJoint(%sprite, %sprite.interactionZone, "0 0", "0 0", 0, 0, false);
 }
 
 function removeInteractionZone(%sprite)
@@ -229,8 +265,46 @@ function removeInteractionZone(%sprite)
 	   %sprite.interactionZone.delete();
 }
 
+function InteractionZone::onEnter(%this, %object)
+{
+	echo("Zone for" SPC %this.owner);
+	echo("Object:" SPC %object);
+	if (%object.getName() $= PlayerInteractionZone)
+	{
+		UpdateHelpBar(%this, %object.DisplayUse());
+	}
+}
+
+function InteractionZone::onLeave(%this, %object)
+{
+	echo("Zone for" SPC %this.owner);
+	echo("Object:" SPC %object);
+	if (%object.getName() $= PlayerInteractionZone)
+	{
+		UpdateHelpBar(%this, 0);
+	}
+}
+
+function PlayerInteractionZone::onUpdate(%this)
+{
+   %this.setAngularVelocity(0);  // So it will stop rotating
+   
+   switch$(Player.direction)
+   {
+      case $SpriteDirectionLeft:
+         Player.interactionZone.setAngle(-90);
+      case $SpriteDirectionRight:
+         Player.interactionZone.setAngle(90);
+      case $SpriteDirectionUp:
+         Player.interactionZone.setAngle(180);
+      case $SpriteDirectionDown:
+         Player.interactionZone.setAngle(0);
+   }
+}
+
+/* Old version
 // Used only those that use the behaviour, e.g. the player
-function InteractionZone::UpdateArea(%this)
+function PlayerInteractionZone::UpdateArea(%this)
 {
    %this.clearCollisionShapes();
    %owner = %this.owner;
@@ -255,19 +329,19 @@ function InteractionZone::UpdateArea(%this)
 	      case $SpriteDirectionLeft:
 	         %owner.interactionZone.setAngle(90);//%pos.x -= %owner.useRange;
 	         /*%owner.interactionZone.setSizeX(%owner.useRange);
-	         %owner.interactionZone.setSizeY(%owner.collisionSize.y);*/
+	         %owner.interactionZone.setSizeY(%owner.collisionSize.y);
 	      case $SpriteDirectionRight:
 	         %owner.interactionZone.setAngle(-90);//%pos.x += %owner.useRange;
 	         /*%owner.interactionZone.setSizeX(%owner.useRange);
-	         %owner.interactionZone.setSizeY(%owner.collisionSize.y);*/
+	         %owner.interactionZone.setSizeY(%owner.collisionSize.y);
 	      case $SpriteDirectionUp:
 	         %owner.interactionZone.setAngle(180);//%pos.y += %owner.useRange;
 	         /*%owner.interactionZone.setSizeX(%owner.collisionSize.x);
-	         %owner.interactionZone.setSizeY(%owner.useRange);*/
+	         %owner.interactionZone.setSizeY(%owner.useRange);
 	      case $SpriteDirectionDown:
 	         %owner.interactionZone.setAngle(0);//%pos.y -= %owner.useRange;
 	         /*%owner.interactionZone.setSizeX(%owner.collisionSize.x);
-	         %owner.interactionZone.setSizeY(%owner.useRange);*/
+	         %owner.interactionZone.setSizeY(%owner.useRange);
 	   }
 	   
       %owner.interactionZone.createPolygonBoxCollisionShape(%owner.interactionZone.getSizeX(), %owner.interactionZone.getSizeY());
@@ -280,17 +354,4 @@ function InteractionZone::UpdateArea(%this)
 	//%owner.interactionZone.setPosition(%pos);
    echo("Owner:" SPC %owner.getPosition());
    echo("Interaction Zone:" SPC %owner.interactionZone.getPosition());
-}
-
-function InteractionZone::onEnter(%this, %object)
-{
-	if (%object.getName() $= Player.interactionZone)
-	{
-		UpdateHelpBar(%this, %object.DisplayUse());
-	}
-}
-
-function InteractionZone::onLeave(%this, %object)
-{
-   UpdateHelpBar(%this, 0);
-}
+}*/

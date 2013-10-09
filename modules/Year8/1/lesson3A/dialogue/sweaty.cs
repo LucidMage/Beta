@@ -194,6 +194,7 @@ L3A_SweatyDialogueMidAnswer2Part2.AddResponse(%text, L3A_SweatyDialogueEndHelped
 %text = "I've got no idea.";
 L3A_SweatyDialogueInitExplainContinue.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
 L3A_SweatyDialogueInitExplainContinue2.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
+L3A_SweatyDialogueMidAnswer0.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
 %text = "Nope.";
 L3A_SweatyDialogueRepeatGreeting.AddResponse(%text, L3A_SweatyDialogueEndNotHelped);
 

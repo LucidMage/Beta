@@ -424,15 +424,11 @@ function Lesson2_Gate::SetupGate(%this, %gate)
 	%gate.setDefaultFriction(0);
 	%gate.setLinearDamping(1);	//	How quickly it slows down
 	
-	echo(%gate.getCollisionGroups());
-	echo(%gate.getCollisionLayers());
 	// Which objects to collide with
 	%gate.setCollisionGroups(none);
 	%gate.setCollisionGroups(%gate.getSceneLayer());
 	%gate.setCollisionLayers(none);
 	%gate.setCollisionLayers(%gate.getSceneLayer());
-	echo(%gate.getCollisionGroups());
-	echo(%gate.getCollisionLayers());
 	
 	%gate.addSprite();
 	%gate.setSpriteImage("Assets:GateDoor");
@@ -451,26 +447,20 @@ function Lesson2_Gate::SetupGate(%this, %gate)
 function Lesson2_Gate::SetupSlotIn(%this, %slot)
 {
 	%slot.displayName = "Slot";
-	
 	%slot.collisionSize = "1.1, 1.5";
 	%slot.imageName = "Assets:Slot2";
 	%slot.imagePos = "0, -0.25";
 	%slot.imageSize = "2, 2";
 	%slot.Setup(%this);
-	
-	//%this.add(%slot);
 }
 function Lesson2_Gate::SetupSlotOut(%this, %slot)
 {
 	%slot.displayName = "Slot";
-	
 	%slot.collisionSize = "1, 1";
 	%slot.imageName = "Assets:Slot1";
 	%slot.imagePos = "0, 0";
 	%slot.imageSize = "1, 1";
 	%slot.Setup(%this);
-	
-	//%this.add(%slot);
 }
 
 //	Slot Use
@@ -481,7 +471,7 @@ function L2_SlotInWest::Use(%this, %user)
 	%item = Inventory.UseSelectedItem();
 	warn(%item);
 	
-	checkOrb(%this, %item);
+	Lesson2_Gate.checkOrb(%this, %item);
 }
 function L2_SlotInEast::Use(%this, %user)
 {
@@ -494,6 +484,33 @@ function L2_SlotInEast::Use(%this, %user)
 }
 function Lesson2_Gate::checkOrb(%slot, %item)
 {
+   if (%item $= L2_Orb1 ||
+      %item $= L2_Orb2 ||
+      %item $= L2_Orb3 ||
+      %item $= L2_Orb4 ||
+      %item $= L2_Orb5 ||
+      %item $= L2_Orb6 ||
+      %item $= L2_Orb7 ||
+      %item $= L2_Orb8 ||
+      %item $= L2_Orb9 ||
+      %item $= L2_Orb10)
+   {
+      echo("Is an orb");
+      if (%slot.slot == %item.answer)
+      {
+         echo("Orb is in the correct slot");
+      }
+      else
+      {
+         error("Orb is in the wrong slot");
+      }
+      Lesson2.orbsInGate++;
+   }
+   else
+   {
+      echo("Not an orb");
+   }
+   /* TorqueScript limitation, cannot apply code to multiple cases without repeating
 	switch$(%item)
 	{
 		case L2_Orb1:
@@ -517,7 +534,7 @@ function Lesson2_Gate::checkOrb(%slot, %item)
 			}
 		default:
 			echo("Not an orb");
-	}
+	}*/
 }
 
 //	Triggers

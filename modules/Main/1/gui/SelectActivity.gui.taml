@@ -105,6 +105,24 @@
 				text="Use objects/Talk to people = Spacebar"
 				maxLength="255"
 				truncate="0" />
+			
+			<!-- Hint -->
+			<GuiMLTextCtrl
+				Name="SelectActivityControlsHint"
+				canSaveDynamicFields="0"
+				isContainer="0"
+				Profile="DialogueTextProfile"
+				HorizSizing="width"
+				VertSizing="relative"
+				Position="20 135"
+				Extent="380 30"
+				MinExtent="80 30"
+				canSave="1"
+				Visible="1"
+				Active="0"
+				text="Hint: Rocks and logs can be pushed."
+				maxLength="255"
+				truncate="0" />
 		</GuiControl>
 		
 		<!-- Button Container -->
