@@ -43,7 +43,7 @@ function DialogueTree::OpenDialogue(%this, %target)
 			%this.owner.faceTarget(%this.target);
 		
 		//	Disable regular controls and change to dialogue controls
-		//Player.setDialogueBehaviours();
+		Player.inDialogue = true;//setDialogueBehaviours();
 	}
 }
 
@@ -56,7 +56,7 @@ function DialogueTree::CloseDialogue(%this)
 	//	Continue if no scripting is set for the player to remain immobile
 	if (%this.onClose())
 	{
-		Player.setGeneralBehaviours();
+		Player.inDialogue = false;//setGeneralBehaviours();
 	}
 }
 

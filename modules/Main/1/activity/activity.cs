@@ -36,12 +36,12 @@ function PostSetupActivity(%activity)
 	
 	//Main.HelpMessage = 0;
 	//%activity.schedule(100, UpdateHelpBar(%activity));
-	UpdateHelpBar(%activity, 0);
+	UpdateHelpBar(%activity);
 }
 
 function EndActivity(%activity)
 {
-	%activity.onEnd();
+	//%activity.onEnd();
 	
 	%scene = GameWindow.getScene();
 	%scene.setScenePause(true);
@@ -56,19 +56,20 @@ function ToggleInGameMenu()
 //	Update the text in the In-game GUI Help Bar
 function UpdateHelpBar(%activity, %text)
 {
+   echo(%activity);
    echo(%text);
-	if (%text $= 0)
+	if (/*%text == 0 || */%text $= "")
 	{
-		warn("# =" SPC %activity.currentObjective);
-		warn("Help Text =" SPC %activity.objective[%activity.currentObjective]);
+		/*warn("# =" SPC %activity.currentObjective);
+		warn("Help Text =" SPC %activity.objective[%activity.currentObjective]);*/
 		HelpText.Text = %activity.objective[%activity.currentObjective];
 	}
 	else
 	{
-		warn("Help Text =" SPC %text);
+		//warn("Help Text =" SPC %text);
 		HelpText.Text = %text;
 		
-		%activity.schedule($GUIHelpUpdateDelay, UpdateHelpBar(%activity, 0));
+		//%activity.schedule($GUIHelpUpdateDelay, UpdateHelpBar(%activity, 0));
 	}
 }
 

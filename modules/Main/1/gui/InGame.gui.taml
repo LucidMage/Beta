@@ -171,49 +171,105 @@
 	</GuiSpriteCtrl>
 	
 	<!-- Inventory -->
-	<GuiSpriteCtrl
-		Name="InventorySelectContainer"
-		Profile="GuiInventoryContainerProfile"
-        HorizSizing="left"
-        VertSizing="top"
-		Position="560 375"
-		Extent="240 180"
+	<GuiControl
+		Name="InventoryContainer"
+		Profile="GuiDefaultProfile"
+		HorizSizing="left"
+		VertSizing="top"
+		Position="560 360"
+		Extent="240 240"
 		MinExtent="80 60"
-		Visible="1"
-		Image="@asset=Assets:PurpleBackground">
+		Visible="1">
 		
 		<!-- Selected Item -->
 		<GuiSpriteCtrl
-			Name="InventorySelectedItem"
-			Profile="GuiSolidProfile"
-			HorizSizing="center"
-			VertSizing="center"
-			Position="70 0"
-			Extent="100 100"
-			MinExtent="40 30"
-			Visible="1"
-			Image="@asset=Assets:highlightBackground"/>
-		
-		<!-- Dialogue -->
-		<GuiMLTextCtrl
-			Name="InventorySelectedText"
-			canSaveDynamicFields="0"
-			isContainer="0"
-			Profile="DialogueTextProfile"
+			Name="InventorySelectContainer"
+			Profile="GuiInventoryContainerProfile"
 			HorizSizing="width"
-			VertSizing="relative"
-			Position="20 120"
-			Extent="200 60"
+			VertSizing="height"
+			Position="0 45"
+			Extent="240 150"
 			MinExtent="80 60"
+			Visible="1"
+			Image="@asset=Assets:PurpleBackground">
+			
+			<!-- Image -->
+			<GuiSpriteCtrl
+				Name="InventorySelectedItem"
+				Profile="GuiSolidProfile"
+				HorizSizing="center"
+				VertSizing="center"
+				Position="88 0"
+				Extent="64 64"
+				MinExtent="40 30"
+				Visible="1"
+				Image="@asset=Assets:highlightBackground"/>
+			
+			<!-- Dialogue -->
+			<GuiMLTextCtrl
+				Name="InventorySelectedText"
+				canSaveDynamicFields="0"
+				isContainer="0"
+				Profile="DialogueTextProfile"
+				HorizSizing="width"
+				VertSizing="relative"
+				Position="20 100"
+				Extent="200 60"
+				MinExtent="80 60"
+				canSave="1"
+				Visible="1"
+				Active="0"
+				text="No items"
+				maxLength="255"
+				truncate="0" />
+		</GuiSpriteCtrl>
+		
+		<!-- Item Selection -->
+		<GuiImageButtonCtrl
+			Name="InventoryPreviousButton"
+			canSaveDynamicFields="0"
+			command="Inventory.SelectPrevious();"
+			isContainer="0"
+			Profile="GuiDefaultProfile"
+			HorizSizing="relative"
+			VertSizing="relative"
+			Position="0 0"
+			Extent="240 45"
+			MinExtent="8 2"
 			canSave="1"
 			Visible="1"
-			Active="0"
-			text="No items"
-			maxLength="255"
-			truncate="0" />
-	</GuiSpriteCtrl>
+			Active="1"
+			groupNum="-1"
+			buttonType="PushButton"
+			useMouseEvents="0"
+			NormalImage="@asset=Assets:northArrowNormal"
+			HoverImage="@asset=Assets:northArrowHover"
+			DownImage="@asset=Assets:northArrowDown" />
+			
+		<GuiImageButtonCtrl
+			Name="InventoryNextButton"
+			command="Inventory.SelectNext();"
+			canSaveDynamicFields="0"
+			isContainer="0"
+			Profile="GuiDefaultProfile"
+			HorizSizing="relative"
+			VertSizing="relative"
+			Position="0 195"
+			Extent="240 45"
+			MinExtent="8 2"
+			canSave="1"
+			Visible="1"
+			Active="1"
+			hovertime="1000"
+			groupNum="-1"
+			buttonType="PushButton"
+			useMouseEvents="0"
+			NormalImage="@asset=Assets:southArrowNormal"
+			HoverImage="@asset=Assets:southArrowHover"
+			DownImage="@asset=Assets:southArrowDown" />
+	</GuiControl>
 	
-	<!-- Open Inventory -->
+	<!-- Open Inventory --><!--
 	<GuiSpriteCtrl
 		Name="InventoryContainer"
 		Profile="GuiSolidProfile"
@@ -223,9 +279,9 @@
 		Extent="240 180"
 		MinExtent="160 120"
 		Visible="0"
-		Image="@asset=Assets:PurpleGradient">
+		Image="@asset=Assets:PurpleGradient">-->
 		
-		<!-- Scroller -->
+		<!-- Scroller --><!--
 		<GuiScrollCtrl
 			Name="InventoryScroller"
 			canSaveDynamicFields="1"
@@ -244,9 +300,9 @@
 			hScrollBar="alwaysOff"
 			vScrollBar="dynamic"
 			constantThumbHeight="0"
-			childMargin="2 3" >
+			childMargin="2 3" >-->
 
-			<!-- Array Holding Options -->
+			<!-- Array Holding Options --><!--
 			<GuiDynamicCtrlArrayControl
 				Name="InventoryArray"
 				canSaveDynamicFields="0"
@@ -269,8 +325,8 @@
 				rowSpacing="5"
 				colSpacing="5" />
 		</GuiScrollCtrl>
-	</GuiSpriteCtrl>
-	
+	</GuiSpriteCtrl>-->
+	<!--
     <GuiButtonCtrl
         Name="InventoryButton"
         Profile="PurpleButtonProfile"
@@ -291,5 +347,5 @@
 		toolTipProfile="GuiToolTipProfile"
 		toolTip="Show all of your current items"
         groupNum="-1"
-        useMouseEvents="1" />
+        useMouseEvents="1" />-->
 </GuiControl>

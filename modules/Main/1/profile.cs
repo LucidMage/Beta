@@ -112,7 +112,7 @@ function UpdateProfileGUIOptions()
 				%hair = ($SpriteHairColourArray[%c] SPC $SpriteHairStyleArray[%s]);
 			}
 			
-			warn(%hair);
+			//warn(%hair);
 			
 			//	Add to list.
 			if (%hair !$= "")
@@ -251,15 +251,15 @@ function EthnicityList::onSelect(%this)
 function HairList::onSelect(%this)
 {
 	%text = HairList.getText();
-	echo(%text);
+	//echo(%text);
 	
 	// Hair Colour
 	Profile.hairColour = getWord(%text, 0);
-	echo(Profile.hairColour);
+	//echo(Profile.hairColour);
 	
 	// Hair Style
 	Profile.hairStyle = removeWord(%text, 0);
-	echo(Profile.hairStyle);
+	//echo(Profile.hairStyle);
 		
 	//	Long Hair
 	if (Profile.hairStyle $= $SpriteHairStyleLongFemFull)

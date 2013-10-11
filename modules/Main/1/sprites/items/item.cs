@@ -24,7 +24,7 @@ function Item::onRemoveFromScene(%this)
 
 function Item::Setup(%this, %scene)
 {
-	error("Item setup");
+	//error("Item setup");
 		
 	%this.setBodyType(static);
 	%this.createPolygonBoxCollisionShape(%this.collisionSize);
@@ -49,12 +49,12 @@ function Item::Setup(%this, %scene)
 
 function Item::Use(%this, %user)
 {
-   echo("Item" SPC %this SPC "is being used");
+   //echo("Item" SPC %this SPC "is being used");
    Inventory.AddItem(%this);
    %this.removeFromScene();
 }
 
-function Item::DisplayUse()
+function Item::DisplayUse(%this)
 {
 	return "Pick up" SPC %this.displayName @ ".";
 }

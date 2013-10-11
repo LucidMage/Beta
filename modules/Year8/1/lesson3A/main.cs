@@ -42,7 +42,7 @@ function Lesson3A::UpdateStatus(%this)
 		%this.currentObjective = 2;
 	}
 	
-	UpdateHelpBar(%this, 0);
+	UpdateHelpBar(%this);
 	//%this.OpenExit();
 }
 

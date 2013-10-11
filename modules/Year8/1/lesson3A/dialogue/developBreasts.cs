@@ -162,7 +162,7 @@ L3A_DevelopBreastDialogueMidAnswer2Part2.AddResponse(%text, L3A_DevelopBreastDia
 %text = "I don't know.";
 L3A_DevelopBreastDialogueInitExplainPart2.AddResponse(%text, L3A_DevelopBreastDialogueEndNotHelped);
 L3A_DevelopBreastDialogueInitExplainPart3.AddResponse(%text, L3A_DevelopBreastDialogueEndNotHelped);
-L3A_DevelopBreastDialogueRepeatGreeting.AddResponse(%text, L3A_DevelopBreastDialogueEndNotHelped);
+//L3A_DevelopBreastDialogueRepeatGreeting.AddResponse(%text, L3A_DevelopBreastDialogueEndNotHelped);
 %text = "I still don't know.";
 L3A_DevelopBreastDialogueRepeatGreeting.AddResponse(%text, L3A_DevelopBreastDialogueEndNotHelped);
 

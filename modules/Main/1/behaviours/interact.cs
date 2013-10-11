@@ -24,8 +24,6 @@ function InteractBehaviour::onBehaviorRemove(%this)
    if (!isObject(GlobalActionMap))
       return;
 
-   //%this.owner.disableUpdateCallback();
-
    GlobalActionMap.unbindObj(getWord(%this.useKey, 0), getWord(%this.useKey, 1), %this);
 }
 
@@ -33,9 +31,9 @@ function InteractBehaviour::onBehaviorRemove(%this)
 function InteractBehaviour::Use(%this, %val)
 {
 	//echo("Val is " @ %val);
-	if (%val > 0)
+	if (%val > 0 && %this.owner.inDialogue == false)
 	{
-		echo("Val is greater than 0");
+		//echo("Val is greater than 0");
       %direction = %this.owner.direction;
       %range = "0 0";
 		
@@ -73,14 +71,14 @@ function InteractBehaviour::Use(%this, %val)
 		for (%i = 0; %i < %count; %i++)
 		{
 			%object = getWord(%picked, %i);
-			echo("Object:" SPC %object);
-			echo("Class:" SPC %object.class);
+			/*echo("Object:" SPC %object);
+			echo("Class:" SPC %object.class);*/
 			
 			if (%objectPicked == false)
 			{
             if (%object.class $= InteractionZone)
             {
-               echo("Owner:" SPC %object.owner);
+               //echo("Owner:" SPC %object.owner);
                %object.owner.Use(%this.owner);
                %objectPicked = true;
             }
@@ -166,12 +164,17 @@ function InteractBehaviour::GetUseEndPoint(%this)
 //	Interaction Zone class functions
 function addInteractionZone(%sprite, %scene)
 {
-	error("Add Interaction Zone");
+	//error("Add Interaction Zone");
 	%pos = "0 0";
 	
 	if (%sprite $= Player)
 	{
 	   %pos = %sprite.positionAdjust;
+	   
+	   if (%sprite.useRange.y != 0)
+	      %size = %sprite.useRange.x SPC %sprite.useRange.y;
+      else
+	      %size = %sprite.useRange SPC %sprite.useRange;
 	   
       %sprite.interactionZone = new SceneObject()
       {
@@ -180,7 +183,7 @@ function addInteractionZone(%sprite, %scene)
          BodyType = dynamic;//static;
          Position = %pos;//;//%sprite.getPosition();
          SceneLayer = %sprite.getSceneLayer();
-         Size = (%sprite.useRange * 2) SPC (%sprite.useRange * 2);
+         Size = (%size.x * 2) SPC (%size.y * 2);
          //Image = "Assets:highlightBackground";
       };/*
 	   %sprite.interactionZone.setPositionY(-(%sprite.useRange));
@@ -189,7 +192,7 @@ function addInteractionZone(%sprite, %scene)
 	}
 	else
 	{
-		echo("Zone is trigger");
+		//echo("Zone is trigger");
       %sprite.interactionZone = new Trigger()
       {
          class = InteractionZone;
@@ -241,11 +244,15 @@ function addInteractionZone(%sprite, %scene)
 	if (%sprite $= Player)
 	{
 	   %top = "0 0";
-	   %left = -(%sprite.interactionZone.getSizeX() / 2) SPC -(%sprite.interactionZone.getSizeY());
-	   %right = (%sprite.interactionZone.getSizeX() / 2) SPC -(%sprite.interactionZone.getSizeY());
+	   %left = -(%sprite.interactionZone.getSizeX() / 4) SPC -(%sprite.interactionZone.getSizeY() / 2);
+	   %right = (%sprite.interactionZone.getSizeX() / 4) SPC -(%sprite.interactionZone.getSizeY() / 2);
       %sprite.interactionZone.createPolygonCollisionShape(%top SPC %left SPC %right);
       %sprite.interactionZone.setUpdateCallback(true);
       //%sprite.interactionZone.UpdateArea();
+	}
+	else if (%sprite.class $= "Pushable"/* || %sprite.class $= "Static"*/)
+	{
+      %sprite.interactionZone.createPolygonBoxCollisionShape(%sprite.interactionZone.getSizeX(), %sprite.interactionZone.getSizeY());
 	}
 	else
 	{
@@ -254,7 +261,7 @@ function addInteractionZone(%sprite, %scene)
 	//%sprite.interactionZone.setCollisionSuppress(true);
 	%sprite.interactionZone.setCollisionShapeIsSensor(0, true);
 	
-	echo("Scene" SPC %scene);
+	//echo("Scene" SPC %scene);
 	%scene.add(%sprite.interactionZone);
 	%sprite.interactionJoin = %scene.createRevoluteJoint(%sprite, %sprite.interactionZone, %pos.x, %pos.y);//WeldJoint(%sprite, %sprite.interactionZone, "0 0", "0 0", 0, 0, false);
 }
@@ -267,21 +274,21 @@ function removeInteractionZone(%sprite)
 
 function InteractionZone::onEnter(%this, %object)
 {
-	echo("Zone for" SPC %this.owner);
-	echo("Object:" SPC %object);
-	if (%object.getName() $= PlayerInteractionZone)
+	/*echo("Zone for" SPC %this.owner);
+	echo("Object:" SPC %object);*/
+	if (%object.class $= PlayerInteractionZone)
 	{
-		UpdateHelpBar(%this, %object.DisplayUse());
+		UpdateHelpBar(Main.ActiveActivity, %this.owner.DisplayUse());//%object.DisplayUse());
 	}
 }
 
 function InteractionZone::onLeave(%this, %object)
 {
-	echo("Zone for" SPC %this.owner);
-	echo("Object:" SPC %object);
-	if (%object.getName() $= PlayerInteractionZone)
+	/*echo("Zone for" SPC %this.owner);
+	echo("Object:" SPC %object);*/
+	if (%object.class $= PlayerInteractionZone)
 	{
-		UpdateHelpBar(%this, 0);
+		UpdateHelpBar(Main.ActiveActivity);
 	}
 }
 

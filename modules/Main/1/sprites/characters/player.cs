@@ -33,6 +33,7 @@ function SetupPlayer(%scene, %position, %layer)
 	Player.displayName = Profile.displayName;
 	Player.direction = $SpriteDirectionDown;
 	Player.state = $SpriteStateIdle;
+	Player.inDialogue = false; // Used in toggling controls
 	
 	Player.gender = Profile.gender;
 	Player.ethnicity = Profile.ethnicity;
@@ -49,12 +50,15 @@ function SetupPlayer(%scene, %position, %layer)
 	Player.setSceneLayer(%layer);
 
 	// Set Behaviours
-	Player.setGeneralBehaviours();
-	/*%controls = PlayerControlsBehaviour.createInstance();
-	%player.addBehavior(%controls);
+	//Player.setGeneralBehaviours();
+	%controls = PlayerControlsBehaviour.createInstance();
+	Player.addBehavior(%controls);
 
 	%controls = InteractBehaviour.createInstance();
-	%player.addBehavior(%controls);*/
+	Player.addBehavior(%controls);
+	
+	%controls = DialogueBehaviour.createInstance();
+	Player.addBehavior(%controls);
 	
 	Player.Setup(%scene);
 	//Player.interactionZone.setEnabled(false);
@@ -116,9 +120,9 @@ function SetupPlayerPreview()
 	PlayerPreview.UpdateImages();
 }
 
-function Player::setGeneralBehaviours(%this)
-{
-	echo("Setting General Behaviour");
+function Player::toggleInDialogue(%this)  {   %this.inDialogue = !%this.inDialogue; }
+   /*
+	error("Setting General Behaviour");
 	%this.clearBehaviors();
 
 	echo("Create Instance of Player Controls");
@@ -132,16 +136,17 @@ function Player::setGeneralBehaviours(%this)
 	%this.addBehavior(%controls);
 	echo("General Behaviour Set");
 }
-
+/*
 function Player::setDialogueBehaviours(%this)
-{
-	echo("Setting Dialogue Behaviour");
+{/*
+	error("Setting Dialogue Behaviour");
 	%this.clearBehaviors();
 	
+	echo("Create Instance of Dialogue Controls");
 	%controls = DialogueBehaviour.createInstance();
 	%this.addBehavior(%controls);
 	echo("Dialogue Behaviour Set");
-}
+}*/
 /*
 function Player::onCollision(%this, %sceneobject, %collisiondetails)
 {

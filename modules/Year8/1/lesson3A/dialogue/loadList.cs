@@ -3,5 +3,6 @@ exec("./underarmHair.cs");
 exec("./developBreasts.cs");
 exec("./sweaty.cs");
 exec("./broadShoulders.cs");
+exec("./pubicHair.cs");
 
 exec("./stoneSign.cs");

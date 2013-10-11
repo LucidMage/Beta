@@ -81,7 +81,7 @@ function Character::UpdateImages(%this)
    {
       %animation = %this.getSpriteName() @ %this.accessory @ %this.direction;
       %this.setSpriteAnimation("Assets:" @ %animation);
-	   echo(%animation);
+	   //echo(%animation);
    }
    else
 	   %this.setSpriteAnimation($SpriteAccessoryNone);
@@ -91,7 +91,7 @@ function Character::UpdateImages(%this)
 		
 	%animation = %this.getSpriteName() @ %this.hairColour @ %this.hairStyle @ %this.direction;
 	%this.setSpriteAnimation("Assets:" @ %animation);
-	echo(%animation);
+	//echo(%animation);
 	
 	//	Head
 	%this.selectSpriteName("head");
@@ -136,6 +136,11 @@ function Character::UpdateImages(%this)
 function Character::Use(%this, %user)
 {
 	%this.dialogueTree.OpenDialogue(%user);
+}
+
+function Character::DisplayUse(%this)
+{
+	return "Talk to" SPC %this.displayName @ ".";
 }
 
 //	Set the character to look at the target

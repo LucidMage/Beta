@@ -26,7 +26,6 @@ function Lesson2::Setup(%this)
 	%this.currentObjective = 0;
 	
 	PostSetupActivity(%this);
-	
 }
 
 function Lesson2::UpdateStatus(%this)
@@ -47,7 +46,7 @@ function Lesson2::UpdateStatus(%this)
 		%this.currentObjective = 2;
 	}
 	
-	UpdateHelpBar(%this, 0);
+	UpdateHelpBar(%this);
 }
 
 //	Check if all orbs have been found

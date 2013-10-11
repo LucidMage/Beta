@@ -35,8 +35,6 @@ function PlayerControlsBehaviour::onBehaviorRemove(%this)
    if (!isObject(GlobalActionMap))
       return;
 
-   //%this.owner.disableUpdateCallback();
-
    GlobalActionMap.unbindObj(getWord(%this.upKey, 0), getWord(%this.upKey, 1), %this);
    GlobalActionMap.unbindObj(getWord(%this.downKey, 0), getWord(%this.downKey, 1), %this);
    GlobalActionMap.unbindObj(getWord(%this.leftKey, 0), getWord(%this.leftKey, 1), %this);
@@ -85,24 +83,32 @@ function PlayerControlsBehaviour::updateMovement(%this)
 
 function PlayerControlsBehaviour::moveUp(%this, %val)
 {
-   %this.up = %val;
+   if (%this.owner.inDialogue == false)
+      %this.up = %val;
+   
    %this.updateMovement();
 }
 
 function PlayerControlsBehaviour::moveDown(%this, %val)
 {
-   %this.down = %val;
+   if (%this.owner.inDialogue == false)
+      %this.down = %val;
+   
    %this.updateMovement();
 }
 
 function PlayerControlsBehaviour::moveLeft(%this, %val)
 {
-   %this.left = %val;
+   if (%this.owner.inDialogue == false)
+      %this.left = %val;
+   
    %this.updateMovement();
 }
 
 function PlayerControlsBehaviour::moveRight(%this, %val)
 {
-   %this.right = %val;
+   if (%this.owner.inDialogue == false)
+      %this.right = %val;
+   
    %this.updateMovement();
 }

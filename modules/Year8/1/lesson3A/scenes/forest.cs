@@ -218,17 +218,17 @@ function L3A_Exit::onEnter(%this, %object)
 {
 	if (%object.getName() $= Player)
 	{
-		UpdateHelpBar(%this, "Leaving Mix 'n Match");
+		UpdateHelpBar(Lesson3A, "Leaving Mix 'n Match");
 
 		// New scenes cannot be called during onCollision else the game will crash
-		%this.schedule(100, EndActivity);
+		/*%this.schedule(100, */EndActivity(Lesson3A);//);
 	}
 }
 function L3A_ExitWarn::onEnter(%this, %object)
 {
-	UpdateHelpBar(%this, "You are about to leave Mix 'n Match");
+	UpdateHelpBar(Lesson3A, "You are about to leave Mix 'n Match");
 }
 function L3A_ExitWarn::onLeave(%this, %object)
 {
-	UpdateHelpBar(%this, 0);
+	UpdateHelpBar(Lesson3A);
 }

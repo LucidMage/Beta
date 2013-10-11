@@ -1,8 +1,11 @@
 function Static::Setup(%this, %scene)
 {
-	error("Static setup");
+	//error("Static setup");
 	%this.setBodyType(static);
 	%this.createPolygonBoxCollisionShape(%this.collisionSize);
+	
+	if (%this.useRange == 0)
+	   %this.useRange = (0.5 * %this.collisionSize.x) SPC (0.5 * %this.collisionSize.y);
 	
 	//	Setup Image to appear behind Character torso
 	%this.addSprite();
@@ -19,14 +22,15 @@ function Static::Setup(%this, %scene)
 	%this.setSpriteSize(%this.imageSize);
 	
 	%scene.add(%this);
+	addInteractionZone(%this, %scene);
 }
 
 function Static::Use(%this, %user)
 {
-	echo("Static" SPC %this SPC "being used");
+	//echo("Static" SPC %this SPC "being used");
 }
 
-function Static::DisplayUse()
+function Static::DisplayUse(%this)
 {
-	return "Use" SPC %this.displayName @ ".";
+	//return "Use" SPC %this.displayName @ ".";
 }

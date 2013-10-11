@@ -49,16 +49,25 @@ function Inventory::AddItem(%this, %item)
 	}
 }
 
+// Remove item from inventory
+function Inventory::RemoveItem(%this, %slot)
+{
+	%item = %this.item[%slot];
+	%this.item[%slot] = 0;
+	%this.Organize();
+	return %item;
+}
+function Inventory::RemoveSelectedItem(%this)	{	return %this.RemoveItem(%this.selected);	}
+
 //	Using items
 function Inventory::UseItem(%this, %slot)
 {
 	echo("Slot:" SPC %slot);
-	echo("Using Item" SPC %this.item[%slot].getName());
+	echo("Using Item" SPC %this.item[%slot]);
 	%item = %this.item[%slot];
-	%this.item[%slot] = 0;
 	
-	%this.Organize();
-	warn("Returning Item" SPC %item.getName());
+	//%this.Organize();
+	warn("Returning Item" SPC %item);
 	return %item;
 }
 function Inventory::UseSelectedItem(%this)	{	return %this.UseItem(%this.selected);	}
@@ -86,36 +95,39 @@ function Inventory::Organize(%this)
 	echo("Organizing:" SPC %this.count);
 	for (%i = 0; %i < %this.count; %i++)
 	{
-		echo(%i SPC %this.item[%i].getName());
+		echo(%i SPC %this.item[%i]);
 		if (%this.item[%i] $= 0)
 		{
 			//	Shift all items by one slot
 			for (%j = %i + 1; %j < %this.count; %j++)
 			{
-			   echo((%j - 1) SPC %this.item[%j - 1].getName());
-			   echo(%j SPC %this.item[%j].getName());
+			   echo((%j - 1) SPC %this.item[%j - 1]);
+			   echo(%j SPC %this.item[%j]);
 				%this.item[%j - 1] = %this.item[%j];
-			   echo((%j - 1) SPC %this.item[%j - 1].getName());
-			   echo(%j SPC %this.item[%j].getName());
+			   echo((%j - 1) SPC %this.item[%j - 1]);
+			   echo(%j SPC %this.item[%j]);
 			}
 
 			%this.count--;
-			%this.selected--;
+			%this.SelectPrevious();
+			//%this.selected--;
 		}
 	}
 	
 	if (%this.count <= 0)
 		%this.selected = -1;
-	// temp
+	/*// temp
 	else
 	   %this.selected = 0;
-   // temp
+   // temp*/
 		
    echo("Current inventory:");
-	for (%i = 0; %i < %this.count; %i++)
-	{
-		echo(%i SPC %this.item[%i].getName());
-	}
+   for (%i = 0; %i < %this.count; %i++)
+   {
+      echo("Item" SPC %i SPC ":" SPC %this.item[%i]);
+   }
+
+   echo("Inventory Count" SPC %this.count);
 		
 	%this.DisplaySelected();
 	echo("End of Organizing:" SPC %this.count);
@@ -124,7 +136,7 @@ function Inventory::Organize(%this)
 //	Show the currently selected item on the GUI
 function Inventory::DisplaySelected(%this)
 {
-	echo("Displaying Selected Item");
+	//echo("Displaying Selected Item");
 	if (%this.selected <= -1)
 	{
 		%image = "Assets:EmptyInventory";
@@ -136,11 +148,47 @@ function Inventory::DisplaySelected(%this)
 		%text = %this.item[%this.selected].displayName;
 	}
 	
-	echo("Setting Inventory Selected Image");
-	warn(%image);
+	/*echo("Setting Inventory Selected Image");
+	warn(%image);*/
 	InventorySelectedItem.setAnimation(%image);
 	
-	echo("Setting Inventory Selected Text");
-	warn(%text);
+	/*echo("Setting Inventory Selected Text");
+	warn(%text);*/
 	InventorySelectedText.setText(%text);
+}
+
+//	Go to the next item
+function Inventory::SelectNext(%this)
+{
+	echo("Selecting next item");
+	if (%this.count > 0)
+	{
+	   %this.selected++;
+	   
+	   if (%this.selected >= %this.count)
+	      %this.selected = 0;
+	}
+	else
+	   %this.selected = -1;
+   
+   warn("Selected:" SPC %this.selected);
+	%this.DisplaySelected();
+}
+
+//	Go to the previous item
+function Inventory::SelectPrevious(%this)
+{
+	echo("Selecting next item");
+	if (%this.count > 0)
+	{
+	   %this.selected--;
+	   
+	   if (%this.selected < 0)
+	      %this.selected = %this.count - 1;
+	}
+	else
+	   %this.selected = -1;
+   
+   warn("Selected:" SPC %this.selected);
+	%this.DisplaySelected();
 }

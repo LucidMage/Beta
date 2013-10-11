@@ -34,25 +34,27 @@ function DialogueBehaviour::onBehaviorRemove(%this)
    if (!isObject(GlobalActionMap))
       return;
 
-   //%this.owner.disableUpdateCallback();
-
    GlobalActionMap.unbindObj(getWord(%this.selectCurrent, 0), getWord(%this.selectCurrent, 1), %this);
 }
 
 function DialogueBehaviour::selectResponse(%this, %i)
 {
-	switch(%i)
-	{
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-		case 8:
-		case 9:
-		case 0:
-			%this.closeDialogue();
-	}
+   if (%this.owner.inDialogue == true && (%i > -1 && %i <= $DialogueResponseMax))
+   {
+      /*
+      switch(%i)
+      {
+         case 1:
+         case 2:
+         case 3:
+         case 4:
+         case 5:
+         case 6:
+         case 7:
+         case 8:
+         case 9:
+         case 0:
+            %this.closeDialogue();
+      }*/
+   }
 }
