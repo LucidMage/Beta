@@ -23,7 +23,7 @@ function Lesson2::Setup(%this)
 	%this.objective[2] = "Find all of the orbs. Found" SPC %this.found SPC "of" SPC %this.totalOrbs SPC "orbs.";
 	%this.objective[3] = "Use the orbs to open the gate." SPC %this.orbsInGate SPC "of" SPC %this.totalOrbs SPC "orbs slotted.";
 	
-	%this.currentObjective = 0;
+	%this.currentObjective = 1;
 	
 	PostSetupActivity(%this);
 }
@@ -33,7 +33,12 @@ function Lesson2::UpdateStatus(%this)
 	if (%this.AllOrbsSlotted())
 	{
 		%this.currentObjective = 0;
-		%this.MoveGates();
+		
+		if (!%this.gatesOpen)
+		{
+		   %this.MoveGates();
+		   %this.gatesOpen = true;
+		}
 	}
 	else if (%this.AllOrbsFound())
 	{  // So the objective displays the current number
@@ -68,9 +73,13 @@ function Lesson2::AllOrbsSlotted(%this)
 }
 
 //	Runs each time a orb is picked up
-function Lesson2::PickUpOrb(%this)
+function Lesson2::PickUpOrb(%this, %orb)
 {
-	%this.found++;
+   if (!%orb.isFound)
+   {
+      %orb.isFound = true;
+	   %this.found++;
+   }
 	%this.UpdateStatus();
 }
 

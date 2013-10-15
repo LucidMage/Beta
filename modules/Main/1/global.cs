@@ -55,7 +55,7 @@ $SpriteHairColourCount = 4;
 //	Hair Style
 $SpriteHairStyleWavy = "Wavy";
 $SpriteHairStyleLongFem = "Femme";		$SpriteHairStyleLongFemFull = "Long Femme";
-$SpriteHairStyleLongAndro = "Andro";	$SpriteHairStyleLongAndroFull = "Long Androgenous";
+$SpriteHairStyleLongAndro = "Andro";	$SpriteHairStyleAndroFull = "Androgenous";	$SpriteHairStyleLongAndroFull = "Long Androgenous";
 $SpriteHairStylePunk = "Punk";
 $SpriteHairStyleArray[0] = $SpriteHairStyleWavy;
 $SpriteHairStyleArray[1] = $SpriteHairStyleLongFem;
@@ -105,6 +105,10 @@ $SpriteStateIdle = "Idle";
 $SpriteStateWalk = "Walk";
 $SpriteStateAngry = "Angry";
 $SpriteStateCheerful = "Cheer";
-$SpriteStateEmbarassed = "Embarassed";
+$SpriteStateEmbarrassed = "Embarrassed";
+$SpriteStateHappy = "Happy";
 $SpriteStateReading = "Read";
 $SpriteStateShocked = "Shock";
+$SpriteStateWaving = "Wave";
+
+$SpriteStateUnderarm = "Underarm";	//	Unique to Mix 'n Match

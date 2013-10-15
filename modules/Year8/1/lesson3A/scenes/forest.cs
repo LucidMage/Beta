@@ -30,20 +30,24 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		displayName = "Girl with Raised Arms";
 		class = "Character";
 		dialogueTree = L3A_UnderarmHairDialogueTree;
+		//state = $SpriteStateUnderarm;
+		//direction = $SpriteDirectionLeft;
+		//state = $SpriteStateEmbarrassed;
 		
 		gender = $SpriteGenderFemale;
-		ethnicity = GetRandomEthnicity();//$SpriteEthnicityMaori;
-		hairColour = GetRandomHairColour();
-		hairStyle = GetRandomHairStyle();
+		ethnicity = GetRandomEthnicity();
+		/*hairColour = GetRandomHairColour();
+		hairStyle = GetRandomHairStyle();*/
 		torso = $SpriteTorsoTShirtF;
-		legs = GetRandomLegs();//$SpriteLegsDress;
-		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
+		//legs = GetRandomLegs();
+		accessory = GetRandomAccessory();
 
 		Position = L3A_UnderarmHairPos.getPosition();
 		SceneLayer = L3A_UnderarmHairPos.getSceneLayer();
 	};
+	GetRandomHair(L3A_UnderarmHairPerson);
+	GetRandomLegs(L3A_UnderarmHairPerson);
 	%this.SetupLostPerson(L3A_UnderarmHairPerson);
-	//L3A_UnderarmHairPerson.Setup(%this);
 	
 	//	Girl Developing Breasts
 	new CompositeSprite(L3A_DevelopBreastGirl)
@@ -54,17 +58,19 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		gender = $SpriteGenderFemale;
 		ethnicity = GetRandomEthnicity();
-		hairColour = GetRandomHairColour();
+		/*hairColour = GetRandomHairColour();
 		hairStyle = GetRandomHairStyle();
 		torso = GetRandomTorso();
-		legs = GetRandomLegs();
-		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
+		legs = GetRandomLegs();*/
+		accessory = GetRandomAccessory();
 
 		Position = L3A_DevelopBreastGirlPos.getPosition();
 		SceneLayer = L3A_DevelopBreastGirlPos.getSceneLayer();
 	};
+	GetRandomHair(L3A_DevelopBreastGirl);
+	GetRandomTorso(L3A_DevelopBreastGirl);
+	GetRandomLegs(L3A_DevelopBreastGirl);
 	%this.SetupLostPerson(L3A_DevelopBreastGirl);
-	//L3A_DevelopBreastGirl.Setup(%this);
 
 	//  Sweaty Person
 	new CompositeSprite(L3A_SweatyPerson)
@@ -75,17 +81,17 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		gender = $SpriteGenderMale;
 		ethnicity = GetRandomEthnicity();
-		hairColour = GetRandomHairColour();
-		hairStyle = GetRandomHairStyle();
-		torso = GetRandomTorso();
-		legs = GetRandomLegs();
-		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
+		/*hairColour = GetRandomHairColour();
+		hairStyle = GetRandomHairStyle();*/
+		torso = $SpriteTorsoTShirt;//GetRandomTorso();
+		legs = $SpriteLegsShorts;//GetRandomLegs();
+		accessory = GetRandomAccessory();
 
 		Position = L3A_SweatyPersonPos.getPosition();
 		SceneLayer = L3A_SweatyPersonPos.getSceneLayer();
 	};
+	GetRandomHair(L3A_SweatyPerson);
 	%this.SetupLostPerson(L3A_SweatyPerson);
-	//L3A_SweatyPerson.Setup(%this);
 
 	//  Broad Shouldered Person
 	new CompositeSprite(L3A_BroadShoulderPerson)
@@ -96,17 +102,19 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		gender = $SpriteGenderMale;
 		ethnicity = GetRandomEthnicity();
-		hairColour = GetRandomHairColour();
+		/*hairColour = GetRandomHairColour();
 		hairStyle = GetRandomHairStyle();
 		torso = GetRandomTorso();
-		legs = GetRandomLegs();
-		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
+		legs = GetRandomLegs();*/
+		accessory = GetRandomAccessory();
 
 		Position = L3A_BroadShoulderPersonPos.getPosition();
 		SceneLayer = L3A_BroadShoulderPersonPos.getSceneLayer();
 	};
+	GetRandomHair(L3A_BroadShoulderPerson);
+	GetRandomTorso(L3A_BroadShoulderPerson);
+	GetRandomLegs(L3A_BroadShoulderPerson);
 	%this.SetupLostPerson(L3A_BroadShoulderPerson);
-	//L3A_BroadShoulderPerson.Setup(%this);
 
 	//  Pubic Hair Person
 	new CompositeSprite(L3A_PubicHairPerson)
@@ -117,33 +125,19 @@ function Lesson3A_Forest::SetupCharacters(%this)
 		
 		gender = $SpriteGenderFemale;
 		ethnicity = GetRandomEthnicity();
-		hairColour = GetRandomHairColour();
+		/*hairColour = GetRandomHairColour();
 		hairStyle = GetRandomHairStyle();
 		torso = GetRandomTorso();
-		legs = GetRandomLegs();
-		accessory = GetRandomAccessory();//$SpriteAccessoryNone;
+		legs = GetRandomLegs();*/
+		accessory = GetRandomAccessory();
 
 		Position = L3A_PubicHairPos.getPosition();
 		SceneLayer = L3A_PubicHairPos.getSceneLayer();
 	};
+	GetRandomHair(L3A_PubicHairPerson);
+	GetRandomTorso(L3A_PubicHairPerson);
+	GetRandomLegs(L3A_PubicHairPerson);
 	%this.SetupLostPerson(L3A_PubicHairPerson);
-	//L3A_PubicHairPerson.Setup(%this);
-	/*
-	// Add to Scene
-	%this.add(L3A_UnderarmHairPerson);
-	Lesson3A.totalLost++;
-	
-	%this.add(L3A_DevelopBreastGirl);
-	Lesson3A.totalLost++;
-	
-	%this.add(L3A_SweatyPerson);
-	Lesson3A.totalLost++;
-	
-	%this.add(L3A_BroadShoulderPerson);
-	Lesson3A.totalLost++;
-	
-	%this.add(L3A_PubicHairPerson);
-	Lesson3A.totalLost++;*/
 }
 
 //	Obstacles
@@ -182,10 +176,6 @@ function Lesson3A_Forest::SetupObstacles(%this)
 		SceneLayer = EndObstaclePos.getSceneLayer();
 	};
 	L3A_ExitObstacle.Setup(%this);
-	/*
-	// Add to Scene
-	%this.add(L3A_StoneSign);
-	%this.add(L3A_ExitObstacle);*/
 }
 
 // Setup Lost People
@@ -196,9 +186,8 @@ function Lesson3A_Forest::SetupLostPerson(%this, %person)
    
    %person.helped = false;
    %person.Setup(%this);
-	//%this.add(%person);
 	%this.helpedPeople[Lesson3A.totalLost] = %person;
-	echo(Lesson3A.totalLost @ ":" SPC %this.helpedPeople[Lesson3A.totalLost]);
+	//echo(Lesson3A.totalLost @ ":" SPC %this.helpedPeople[Lesson3A.totalLost]);
 	Lesson3A.totalLost++;
 }
 

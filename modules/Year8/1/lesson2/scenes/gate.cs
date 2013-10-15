@@ -297,7 +297,6 @@ function Lesson2_Gate::SetupObstacles(%this)
 		SceneLayer = StoneSignPos.getSceneLayer();
 	};
 	L2_StoneSign.Setup(%this);
-	//L2_StoneSign.dialogueTree = L2_StoneSignDialogueTree;
 	
 	//	Slot In
 	%position = SlotInWestPos.getPosition();
@@ -306,7 +305,8 @@ function Lesson2_Gate::SetupObstacles(%this)
 	{
 	   displayName = "True Slot";
 		class = "Static";
-		slot = true;	//	Slot for true statements
+		answer = true;	//	Slot for true statements
+		slotOut = L2_SlotOutWest;
 		Position = %position;
 		SceneLayer = SlotInWestPos.getSceneLayer();
 	};
@@ -318,7 +318,8 @@ function Lesson2_Gate::SetupObstacles(%this)
 	{
 	   displayName = "False Slot";
 		class = "Static";
-		slot = false;	//	Slot for false statements
+		answer = false;	//	Slot for false statements
+		slotOut = L2_SlotOutEast;
 		Position = %position;
 		SceneLayer = SlotInEastPos.getSceneLayer();
 	};
@@ -328,7 +329,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 	new CompositeSprite(L2_SlotOutWest)
 	{
 		class = "Static";
-		slot = true;	//	Slot for true statements
+		answer = true;	//	Slot for true statements
 		Position = SlotOutWestPos.getPosition();
 		SceneLayer = SlotOutWestPos.getSceneLayer();
 	};
@@ -337,7 +338,7 @@ function Lesson2_Gate::SetupObstacles(%this)
 	new CompositeSprite(L2_SlotOutEast)
 	{
 		class = "Static";
-		slot = false;	//	Slot for false statements
+		answer = false;	//	Slot for false statements
 		Position = SlotOutEastPos.getPosition();
 		SceneLayer = SlotOutEastPos.getSceneLayer();
 	};
@@ -376,20 +377,6 @@ function Lesson2_Gate::SetupObstacles(%this)
 		SceneLayer = %layer;
 	};
 	%this.SetupGate(L2_DoorEast);
-	/*
-	// Add to Scene
-	%this.add(L2_Rock0West);
-	%this.add(L2_Rock1West);
-	%this.add(L2_Rock2West);
-	%this.add(L2_Log1West);
-	%this.add(L2_Rock1East);
-	%this.add(L2_Rock2East);
-	%this.add(L2_Log2East);
-	
-	%this.add(L2_StoneSign);
-	
-	%this.add(L2_DoorWest);
-	%this.add(L2_DoorEast);*/
 }
 
 //	Setup Orbs
@@ -400,20 +387,19 @@ function Lesson2_Gate::SetupOrb(%this, %orb)
 	%orb.animationName = "Assets:OrbFlash";
 	%orb.imagePos = "0, 0";
 	%orb.imageSize = "1.5, 1.5";
+	%orb.isFound = false;
 	%orb.Setup(%this);
-	
-	//%this.add(%orb);
 }
-function L2_Orb1::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb2::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb3::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb4::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb5::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb6::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb7::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb8::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb9::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
-function L2_Orb10::onPickUp(%this)	{	Lesson2.PickUpOrb(); return true;	}
+function L2_Orb1::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb2::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb3::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb4::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb5::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb6::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb7::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb8::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb9::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
+function L2_Orb10::onPickUp(%this)	{	Lesson2.PickUpOrb(%this); return true;	}
 
 // Setup Gates
 function Lesson2_Gate::SetupGate(%this, %gate)
@@ -450,7 +436,6 @@ function Lesson2_Gate::SetupGate(%this, %gate)
 //	Setup Slots
 function Lesson2_Gate::SetupSlotIn(%this, %slot)
 {
-	//%slot.displayName = "Slot";
 	%slot.collisionSize = "1.1, 1.5";
 	%slot.imageName = "Assets:Slot2";
 	%slot.imagePos = "0, -0.25";
@@ -468,80 +453,74 @@ function Lesson2_Gate::SetupSlotOut(%this, %slot)
 }
 
 //	Slot Use
-function L2_SlotInWest::Use(%this, %user)
-{
-	//echo(L2_SlotInWest SPC L2_SlotInWest.slot);
-	Lesson2_Gate.UseOrb(%this, %item);
-}
-function L2_SlotInEast::Use(%this, %user)
-{
-	//echo(L2_SlotInEast SPC L2_SlotInEast.slot);
-	Lesson2_Gate.UseOrb(%this, %item);
-}
+function L2_SlotInWest::Use(%this, %user) {	Lesson2_Gate.UseOrb(%this);   }
+function L2_SlotInEast::Use(%this, %user) {	Lesson2_Gate.UseOrb(%this);   }
+
 function Lesson2_Gate::UseOrb(%this, %slot)
 {
-   error("Use Orb");
+   //error("Use Orb");
    
 	%item = Inventory.UseSelectedItem();
-   echo(%slot);
-   echo(%item);
+   /*echo(%slot SPC %slot.getName());
+   echo(%item SPC %item.getName());*/
    
-   if (%item $= L2_Orb1 ||
-      %item $= L2_Orb2 ||
-      %item $= L2_Orb3 ||
-      %item $= L2_Orb4 ||
-      %item $= L2_Orb5 ||
-      %item $= L2_Orb6 ||
-      %item $= L2_Orb7 ||
-      %item $= L2_Orb8 ||
-      %item $= L2_Orb9 ||
-      %item $= L2_Orb10)
+   if (%item !$= "")
    {
-      echo("Is an orb");
-      warn(%slot.slot);
-      warn(%item.answer);
-      if (%slot.slot == %item.answer)
+      if (%item.getName() $= L2_Orb1 ||
+         %item.getName() $= L2_Orb2 ||
+         %item.getName() $= L2_Orb3 ||
+         %item.getName() $= L2_Orb4 ||
+         %item.getName() $= L2_Orb5 ||
+         %item.getName() $= L2_Orb6 ||
+         %item.getName() $= L2_Orb7 ||
+         %item.getName() $= L2_Orb8 ||
+         %item.getName() $= L2_Orb9 ||
+         %item.getName() $= L2_Orb10)
       {
-         echo("Orb is in the correct slot");
+         if (%slot.answer $= %item.answer)
+         {
+            %item = Inventory.RemoveSelectedItem();
+         
+			//echo("Right slot");
+            Lesson2.orbsInGate++;
+			//echo("This orb is in the right slot.");
+            UpdateHelpBar(Lesson2, "This orb is in the right slot.");
+         }
+         else
+         {
+			//echo("Wrong slot");
+			/*echo(%this);
+			echo(%item.getName());
+            %speed = 10;
+            //%item.setBodyType(dynamic);
+			%pos = %slot.slotOut.getPosition();
+			//%pos.y -= 4;
+            %item.setPosition(%pos);
+            %item.setLinearVelocityY(-%speed);
+            %item.setCollisionShapeIsSensor(0, true);
+			echo("New values setup");
+			%scene = GameWindow.getScene();
+			echo("Add to scene");
+            %this.schedule(1000, %item.addToScene);
+			echo("Add interaction zone");
+            //addInteractionZone(%item, %this);*/
+         
+			//echo("This orb is in the right slot.");
+            UpdateHelpBar(Lesson2, "This orb does not go into the" SPC %slot.displayName @ ".");
+         }
       }
       else
       {
-         error("Orb is in the wrong slot");
+         UpdateHelpBar(Lesson2, "You have no orbs to insert.");
       }
-      
-	   Inventory.RemoveSelectedItem();
-      Lesson2.orbsInGate++;
-      Lesson2.UpdateStatus();
    }
    else
    {
-      echo("Not an orb");
+      UpdateHelpBar(Lesson2, "You have no orbs to insert.");
    }
-   /* TorqueScript limitation, cannot apply code to multiple cases without repeating
-	switch$(%item)
-	{
-		case L2_Orb1:
-		case L2_Orb2:
-		case L2_Orb3:
-		case L2_Orb4:
-		case L2_Orb5:
-		case L2_Orb6:
-		case L2_Orb7:
-		case L2_Orb8:
-		case L2_Orb9:
-		case L2_Orb10:
-			echo("Is an orb");
-			if (%slot.slot == %item.answer)
-			{
-				echo("Orb is in the correct slot");
-			}
-			else
-			{
-				error("Orb is in the wrong slot");
-			}
-		default:
-			echo("Not an orb");
-	}*/
+   
+   %delayTime = 2500;
+   Lesson2.schedule(%delayTime, UpdateStatus);
 }
 
 function L2_SlotInWest::DisplayUse(%this)
@@ -554,6 +533,11 @@ function L2_SlotInEast::DisplayUse(%this)
 }
 
 //	Triggers
+function L2_SlotOutStop::onEnter(%this, %object)
+{
+	if (%object.class $= Item)
+	   %object.setCollisionShapeIsSensor(0, false);
+}
 function L2_Exit::onEnter(%this, %object)
 {
 	if (%object.getName() $= Player)
@@ -566,7 +550,7 @@ function L2_Exit::onEnter(%this, %object)
 }
 function L2_ExitWarn::onEnter(%this, %object)
 {
-	UpdateHelpBar(Lesson2, "You are about the leave Divisions");
+	UpdateHelpBar(Lesson2, "You are about to leave Divisions");
 }
 function L2_ExitWarn::onLeave(%this, %object)
 {

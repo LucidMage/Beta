@@ -1,6 +1,5 @@
 function Pushable::Setup(%this, %scene)
 {
-	//error("Pushable setup");
 	%this.setBodyType(dynamic);
 	%this.setAngle(%this.angle);
    
@@ -13,7 +12,7 @@ function Pushable::Setup(%this, %scene)
 	%this.createPolygonBoxCollisionShape(%this.collisionSize);
 	
 	if (%this.useRange == 0)
-	   %this.useRange = (0.5 * %this.collisionSize.x);
+	   %this.useRange = (0.5 * %this.collisionSize.x) SPC (0.5 * %this.collisionSize.y);
 	
 	%this.setCollisionCallback(true);
 	%this.setFixedAngle(true);
@@ -35,7 +34,6 @@ function Pushable::Setup(%this, %scene)
 
 function Pushable::Use(%this, %user)
 {
-   //echo("Pushable" SPC %this SPC "being used by" SPC %user);
    %vel = %this.getLinearVelocity();
    %max = 1;
    
@@ -57,7 +55,4 @@ function Pushable::Use(%this, %user)
    }
 }
 
-function Pushable::DisplayUse(%this)
-{
-	return "Push" SPC %this.displayName @ ".";
-}
+function Pushable::DisplayUse(%this)   {	return "Push" SPC %this.displayName @ ".";   }

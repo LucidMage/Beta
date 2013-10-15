@@ -1,7 +1,7 @@
 <AnimationAsset
     AssetName="HeadMalePIEmbarrassedEast"
-    Image="@asset=Assets:heademotions"
-    animationFrames="20"
+    Image="@asset=Assets:HeadEmotions"
+    animationFrames="23 22"
     animationTime="1"
-    animationCycle="1"
+    animationCycle="0"
      />

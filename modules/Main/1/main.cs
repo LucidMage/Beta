@@ -59,8 +59,23 @@ function Main::loadPreferences( %this )
 function OpenSelectActivityGUI()
 {
 	//	Disable all GUI buttons and player controls
+	%scene = GameWindow.getScene();
+	%scene.setScenePause(true);
+	
+	if (%scene.getName() $= ProfileScene || %scene.atEnd)
+	   SelectActivityResumeButton.Visible = false;
+   else
+	   SelectActivityResumeButton.Visible = true;
 
 	Canvas.pushDialog(SelectActivityGUI);
+}
+
+function CloseSelectActivityGUI()
+{
+	%scene = GameWindow.getScene();
+	%scene.setScenePause(false);
+
+	Canvas.popDialog(SelectActivityGUI);
 }
 
 function SelectActivity(%lesson)
@@ -68,7 +83,7 @@ function SelectActivity(%lesson)
 	%scene = GameWindow.getScene();
 	DestroyScene(%scene);
 	
-	Main.ActiveActivity = %lesson;//Lesson2;//3A;//Lesson1;
+	Main.ActiveActivity = %lesson;
 	Year8.reset();
 	
 	Canvas.popDialog(ProfileGUI);

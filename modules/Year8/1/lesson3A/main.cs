@@ -5,7 +5,6 @@ function Lesson3A::Setup(%this)
 	// Load Scenes
 	exec("./scenes/loadList.cs");
 	exec("./dialogue/loadList.cs");
-	//exec("./scripts/loadList.cs");
 	
 	//	Objective tracking
 	%this.helped = 0;
@@ -43,7 +42,6 @@ function Lesson3A::UpdateStatus(%this)
 	}
 	
 	UpdateHelpBar(%this);
-	//%this.OpenExit();
 }
 
 //	Runs each time a person is helped

@@ -1,6 +1,5 @@
 function Static::Setup(%this, %scene)
 {
-	//error("Static setup");
 	%this.setBodyType(static);
 	%this.createPolygonBoxCollisionShape(%this.collisionSize);
 	
@@ -25,12 +24,5 @@ function Static::Setup(%this, %scene)
 	addInteractionZone(%this, %scene);
 }
 
-function Static::Use(%this, %user)
-{
-	//echo("Static" SPC %this SPC "being used");
-}
-
-function Static::DisplayUse(%this)
-{
-	//return "Use" SPC %this.displayName @ ".";
-}
+function Static::Use(%this, %user)  {	/*echo("Static" SPC %this SPC "being used");*/ }
+function Static::DisplayUse(%this)  {	/*return "Use" SPC %this.displayName @ ".";*/  }
