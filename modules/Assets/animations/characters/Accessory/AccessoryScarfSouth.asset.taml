@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="AccessoryScarfSouth"
+    Image="@asset=Assets:Torso"
+    animationFrames="17"
+    animationTime="1"
+    animationCycle="1"
+     />
