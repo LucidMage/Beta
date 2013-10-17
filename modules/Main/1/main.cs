@@ -86,13 +86,10 @@ function SelectActivity(%lesson)
 	%scene = GameWindow.getScene();
 	DestroyScene(%scene);
 	
-<<<<<<< HEAD
 	// If the player was in dialogue when picking a new activity
 	DialogueContainer.setVisible(false);
 	ResponseContainer.setVisible(false);
 	
-=======
->>>>>>> bf4fc214300bc938a4f4b028564eed062c030646
 	Main.ActiveActivity = %lesson;
 	Year8.reset();
 	

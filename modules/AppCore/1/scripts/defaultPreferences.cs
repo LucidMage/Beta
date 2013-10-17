@@ -22,7 +22,7 @@
 
 /// Game
 $Game::CompanyName              = "Family Planning";
-$Game::ProductName              = "Sexuality Road";
+$Game::ProductName              = "Sexuality Road Game";
 
 /// iOS
 $pref::iOS::ScreenOrientation   = $iOS::constant::Landscape;
