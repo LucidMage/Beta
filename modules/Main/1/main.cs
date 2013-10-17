@@ -37,6 +37,9 @@ function Main::create( %this )
 		Image = "Assets:CannotRender";
 	};
 	Main.add( CannotRenderProxy );
+	
+	setRandomSeed(getRealTime() / -10);	/* So getRandom doesn't return the same
+	                              numbers everytime. Not perfect but better.  */
 }
 
 //  Code called when program ends
@@ -59,8 +62,23 @@ function Main::loadPreferences( %this )
 function OpenSelectActivityGUI()
 {
 	//	Disable all GUI buttons and player controls
+	%scene = GameWindow.getScene();
+	%scene.setScenePause(true);
+	
+	if (%scene.getName() $= ProfileScene || %scene.atEnd)
+	   SelectActivityResumeButton.Visible = false;
+   else
+	   SelectActivityResumeButton.Visible = true;
 
 	Canvas.pushDialog(SelectActivityGUI);
+}
+
+function CloseSelectActivityGUI()
+{
+	%scene = GameWindow.getScene();
+	%scene.setScenePause(false);
+
+	Canvas.popDialog(SelectActivityGUI);
 }
 
 function SelectActivity(%lesson)
@@ -68,7 +86,11 @@ function SelectActivity(%lesson)
 	%scene = GameWindow.getScene();
 	DestroyScene(%scene);
 	
-	Main.ActiveActivity = %lesson;//Lesson2;//3A;//Lesson1;
+	// If the player was in dialogue when picking a new activity
+	DialogueContainer.setVisible(false);
+	ResponseContainer.setVisible(false);
+	
+	Main.ActiveActivity = %lesson;
 	Year8.reset();
 	
 	Canvas.popDialog(ProfileGUI);

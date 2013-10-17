@@ -17,11 +17,5 @@ function L2_StoneSignDialogueTree::onOpen(%this)
 	Lesson2.UpdateStatus();
 	return true;
 }
-function L2_StoneSignDialogueTree::onClose(%this)
-{
-	return true;
-}
-function L2_StoneSignDialogueTree::onNext(%this)
-{
-	return true;
-}
+function L2_StoneSignDialogueTree::onClose(%this)  {	return true;   }
+function L2_StoneSignDialogueTree::onNext(%this)   {	return true;   }

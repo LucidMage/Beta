@@ -1,22 +1,3 @@
-/*function Item::onAdd(%this)
-{
-	echo("Item onAdd");
-	
-	%this.interactionZone = new Trigger()
-	{
-		class = InteractionZone;
-		Position = %this.getPosition();
-		SceneLayer = %this.getSceneLayer();
-	};
-	echo(%this.collisionSize);
-	%radius = %this.collisionSize.x * 2;
-	%this.interactionZone.createCircleCollisionShape(%radius);
-	
-	%scene = %this.getScene();
-	%scene.add(%this.interactionZone);
-	%this.interactionJoin = %scene.createWeldJoint(%this, %this.interactionZone, "0 0", "0 0", 0, 0, false);
-}*/
-
 function Item::onRemoveFromScene(%this)
 {
    removeInteractionZone(%this);
@@ -26,8 +7,16 @@ function Item::Setup(%this, %scene)
 {
 	//error("Item setup");
 		
-	%this.setBodyType(static);
+	%this.setBodyType(dynamic);
 	%this.createPolygonBoxCollisionShape(%this.collisionSize);
+	
+	%this.setDefaultDensity(1000);   // Made ridiculously high so characters will not budge
+	%this.setDefaultRestitution(0.25);	//	Bounciness
+	%this.setDefaultFriction(0);
+	%this.setLinearDamping(1);	//	How quickly it slows down
+
+	%this.setCollisionCallback(true);   // So onCollision will be called
+	%this.setFixedAngle(true); // Stop from rotating on collision
 	
 	if (%this.useRange == 0)
 	   %this.useRange = %this.collisionSize.x;//.5;	// How close does something have to be for the character to use it
@@ -49,18 +38,13 @@ function Item::Setup(%this, %scene)
 
 function Item::Use(%this, %user)
 {
-   //echo("Item" SPC %this SPC "is being used");
-   Inventory.AddItem(%this);
-   %this.removeFromScene();
+   if (Inventory.AddItem(%this))
+      %this.removeFromScene();
+   else
+      warn("Cannot add item, either because onPickUp returned false or the class != Item");
 }
 
-function Item::DisplayUse(%this)
-{
-	return "Pick up" SPC %this.displayName @ ".";
-}
+function Item::DisplayUse(%this) {	return "Pick up" SPC %this.displayName @ ".";   }
 
 //	Callback when item is added to inventory. True = item is added as normal
-function Item::onPickUp(%this)
-{
-	return true;
-}
+function Item::onPickUp(%this)   {	return true;   }

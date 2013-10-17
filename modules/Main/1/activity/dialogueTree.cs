@@ -56,7 +56,7 @@ function DialogueTree::CloseDialogue(%this)
 	//	Continue if no scripting is set for the player to remain immobile
 	if (%this.onClose())
 	{
-		Player.inDialogue = false;//setGeneralBehaviours();
+		Player.inDialogue = false;
 	}
 }
 

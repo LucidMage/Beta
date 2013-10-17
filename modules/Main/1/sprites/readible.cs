@@ -1,6 +1,5 @@
 function Readable::Setup(%this, %scene)
 {
-	//error("Readable setup");
 	%this.setBodyType(static);
 	%this.createPolygonBoxCollisionShape(%this.collisionSize);
 	
@@ -32,13 +31,5 @@ function Readable::Setup(%this, %scene)
 	addInteractionZone(%this, %scene);
 }
 
-function Readable::Use(%this, %user)
-{
-   //echo("Readable" SPC %this SPC "being used");
-   %this.dialogueTree.OpenDialogue(%user);
-}
-
-function Readable::DisplayUse(%this)
-{
-	return "Read" SPC %this.displayName @ ".";
-}
+function Readable::Use(%this, %user)   {   %this.dialogueTree.OpenDialogue(%user);  }
+function Readable::DisplayUse(%this)   {	return "Read" SPC %this.displayName @ ".";   }

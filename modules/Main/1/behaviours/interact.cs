@@ -30,107 +30,48 @@ function InteractBehaviour::onBehaviorRemove(%this)
 //	Run the use function of whatever sprite is within range
 function InteractBehaviour::Use(%this, %val)
 {
-	//echo("Val is " @ %val);
 	if (%val > 0 && %this.owner.inDialogue == false)
 	{
-		//echo("Val is greater than 0");
-      %direction = %this.owner.direction;
-      %range = "0 0";
-		
-		%startPos = %this.owner.getPosition(); // Starting point of pickRay
-		%startPos.x += %this.owner.positionAdjust.x;
-		%startPos.y += %this.owner.positionAdjust.y;
-		
-		//	First select a sprite
-		//	Should be in the direction the character is facing
-		switch$(%direction)
-		{
-		   case $SpriteDirectionUp:
-		      %range.y += %this.owner.useRange;
-		   case $SpriteDirectionRight:
-			   %range.x += %this.owner.useRange;
-		   case $SpriteDirectionDown:
-			   %range.y -= %this.owner.useRange;
-		   case $SpriteDirectionLeft:
-			   %range.x -= %this.owner.useRange;
-		}
-		
-		//%startPos = %this.GetUseStartPoint();
-		%endPos = (%startPos.x + %range.x) SPC (%startPos.y + %range.y); // Ending point of pickRay
-		//%endPos = %this.GetUseEndPoint();//(%startPos.x + %range.x) SPC (%startPos.y + %range.y); // Ending point of pickRay
-		
+	   // Get all objects in the scene
 		%scene = GameWindow.getScene();
-		// Get sprites within range
-		%picked = %scene.pickRay(%startPos, %endPos, "", "", collision);
+		%objects = %scene.getSceneObjectList();
+		%count = getWordCount(%objects);
+		%objectsInRange = "";
 		
-		// Iterate over list of picked objects
-		%count = %picked.count;
-		
-		//if (%count > 0)
-		%objectPicked = false;
+		// Get objects marked as being in range of interaction
 		for (%i = 0; %i < %count; %i++)
 		{
-			%object = getWord(%picked, %i);
-			/*echo("Object:" SPC %object);
-			echo("Class:" SPC %object.class);*/
+			%object = getWord(%objects, %i);
 			
-			if (%objectPicked == false)
-			{
-            if (%object.class $= InteractionZone)
+			if (%object.inRange == true)
+			   %objectsInRange = %objectsInRange SPC %object;
+		}
+		
+		// Use marked objects
+		%objectChosen = false;  // So that only one object is used at a time
+		%count = getWordCount(%objectsInRange);
+		/*error("Using objects:");
+		echo(%objectsInRange);
+		echo("Count:" SPC %count);*/
+		
+		// Count backwards so that the object used matches the action text displayed, hopefully
+		for (%i = %count - 1; %i >= 0; %i--)
+		{
+		   if (!%objectChosen)
+		   {
+            %object = getWord(%objectsInRange, %i);
+            if (%object !$= "")
             {
-               //echo("Owner:" SPC %object.owner);
-               %object.owner.Use(%this.owner);
-               %objectPicked = true;
-            }
-            else if (%object.class !$= PlayerInteractionZone)
-            {
+               /*echo("Object:" SPC %object);
+               warn("Class:" SPC %object.class);*/
                %object.Use(%this.owner);
-               %objectPicked = true;
+               %objectChosen = true;
             }
-			}
+		   }
 		}
 	}
 }
-/*
-//	Scheduled method to display description of what will happen when they use an object in range
-function InteractBehaviour::DisplayUsable()
-{
-	%direction = %this.owner.direction;
-	%range = "0 0";
-	%startPos = %this.owner.getPosition(); // Starting point of pickRay
-	%startPos.x += %this.owner.positionAdjust.x;
-	%startPos.y += %this.owner.positionAdjust.y;
-	/*
-	//	First select a sprite
-	//	Should be in the direction the character is facing
-	switch$(%direction)
-	{
-		case $SpriteDirectionUp:
-			%range.y += %this.owner.useRange;
-		case $SpriteDirectionRight:
-			%range.x += %this.owner.useRange;
-		case $SpriteDirectionDown:
-			%range.y -= %this.owner.useRange;
-		case $SpriteDirectionLeft:
-			%range.x -= %this.owner.useRange;
-	}
-	
-	%endPos = %this.GetUseEndPoint(%startPos);//(%startPos.x + %range.x) SPC (%startPos.y + %range.y); // Ending point of pickRay
-	
-	%scene = GameWindow.getScene();
-	// Get sprites within range
-	%picked = %scene.pickRay(%startPos, %endPos, "", "", collision);
-	
-	// Iterate over list of picked objects
-	%count = %picked.count;
-	
-	for (%i = 0; %i < %count; %i++)
-	{
-		%object = getWord(%picked, %i);
-		UpdateHelpBar(%this, %object.DisplayUse());
-	}
-}
-*/
+
 function InteractBehaviour::GetUseStartPoint(%this)
 {
    %startPos = %this.owner.getPosition(); // Starting point of pickRay
@@ -164,7 +105,6 @@ function InteractBehaviour::GetUseEndPoint(%this)
 //	Interaction Zone class functions
 function addInteractionZone(%sprite, %scene)
 {
-	//error("Add Interaction Zone");
 	%pos = "0 0";
 	
 	if (%sprite $= Player)
@@ -180,25 +120,20 @@ function addInteractionZone(%sprite, %scene)
       {
          class = PlayerInteractionZone;
          owner = %sprite;
-         BodyType = dynamic;//static;
-         Position = %pos;//;//%sprite.getPosition();
+         BodyType = dynamic;
+         Position = %pos;
          SceneLayer = %sprite.getSceneLayer();
          Size = (%size.x * 2) SPC (%size.y * 2);
-         //Image = "Assets:highlightBackground";
-      };/*
-	   %sprite.interactionZone.setPositionY(-(%sprite.useRange));
-      %sprite.interactionZone.setSizeX(%sprite.collisionSize.x);
-      %sprite.interactionZone.setSizeY(%sprite.useRange);*/
+      };
 	}
 	else
 	{
-		//echo("Zone is trigger");
       %sprite.interactionZone = new Trigger()
       {
          class = InteractionZone;
          owner = %sprite;
-         BodyType = dynamic;//static;
-         Position = %pos;//%sprite.getPosition();
+         BodyType = dynamic;
+         Position = %pos;
          SceneLayer = %sprite.getSceneLayer();
          Size = (%sprite.useRange * 2) SPC (%sprite.useRange * 2);
       };
@@ -210,36 +145,6 @@ function addInteractionZone(%sprite, %scene)
 	/*%sprite.interactionZone.setDefaultRestitution(0);	//	Bounciness
 	%sprite.interactionZone.setDefaultFriction(0);
 	%sprite.interactionZone.setLinearDamping(0);*/	//	How quickly it slows down
-	/*
-   //%radius = %sprite.useRange * 2;
-   %behvaiour = %sprite.getBehavior("InteractBehaviour");
-	if (%behvaiour != 0)//%sprite $= Player)
-	{
-      echo("Player Interaction Zone");
-      
-      %startPos = %behvaiour.GetUseStartPoint();
-	   %endPos = %behvaiour.GetUseEndPoint();
-	   
-	   %sprite.interactionZone.setPosition(%startPos.x - %endPos.x, %startPos.y - %endPos.y);
-	   
-	   switch$(%sprite.direction)
-	   {
-	      case $SpriteDirectionUp:
-	      case $SpriteDirectionDown:
-	      default:
-	         %sprite.interactionZone.setSize(%sprite.collisionSize.x, %radius, %sprite.interactionZone.getPosition());
-	      case $SpriteDirectionLeft:
-	      case $SpriteDirectionRight:
-	         %sprite.interactionZone.setSize(%radius, %sprite.collisionSize.y, %sprite.interactionZone.getPosition());
-	   }
-	   
-      %sprite.interactionZone.createPolygonBoxCollisionShape(%sprite.interactionZone.getSizeX(), %sprite.interactionZone.getSizeY(),%sprite.interactionZone.getPosition());
-   }
-   else
-	{
-      //echo(%sprite.getSize());
-      %sprite.interactionZone.createCircleCollisionShape(%sprite.interactionZone.getSizeX());//%radius);
-	}*/
 	
 	if (%sprite $= Player)
 	{
@@ -248,11 +153,12 @@ function addInteractionZone(%sprite, %scene)
 	   %right = (%sprite.interactionZone.getSizeX() / 4) SPC -(%sprite.interactionZone.getSizeY() / 2);
       %sprite.interactionZone.createPolygonCollisionShape(%top SPC %left SPC %right);
       %sprite.interactionZone.setUpdateCallback(true);
-      //%sprite.interactionZone.UpdateArea();
 	}
 	else if (%sprite.class $= "Pushable"/* || %sprite.class $= "Static"*/)
 	{
+	   %sprite.interactionZone.setSize(%sprite.useRange.x * 2, %sprite.useRange.y * 2);
       %sprite.interactionZone.createPolygonBoxCollisionShape(%sprite.interactionZone.getSizeX(), %sprite.interactionZone.getSizeY());
+      %sprite.interactionZone.setAngle(%sprite.angle);
 	}
 	else
 	{
@@ -261,9 +167,9 @@ function addInteractionZone(%sprite, %scene)
 	//%sprite.interactionZone.setCollisionSuppress(true);
 	%sprite.interactionZone.setCollisionShapeIsSensor(0, true);
 	
-	//echo("Scene" SPC %scene);
+	%sprite.inRange = false;
 	%scene.add(%sprite.interactionZone);
-	%sprite.interactionJoin = %scene.createRevoluteJoint(%sprite, %sprite.interactionZone, %pos.x, %pos.y);//WeldJoint(%sprite, %sprite.interactionZone, "0 0", "0 0", 0, 0, false);
+	%sprite.interactionJoin = %scene.createRevoluteJoint(%sprite, %sprite.interactionZone, %pos.x, %pos.y);
 }
 
 function removeInteractionZone(%sprite)
@@ -274,20 +180,18 @@ function removeInteractionZone(%sprite)
 
 function InteractionZone::onEnter(%this, %object)
 {
-	/*echo("Zone for" SPC %this.owner);
-	echo("Object:" SPC %object);*/
 	if (%object.class $= PlayerInteractionZone)
 	{
-		UpdateHelpBar(Main.ActiveActivity, %this.owner.DisplayUse());//%object.DisplayUse());
+	   %this.owner.inRange = true;
+		UpdateHelpBar(Main.ActiveActivity, %this.owner.DisplayUse());
 	}
 }
 
 function InteractionZone::onLeave(%this, %object)
 {
-	/*echo("Zone for" SPC %this.owner);
-	echo("Object:" SPC %object);*/
 	if (%object.class $= PlayerInteractionZone)
 	{
+	   %this.owner.inRange = false;
 		UpdateHelpBar(Main.ActiveActivity);
 	}
 }
@@ -296,6 +200,7 @@ function PlayerInteractionZone::onUpdate(%this)
 {
    %this.setAngularVelocity(0);  // So it will stop rotating
    
+   // Interaction Zone must point to where the player is facing
    switch$(Player.direction)
    {
       case $SpriteDirectionLeft:
@@ -308,57 +213,3 @@ function PlayerInteractionZone::onUpdate(%this)
          Player.interactionZone.setAngle(0);
    }
 }
-
-/* Old version
-// Used only those that use the behaviour, e.g. the player
-function PlayerInteractionZone::UpdateArea(%this)
-{
-   %this.clearCollisionShapes();
-   %owner = %this.owner;
-   %pos = "0 0";//%owner.getPosition().x, %owner.getPosition().y);
-   %behvaiour = %owner.getBehavior("InteractBehaviour");
-   
-	if (%behvaiour != 0)//%sprite $= Player)
-	{
-      echo("Player Interaction Zone");
-      
-      %startPos = %behvaiour.GetUseStartPoint();
-	   %endPos = %behvaiour.GetUseEndPoint();
-	   %pos = %startPos;//(%startPos.x + (%endPos.x - %startPos.x)) SPC (%startPos.y + (%endPos.y - %startPos.y));
-	   echo("Start:" SPC %startPos);
-	   echo("End:" SPC %endPos);
-	   echo("Pos:" SPC %pos);
-	   
-	   //%owner.interactionZone.setPosition(%pos);//%endPos.x - %startPos.x, %endPos.y - %startPos.y);
-	   
-	   switch$(%owner.direction)
-	   {
-	      case $SpriteDirectionLeft:
-	         %owner.interactionZone.setAngle(90);//%pos.x -= %owner.useRange;
-	         /*%owner.interactionZone.setSizeX(%owner.useRange);
-	         %owner.interactionZone.setSizeY(%owner.collisionSize.y);
-	      case $SpriteDirectionRight:
-	         %owner.interactionZone.setAngle(-90);//%pos.x += %owner.useRange;
-	         /*%owner.interactionZone.setSizeX(%owner.useRange);
-	         %owner.interactionZone.setSizeY(%owner.collisionSize.y);
-	      case $SpriteDirectionUp:
-	         %owner.interactionZone.setAngle(180);//%pos.y += %owner.useRange;
-	         /*%owner.interactionZone.setSizeX(%owner.collisionSize.x);
-	         %owner.interactionZone.setSizeY(%owner.useRange);
-	      case $SpriteDirectionDown:
-	         %owner.interactionZone.setAngle(0);//%pos.y -= %owner.useRange;
-	         /*%owner.interactionZone.setSizeX(%owner.collisionSize.x);
-	         %owner.interactionZone.setSizeY(%owner.useRange);
-	   }
-	   
-      %owner.interactionZone.createPolygonBoxCollisionShape(%owner.interactionZone.getSizeX(), %owner.interactionZone.getSizeY());
-   }
-   else
-	{
-      //echo(%owner.getSize());
-      %owner.interactionZone.createCircleCollisionShape(%owner.interactionZone.getSizeX());//%radius);
-	}
-	//%owner.interactionZone.setPosition(%pos);
-   echo("Owner:" SPC %owner.getPosition());
-   echo("Interaction Zone:" SPC %owner.interactionZone.getPosition());
-}*/

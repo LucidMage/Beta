@@ -6,19 +6,13 @@
 <Breakpoints/>
 <Bookmarks/>
 <OpenFiles>
-<File ScrollX="0" ScrollY="535">modules\Year8\1\lesson2\scenes\gate.cs</File>
-<File ScrollX="0" ScrollY="195">modules\Year8\1\lesson3A\scenes\forest.cs</File>
-<File ScrollX="0" ScrollY="53">modules\Main\1\sprites\characters\player.cs</File>
-<File ScrollX="0" ScrollY="170">modules\Main\1\sprites\characters\character.cs</File>
-<File ScrollX="0" ScrollY="15">modules\Main\1\sprites\items\item.cs</File>
-<File ScrollX="0" ScrollY="234">modules\Main\1\behaviours\interact.cs</File>
-<File ScrollX="0" ScrollY="0">modules\Main\1\global.cs</File>
-<File ScrollX="0" ScrollY="154">modules\Main\1\inventory.cs</File>
-<File ScrollX="0" ScrollY="264">modules\Main\1\profile.cs</File>
-<File ScrollX="0" ScrollY="27" Active="true">modules\Main\1\activity\activity.cs</File>
-<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\static.cs</File>
-<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\pushable.cs</File>
-<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\readible.cs</File>
-<File ScrollX="0" ScrollY="9">modules\Main\1\behaviours\dialogueBehaviour.cs</File>
+<File ScrollX="0" ScrollY="441">modules\Year8\1\lesson2\scenes\gate.cs</File>
+<File ScrollX="0" ScrollY="126" Active="true">modules\Year8\1\lesson3A\scenes\forest.cs</File>
+<File ScrollX="0" ScrollY="63">modules\Main\1\global.cs</File>
+<File ScrollX="0" ScrollY="6">modules\Main\1\profile.cs</File>
+<File ScrollX="0" ScrollY="141">modules\Year8\1\lesson3A\dialogue\pimples.cs</File>
+<File ScrollX="0" ScrollY="6">modules\Year8\1\lesson3A\dialogue\moody.cs</File>
+<File ScrollX="0" ScrollY="117">modules\Year8\1\lesson3A\dialogue\wetDream.cs</File>
+<File ScrollX="0" ScrollY="59">modules\Main\1\main.cs</File>
 </OpenFiles>
 </TorsionProjectOptions>

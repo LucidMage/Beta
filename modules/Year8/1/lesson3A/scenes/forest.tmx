@@ -196,6 +196,31 @@
     <property name="Tag" value="L3A_PubicHairPos"/>
    </properties>
   </tile>
+  <tile id="16">
+   <properties>
+    <property name="Tag" value="L3A_PeriodPos"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="Tag" value="L3A_WetDreamPos"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="Tag" value="L3A_IncreasedHairPos"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="Tag" value="L3A_PimplePos"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="Tag" value="L3A_MoodyPos"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Water" width="36" height="50">
   <data encoding="base64" compression="zlib">
@@ -234,7 +259,7 @@
  </layer>
  <layer name="sprite" width="36" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1UEKgCAABED9/3+SLqW+rLsgRKhBzXxgT7sbAsA3pbg+s7yQCYyXdRlo1Bu7cNoOADr2SR9x+B5+btMBgMcuFBUF7w==
+   eJzt1DEOgCAQRFG8/30kNooUIJzK3gpJgAz8d4EdNsMaAwBzslv/mfeAmdCTxHsSxPOXcAu8sYfMHvERf3TCC/bnEswMAMoeobt7NMp6Cu0AaGHnDwBAtRfW5wnc
   </data>
  </layer>
  <objectgroup name="collision" width="36" height="50">

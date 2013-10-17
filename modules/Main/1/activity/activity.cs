@@ -1,13 +1,8 @@
 Main.ActiveYear = "";
-//Main.HelpMessage = 0;
 
 //	Defaults for all activities
 function PreSetupActivity(%activity)
 {
-	/*%scene = GameWindow.getScene();
-	if (isObject(%scene))
-	   %scene.clear();*/
-   
 	%activity.objective[0] = "Continue your journey on the road.";
 	//	Default to objective 0
 	%activity.currentObjective = 0;
@@ -25,26 +20,22 @@ function PostSetupActivity(%activity)
 {
 	//	Default Activity Settings
 	CentreWindowOnSprite(Player);
-
+/*
 	//  Debug
 	%scene = GameWindow.getScene();
 	//  Enable visualization for "collision", "position", and "aabb"
 	%scene.setDebugOn("collision");//, "position", "aabb");
-
-	//Canvas.pushDialog(ToolboxDialog);
+*/
 	Canvas.pushDialog(InGameGUI);
 	
-	//Main.HelpMessage = 0;
-	//%activity.schedule(100, UpdateHelpBar(%activity));
 	UpdateHelpBar(%activity);
 }
 
 function EndActivity(%activity)
 {
 	//%activity.onEnd();
-	
 	%scene = GameWindow.getScene();
-	%scene.setScenePause(true);
+	%scene.atEnd = true;
 	OpenSelectActivityGUI();
 }
 
@@ -56,21 +47,10 @@ function ToggleInGameMenu()
 //	Update the text in the In-game GUI Help Bar
 function UpdateHelpBar(%activity, %text)
 {
-   echo(%activity);
-   echo(%text);
-	if (/*%text == 0 || */%text $= "")
-	{
-		/*warn("# =" SPC %activity.currentObjective);
-		warn("Help Text =" SPC %activity.objective[%activity.currentObjective]);*/
+	if (%text $= "")
 		HelpText.Text = %activity.objective[%activity.currentObjective];
-	}
 	else
-	{
-		//warn("Help Text =" SPC %text);
 		HelpText.Text = %text;
-		
-		//%activity.schedule($GUIHelpUpdateDelay, UpdateHelpBar(%activity, 0));
-	}
 }
 
 function LoadYearGroup( %moduleDefinition )

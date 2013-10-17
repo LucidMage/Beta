@@ -122,7 +122,7 @@ function ResponseArray::DisplayResponse(%this, %owner, %dialogue, %i)
         Profile = "DialogueResponseProfile";
         Position = "0" SPC ($GUIResponseHeight * (%vertOrder - 1));
         Extent = %extent.x SPC $GUIResponseHeight;
-		MinExtent = "80 15";
+        MinExtent = "80 15";
         Visible = "1";
         isContainer = "0";
         Active = "1";
