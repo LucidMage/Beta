@@ -140,6 +140,7 @@ function Lesson3A_Forest::SetupCharacters(%this)
 	GetRandomTorso(L3A_PubicHairPerson);
 	GetRandomLegs(L3A_PubicHairPerson);
 	%this.SetupLostPerson(L3A_PubicHairPerson);
+<<<<<<< HEAD
 
 	//  Period Girl
 	new CompositeSprite(L3A_PeriodGirl)
@@ -259,6 +260,8 @@ function Lesson3A_Forest::SetupCharacters(%this)
 	GetRandomTorso(L3A_MoodyPerson);
 	GetRandomLegs(L3A_MoodyPerson);
 	%this.SetupLostPerson(L3A_MoodyPerson);
+=======
+>>>>>>> bf4fc214300bc938a4f4b028564eed062c030646
 }
 
 //	Obstacles

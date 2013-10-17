@@ -7,6 +7,7 @@
 <Bookmarks/>
 <OpenFiles>
 <File ScrollX="0" ScrollY="441">modules\Year8\1\lesson2\scenes\gate.cs</File>
+<<<<<<< HEAD
 <File ScrollX="0" ScrollY="126" Active="true">modules\Year8\1\lesson3A\scenes\forest.cs</File>
 <File ScrollX="0" ScrollY="63">modules\Main\1\global.cs</File>
 <File ScrollX="0" ScrollY="6">modules\Main\1\profile.cs</File>
@@ -14,5 +15,17 @@
 <File ScrollX="0" ScrollY="6">modules\Year8\1\lesson3A\dialogue\moody.cs</File>
 <File ScrollX="0" ScrollY="117">modules\Year8\1\lesson3A\dialogue\wetDream.cs</File>
 <File ScrollX="0" ScrollY="59">modules\Main\1\main.cs</File>
+=======
+<File ScrollX="0" ScrollY="15" Active="true">modules\Year8\1\lesson3A\scenes\forest.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\characters\player.cs</File>
+<File ScrollX="0" ScrollY="217">modules\Main\1\sprites\characters\character.cs</File>
+<File ScrollX="0" ScrollY="0">modules\Main\1\sprites\items\item.cs</File>
+<File ScrollX="0" ScrollY="164">modules\Main\1\behaviours\interact.cs</File>
+<File ScrollX="0" ScrollY="63">modules\Main\1\global.cs</File>
+<File ScrollX="0" ScrollY="119">modules\Main\1\inventory.cs</File>
+<File ScrollX="0" ScrollY="6">modules\Main\1\profile.cs</File>
+<File ScrollX="0" ScrollY="37">modules\Main\1\main.cs</File>
+<File ScrollX="0" ScrollY="17">modules\Main\1\activity\activity.cs</File>
+>>>>>>> bf4fc214300bc938a4f4b028564eed062c030646
 </OpenFiles>
 </TorsionProjectOptions>

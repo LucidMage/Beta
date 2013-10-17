@@ -520,9 +520,12 @@ function Lesson2_Gate::UseOrb(%this, %slot)
    }
    
    %delayTime = 2500;
+<<<<<<< HEAD
    if (Lesson2.AllOrbsSlotted())
       %delayTime = 0;
    
+=======
+>>>>>>> bf4fc214300bc938a4f4b028564eed062c030646
    Lesson2.schedule(%delayTime, UpdateStatus);
 }
 
