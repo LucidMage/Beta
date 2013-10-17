@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="LegsSkirtIdleEast"
+    Image="@asset=Assets:Legs"
+    animationFrames="49"
+    animationTime="1"
+    animationCycle="1"
+     />

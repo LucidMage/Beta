@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="TorsoHoodieNorth"
+    Image="@asset=Assets:Torso"
+    animationFrames="7"
+    animationTime="1"
+    animationCycle="1"
+     />

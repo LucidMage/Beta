@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="LegsPantsWalkWest"
+    Image="@asset=Assets:Legs"
+    animationFrames="42 43 44 43"
+    animationTime="1"
+    animationCycle="1"
+     />

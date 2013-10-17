@@ -1,0 +1,8 @@
+<ImageAsset
+    AssetName="TorsoEmotion"
+    imageFile="torsoemotions1.png"
+    cellCountX="12"
+    cellCountY="20"
+    cellWidth="64"
+    cellHeight="64"
+	 />

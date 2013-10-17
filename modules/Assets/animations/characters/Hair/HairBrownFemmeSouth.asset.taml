@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="HairBrownFemmeSouth"
+    Image="@asset=Assets:Hair"
+    animationFrames="17"
+    animationTime="1"
+    animationCycle="1"
+     />

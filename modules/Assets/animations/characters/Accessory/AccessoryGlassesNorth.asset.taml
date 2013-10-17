@@ -1,0 +1,7 @@
+<AnimationAsset
+    AssetName="AccessoryGlassesNorth"
+    Image="@asset=Assets:Torso"
+    animationFrames="23"
+    animationTime="1"
+    animationCycle="1"
+     />
